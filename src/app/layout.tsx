@@ -74,7 +74,7 @@ export default function RootLayout({
 				<script dangerouslySetInnerHTML={{ __html: themeScript }} />
 			</head>
 			<body
-				className={`${orbitron.variable} bg-gray-50 text-gray-900 dark:bg-[#060606] dark:text-white`}
+				className={`${orbitron.variable} bg-gray-50 text-gray-700 dark:bg-[#060606] dark:text-white/80`}
 			>
 				<div className="mx-auto max-w-375">
 					{children}

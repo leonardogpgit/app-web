@@ -9,6 +9,7 @@
 
 body {
 	font-family: var(--font-orbitron), ui-sans-serif, sans-serif;
+	letter-spacing: 0.025em;
 }
 
 h1,
@@ -18,6 +19,7 @@ h4,
 h5,
 h6 {
 	font-family: ui-sans-serif, sans-serif;
+	letter-spacing: normal;
 }
 
 @layer components {
@@ -38,7 +40,7 @@ h6 {
 	}
 
 	.text-body {
-		@apply text-gray-600 dark:text-white/55;
+			@apply text-gray-500 dark:text-white/65;
 	}
 
 	.text-muted {
