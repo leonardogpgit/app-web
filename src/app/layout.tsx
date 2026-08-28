@@ -1,8 +1,15 @@
 import type { Metadata, Viewport } from "next";
+import localFont from "next/font/local";
 import BackToTop from "@/components/BackToTop";
 import Footer from "@/components/Footer";
 import { site } from "@/config";
 import "./globals.css";
+
+const orbitron = localFont({
+	src: "./fonts/Orbitron-VariableFont_wght.ttf",
+	variable: "--font-orbitron",
+	display: "swap",
+});
 
 export const metadata: Metadata = {
 	metadataBase: new URL(site.url),
@@ -66,7 +73,9 @@ export default function RootLayout({
 			<head>
 				<script dangerouslySetInnerHTML={{ __html: themeScript }} />
 			</head>
-			<body className="bg-gray-50 text-gray-900 dark:bg-[#060606] dark:text-white">
+			<body
+				className={`${orbitron.variable} bg-gray-50 text-gray-900 dark:bg-[#060606] dark:text-white`}
+			>
 				<div className="mx-auto max-w-375">
 					{children}
 					<Footer name={site.name} logo={site.logo} />
