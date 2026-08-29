@@ -5,9 +5,15 @@ import Footer from "@/components/Footer";
 import { site } from "@/config";
 import "./globals.css";
 
-const orbitron = localFont({
-	src: "./fonts/Orbitron-VariableFont_wght.ttf",
-	variable: "--font-orbitron",
+const descScor = localFont({
+	src: "./fonts/DescScor.ttf",
+	variable: "--font-descscor",
+	display: "swap",
+});
+
+const descMenu = localFont({
+	src: "./fonts/DescMenu.ttf",
+	variable: "--font-descmenu",
 	display: "swap",
 });
 
@@ -74,7 +80,7 @@ export default function RootLayout({
 				<script dangerouslySetInnerHTML={{ __html: themeScript }} />
 			</head>
 			<body
-				className={`${orbitron.variable} bg-gray-50 text-gray-700 dark:bg-[#060606] dark:text-white/80`}
+				className={`${descScor.variable} ${descMenu.variable} bg-gray-50 text-gray-700 dark:bg-[#060606] dark:text-white/80`}
 			>
 				<div className="mx-auto max-w-375">
 					{children}
