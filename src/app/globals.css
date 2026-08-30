@@ -8,7 +8,7 @@
 }
 
 body {
-	font-family: var(--font-descscor), ui-sans-serif, sans-serif;
+	font-family: var(--font-quantico), ui-sans-serif, sans-serif;
 	font-weight: 400;
 	letter-spacing: 0.025em;
 }
@@ -19,7 +19,7 @@ h3,
 h4,
 h5,
 h6 {
-	font-family: var(--font-descmenu), ui-sans-serif, sans-serif;
+	font-family: var(--font-descscor), ui-sans-serif, sans-serif;
 	font-weight: 700;
 	letter-spacing: normal;
 }
@@ -66,26 +66,26 @@ h6 {
 	}
 }
 
-body::before {
-	content: "";
-	position: fixed;
-	inset: 0;
-	z-index: 0;
-	pointer-events: none;
-	background-image: radial-gradient(circle, rgba(109,40,217,0.28) 1px, transparent 1px);
-	background-size: 32px 32px;
-}
-html.dark body::before {
-	background-image: radial-gradient(circle, rgba(139,92,246,0.3) 1px, transparent 1px);
-}
-
 html.theme-switching *,
 html.theme-switching {
 	transition: none;
 }
 
-html.light { color-scheme: light; }
-html.dark  { color-scheme: dark; }
+html.light {
+	color-scheme: light;
+	background-color: #fafafa;
+}
+html.dark {
+	color-scheme: dark;
+	background-color: #09090b;
+}
+
+body {
+	background: #fafafa;
+}
+html.dark body {
+	background: #09090b;
+}
 
 .screenshots-scrollbar {
 	scrollbar-width: thin;

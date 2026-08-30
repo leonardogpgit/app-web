@@ -2,18 +2,25 @@ import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import BackToTop from "@/components/BackToTop";
 import Footer from "@/components/Footer";
+import Header from "@/components/Header";
 import { site } from "@/config";
 import "./globals.css";
 
-const descScor = localFont({
-	src: "./fonts/DescScor.ttf",
-	variable: "--font-descscor",
+const quantico = localFont({
+	src: "./fonts/Quantico-Regular.ttf",
+	variable: "--font-quantico",
 	display: "swap",
 });
 
 const descMenu = localFont({
 	src: "./fonts/DescMenu.ttf",
 	variable: "--font-descmenu",
+	display: "swap",
+});
+
+const descScor = localFont({
+	src: "./fonts/DescScor.ttf",
+	variable: "--font-descscor",
 	display: "swap",
 });
 
@@ -57,18 +64,6 @@ export const viewport: Viewport = {
 	],
 };
 
-const themeScript = `(function(){
-  var t=localStorage.getItem('theme')||'system';
-  var r=document.documentElement;
-  r.classList.remove('light','dark');
-  if(t==='system'){
-    r.classList.add(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');
-  }else{
-    r.classList.add(t);
-  }
-  if(!localStorage.getItem('theme'))localStorage.setItem('theme','system');
-})();`;
-
 export default function RootLayout({
 	children,
 }: {
@@ -76,12 +71,10 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="en" suppressHydrationWarning>
-			<head>
-				<script dangerouslySetInnerHTML={{ __html: themeScript }} />
-			</head>
 			<body
-				className={`${descScor.variable} ${descMenu.variable} bg-gray-50 text-gray-700 dark:bg-[#060606] dark:text-white/80`}
+				className={`${quantico.variable} ${descMenu.variable} ${descScor.variable} bg-[#fafafa] text-slate-900 transition-colors duration-300 dark:bg-[#09090b] dark:text-slate-100`}
 			>
+				<Header />
 				<div className="mx-auto max-w-375">
 					{children}
 					<Footer name={site.name} logo={site.logo} />

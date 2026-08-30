@@ -1,4 +1,4 @@
-import { FiMonitor, FiMoon, FiSun } from "react-icons/fi";
+import { FiMoon, FiSun } from "react-icons/fi";
 import type { ThemeMode } from "@/types";
 
 export const THEMES: {
@@ -7,19 +7,13 @@ export const THEMES: {
 	label: string;
 }[] = [
 	{ key: "light", Icon: FiSun, label: "Light" },
-	{ key: "system", Icon: FiMonitor, label: "System" },
 	{ key: "dark", Icon: FiMoon, label: "Dark" },
 ];
 
 export const isTheme = (v: string | null): v is ThemeMode =>
-	v === "light" || v === "dark" || v === "system";
+	v === "light" || v === "dark";
 
-export const resolveTheme = (t: ThemeMode): "light" | "dark" =>
-	t !== "system"
-		? t
-		: window.matchMedia("(prefers-color-scheme: dark)").matches
-			? "dark"
-			: "light";
+export const resolveTheme = (t: ThemeMode): "light" | "dark" => t;
 
 export const applyTheme = (t: ThemeMode) => {
 	const root = document.documentElement;

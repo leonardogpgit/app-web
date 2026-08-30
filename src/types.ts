@@ -66,7 +66,7 @@ export interface StoreData {
 	storeLinks: { apple: string; google: string };
 }
 
-export type ThemeMode = "light" | "dark" | "system";
+export type ThemeMode = "light" | "dark";
 
 export interface StoreButtonsProps {
 	storeLinks: { apple: string; google: string };

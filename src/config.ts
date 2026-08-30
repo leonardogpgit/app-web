@@ -13,8 +13,15 @@ export const storeConfig = {
 	appStoreAppId: 686449807,
 } as const;
 
+export const navLinks = [
+	{ href: "/#features", label: "Features" },
+	{ href: "/#reviews", label: "Testimonials" },
+	{ href: "/#pricing", label: "Pricing" },
+	{ href: "/#faq", label: "FAQ" },
+] as const;
+
 export const site = {
-	name: "Your App Name",
+	name: "Animus",
 	url: "https://your-domain.com",
 	description:
 		"Here you can write a brief description of your application. Tell users about its main features and benefits in 1-2 sentences.",

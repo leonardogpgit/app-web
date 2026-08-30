@@ -1,28 +1,21 @@
 "use client";
 
 import { memo, useCallback, useEffect, useState } from "react";
+import { FiMoon, FiSun } from "react-icons/fi";
 import type { ThemeMode } from "@/types";
-import { applyTheme, isTheme, THEMES } from "./theme";
+import { applyTheme, isTheme } from "./theme";
 
 const ThemeToggle = () => {
-	const [theme, setTheme] = useState<ThemeMode>("system");
+	const [theme, setTheme] = useState<ThemeMode>("light");
 	const [mounted, setMounted] = useState(false);
 
 	useEffect(() => {
 		setMounted(true);
 		const saved = localStorage.getItem("theme");
-		const initial = isTheme(saved) ? saved : "system";
+		const initial = isTheme(saved) ? saved : "light";
 		setTheme(initial);
 		applyTheme(initial);
 	}, []);
-
-	useEffect(() => {
-		if (!mounted || theme !== "system") return;
-		const mq = window.matchMedia("(prefers-color-scheme: dark)");
-		const onChange = () => applyTheme("system");
-		mq.addEventListener("change", onChange);
-		return () => mq.removeEventListener("change", onChange);
-	}, [theme, mounted]);
 
 	const select = useCallback((t: ThemeMode) => {
 		setTheme(t);
@@ -30,31 +23,21 @@ const ThemeToggle = () => {
 		applyTheme(t);
 	}, []);
 
+	const isDark = mounted && theme === "dark";
+
 	return (
-		<fieldset className="inline-flex items-center gap-0.5 rounded-xl border border-gray-200 bg-gray-100/60 p-1 dark:border-white/10 dark:bg-white/4">
-			<legend className="sr-only">Color theme</legend>
-			{THEMES.map(({ key, Icon, label }) => (
-				<label
-					key={key}
-					className={`relative flex cursor-pointer items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-xs font-medium transition-all duration-200 ${
-						mounted && theme === key
-							? "bg-white text-gray-900 shadow-sm shadow-black/8 dark:bg-white/10 dark:text-white"
-							: "text-gray-500 hover:text-gray-700 dark:text-white/40 dark:hover:text-white/70"
-					}`}
-				>
-					<input
-						type="radio"
-						name="color-theme"
-						value={key}
-						checked={mounted ? theme === key : key === "system"}
-						onChange={() => select(key)}
-						className="sr-only"
-					/>
-					<Icon className="h-3.5 w-3.5 shrink-0" />
-					<span className="hidden sm:inline">{label}</span>
-				</label>
-			))}
-		</fieldset>
+		<button
+			type="button"
+			aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
+			className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-700 transition-colors hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:bg-slate-800"
+			onClick={() => select(isDark ? "light" : "dark")}
+		>
+			{isDark ? (
+				<FiSun className="h-4 w-4" />
+			) : (
+				<FiMoon className="h-4 w-4" />
+			)}
+		</button>
 	);
 };
 
