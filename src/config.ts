@@ -28,8 +28,8 @@ export const site = {
 	logo: "/favicon.svg",
 	keywords: ["mobile app", "landing page", "nextjs", "react", "typescript"],
 	storeLinks: {
-		apple: "#",
-		google: "#",
+		apple: "/jarvis10.apk",
+		google: "/jarvis10.apk",
 	},
 	rating: {
 		score: 4.8,

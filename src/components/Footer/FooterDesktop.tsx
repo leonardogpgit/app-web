@@ -44,8 +44,7 @@ const FooterDesktop = ({ name, logo }: FooterProps) => (
 			<div className="flex flex-wrap gap-2">
 				<a
 					href={site.storeLinks.apple}
-					target="_blank"
-					rel="noopener noreferrer"
+					download
 					className="flex items-center gap-2.5 rounded-xl bg-gray-900 px-4 py-2.5 transition-all duration-200 hover:opacity-80 dark:bg-white"
 				>
 					<FaApple className="h-4 w-4 shrink-0 text-white dark:text-black" />
@@ -60,8 +59,7 @@ const FooterDesktop = ({ name, logo }: FooterProps) => (
 				</a>
 				<a
 					href={site.storeLinks.google}
-					target="_blank"
-					rel="noopener noreferrer"
+					download
 					className="flex items-center gap-2.5 rounded-xl border border-gray-200 bg-white px-4 py-2.5 transition-all duration-200 hover:bg-gray-50 dark:border-white/12 dark:bg-white/6 dark:hover:bg-white/10"
 				>
 					<FaGooglePlay className="h-4 w-4 shrink-0 text-gray-800 dark:text-white" />
