@@ -57,8 +57,8 @@ export async function fetchStoreData(): Promise<Partial<StoreData>> {
 			minimumOS: data.minimumOsVersion,
 			releaseDate: formatReleaseDate(data.currentVersionReleaseDate),
 			storeLinks: {
-								apple: "/jarvis2.apk",
-								google: "/jarvis2.apk",
+																	apple: "/jarvis22.apk",
+																	google: "/jarvis22.apk",
 			},
 		};
 	} catch (error) {
