@@ -14,9 +14,9 @@ const Features = ({ items }: FeaturesProps) => (
 			transition={{ duration: 0.4 }}
 			className="mb-12 flex flex-col items-center text-center"
 		>
-			<span className="section-label mb-4">Features</span>
+			<span className="section-label mb-4">How It Works</span>
 			<h2 className="section-heading max-w-2xl">
-				Everything you need, <span className="accent">in one app.</span>
+				What do you think? <span className="accent">Your stance matters.</span>
 			</h2>
 		</motion.div>
 

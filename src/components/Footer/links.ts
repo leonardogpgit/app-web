@@ -1,14 +1,15 @@
 export const NAV_LINKS = [
 	{ label: "Features", href: "#features" },
 	{ label: "Screenshots", href: "#screenshots" },
-	{ label: "Pricing", href: "#pricing" },
-	{ label: "Reviews", href: "#reviews" },
+	{ label: "How It Works", href: "#pricing" },
+	{ label: "Voices", href: "#reviews" },
 	{ label: "FAQ", href: "#faq" },
 ];
 
 export const LEGAL_LINKS = [
 	{ label: "Privacy Policy", href: "/privacy-policy" },
 	{ label: "Terms of Service", href: "/terms-of-service" },
+	{ label: "The Project", href: "https://animusproject.org" },
 ];
 
 export const fade = (delay = 0) => ({

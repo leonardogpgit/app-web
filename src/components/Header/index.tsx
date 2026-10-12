@@ -49,7 +49,7 @@ export default function Header() {
 							href="#pricing"
 							className="inline-flex items-center justify-center rounded-xl bg-violet-600 px-4 py-2 text-sm font-semibold text-white shadow-sm shadow-violet-500/30 transition-transform hover:-translate-y-0.5 hover:bg-violet-500"
 						>
-							Get started
+							Download app
 						</Link>
 					</div>
 
@@ -88,7 +88,7 @@ export default function Header() {
 								className="inline-flex w-full items-center justify-center rounded-xl bg-violet-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm shadow-violet-500/30"
 								onClick={() => setMobileOpen(false)}
 							>
-								Get started
+								Download app
 							</Link>
 						</div>
 					</div>

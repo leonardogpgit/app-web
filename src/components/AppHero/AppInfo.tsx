@@ -17,9 +17,9 @@ const AppInfo = ({ version, minimumOS, releaseDate }: AppInfoProps) => {
 			{minimumOS && (
 				<span className="info-badge text-xs">
 					<span className="font-medium text-gray-500 dark:text-white/40">
-						Requires
+						Platform
 					</span>
-					<span className="font-semibold text-heading">iOS {minimumOS}+</span>
+					<span className="font-semibold text-heading">{minimumOS}</span>
 				</span>
 			)}
 			{releaseDate && (

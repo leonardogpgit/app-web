@@ -1,8 +1,12 @@
 import type { IconType } from "react-icons";
 import {
+	FiBarChart2,
 	FiBox,
 	FiCloud,
+	FiEye,
+	FiGlobe,
 	FiHeart,
+	FiLock,
 	FiShield,
 	FiSliders,
 	FiStar,
@@ -29,6 +33,10 @@ const iconMap: Record<string, IconType> = {
 	FiShield,
 	FiCloud,
 	FiSliders,
+	FiEye,
+	FiLock,
+	FiBarChart2,
+	FiGlobe,
 	RiInstagramFill,
 	RiTelegram2Fill,
 	RiTwitterXFill,

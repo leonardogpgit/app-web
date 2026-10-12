@@ -6,21 +6,26 @@
 
 Your privacy matters to us. This Privacy Policy explains how we collect, use, and protect your information when you use our app.
 
+## Our Privacy Philosophy
+
+Animus is founded on respect for human expression and radical anonymity. We do **not** want your personal identity, real name, email address, or contact list.
+
 ## Information We Collect
 
-We collect only the information necessary to provide and improve our service:
+To generate meaningful sociological consensus without compromising your privacy, we collect only high-level, non-identifiable demographic markers:
 
-- **Account data** — name and email address when you create an account
-- **Usage data** — features you use and how often, to improve the experience
-- **Device data** — device model and OS version for compatibility purposes
+- **Age Bracket** — e.g., 25–34, 35–44, etc.
+- **Gender** — for aggregate demographic distribution.
+- **General Location** — broad region or country level to observe geographic perspective trends.
+- **Anonymous Responses & Credits** — your answers to questions and earned participation credits.
 
-We do **not** sell, rent, or share your personal information with third parties.
+We do **not** track your real identity, sell data to advertisers, or build personal tracking dossiers.
 
-## How We Use Your Information
+## How We Use Aggregate Data
 
-- To operate and maintain the app
-- To improve features and fix issues
-- To respond to your support requests
+- To compute real-time collective consensus and demographic comparisons.
+- To display anonymous trends, rankings, and statistical distributions.
+- To ensure fair reciprocity and question reputation via participation credits.
 
 ## Data Security
 

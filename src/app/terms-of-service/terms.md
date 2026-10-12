@@ -18,11 +18,11 @@ You agree to use the app only for lawful purposes and in accordance with these T
 
 All content, trademarks, and code in this app are owned by us or our licensors. You may not copy, modify, or distribute them without written permission.
 
-## Subscriptions and Payments
+## Community Participation & Free Access
 
-- Subscriptions are billed through the App Store or Google Play
-- Prices may change with notice
-- Refunds are subject to the platform's refund policy
+- Animus is free to download and participate in.
+- Responding to questions and accessing aggregate community consensus incur no monetary fees.
+- Participation credits and boosters earned in-app govern question creation, reach, and reputation.
 
 ## Disclaimer of Warranties
 

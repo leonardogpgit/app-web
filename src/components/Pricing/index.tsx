@@ -14,9 +14,9 @@ const Pricing = ({ tiers }: PricingProps) => (
 			transition={{ duration: 0.4 }}
 			className="mb-12 flex flex-col items-center text-center"
 		>
-			<span className="section-label mb-4">Pricing</span>
+			<span className="section-label mb-4">Participation Model</span>
 			<h2 className="section-heading max-w-2xl">
-				Simple pricing, <span className="accent">no surprises.</span>
+				100% Free to use. <span className="accent">Powered by reciprocity.</span>
 			</h2>
 		</motion.div>
 

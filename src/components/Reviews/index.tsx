@@ -18,9 +18,9 @@ const Reviews = ({ items }: ReviewsProps) => {
 				transition={{ duration: 0.4 }}
 				className="mb-12 flex flex-col items-center text-center"
 			>
-				<span className="section-label mb-4">Reviews</span>
+				<span className="section-label mb-4">Community Perspectives</span>
 				<h2 className="section-heading max-w-2xl">
-					Loved by <span className="accent">thousands of users.</span>
+					Real voices. <span className="accent">Zero noise.</span>
 				</h2>
 			</motion.div>
 
