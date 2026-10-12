@@ -41,29 +41,30 @@ const AppHero = ({
 				className="mb-3 flex flex-wrap items-center justify-center gap-2.5 sm:mb-6"
 			>
 				<RatingStars rating={rating.score} />
-				<span className="text-sm text-gray-500 dark:text-white/45">
+				<span className="text-sm font-medium text-gray-600 dark:text-white/55">
 					{rating.score} · {rating.count} ratings
 				</span>
-				<span className="rounded-md border border-gray-200 bg-gray-100 px-2 py-0.5 text-xs font-medium text-gray-500 dark:border-white/10 dark:bg-white/5 dark:text-white/50">
+				<span className="rounded-md border border-gray-200 bg-gray-100 px-2 py-0.5 text-xs font-semibold text-gray-600 dark:border-white/10 dark:bg-white/5 dark:text-white/60">
 					{ageRating}
 				</span>
 			</motion.div>
 
 			<motion.h1
 				{...up(0.1)}
-				className="mb-4 text-4xl font-black tracking-tight text-gray-900 sm:mb-6 sm:text-5xl md:text-6xl lg:text-7xl xl:text-[6.5rem] dark:text-white"
+				className="main-title font-descscor mb-4 text-4xl font-black tracking-tight text-gray-900 sm:mb-6 sm:text-5xl md:text-6xl lg:text-7xl xl:text-[6.5rem] dark:text-white"
+				style={{ fontFamily: "var(--font-descscor)" }}
 			>
 				{title}
 			</motion.h1>
 
 			<motion.p
 				{...up(0.15)}
-				className="mx-auto mb-7 max-w-xl text-base leading-relaxed text-gray-600 sm:mb-10 sm:text-lg dark:text-white/55"
+				className="mx-auto mb-7 max-w-xl text-base leading-relaxed text-gray-700 sm:mb-10 sm:text-lg dark:text-white/70"
 			>
 				{description}
 			</motion.p>
 
-			<motion.div {...up(0.2)}>
+			<motion.div {...up(0.2)} id="download" className="scroll-mt-24">
 				<StoreButtons storeLinks={storeLinks} />
 			</motion.div>
 

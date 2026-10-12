@@ -12,7 +12,7 @@ const ReviewCard = ({ review, index }: ReviewCardProps) => (
 		viewport={{ once: true }}
 		transition={{ duration: 0.4, delay: index * 0.08 }}
 		whileHover={{ y: -4 }}
-		className="card-base group relative p-6 transition-shadow duration-300 hover:shadow-lg dark:hover:shadow-violet-500/5"
+		className="card-base group relative p-6 transition-shadow duration-300 hover:shadow-lg dark:hover:shadow-indigo-500/5"
 	>
 		<div className="mb-4">
 			<RatingStars rating={review.rating} />

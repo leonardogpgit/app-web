@@ -1,9 +1,10 @@
 export const NAV_LINKS = [
-	{ label: "Features", href: "#features" },
+	{ label: "How It Works", href: "#features" },
+	{ label: "Participation", href: "#pricing" },
 	{ label: "Screenshots", href: "#screenshots" },
-	{ label: "How It Works", href: "#pricing" },
-	{ label: "Voices", href: "#reviews" },
+	{ label: "Community", href: "#reviews" },
 	{ label: "FAQ", href: "#faq" },
+	{ label: "Download", href: "#download" },
 ];
 
 export const LEGAL_LINKS = [

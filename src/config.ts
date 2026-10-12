@@ -117,7 +117,7 @@ export const pricingTiers: PricingTier[] = [
 			"Available on Android & iOS",
 		],
 		cta: "Download Free",
-		ctaHref: "#",
+		ctaHref: "#download",
 	},
 	{
 		name: "Ask & Boost",
@@ -132,7 +132,7 @@ export const pricingTiers: PricingTier[] = [
 			"Tradable participation currency in the future",
 		],
 		cta: "Earn Credits",
-		ctaHref: "#",
+		ctaHref: "#download",
 		highlighted: true,
 		badge: "Core Engine",
 	},

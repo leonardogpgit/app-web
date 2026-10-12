@@ -13,18 +13,18 @@ const TierCard = ({ tier, index }: TierCardProps) => (
 		whileHover={{ y: -4 }}
 		className={`relative flex flex-col rounded-2xl border p-7 transition-shadow duration-300 ${
 			tier.highlighted
-				? "border-violet-400/60 bg-white shadow-[0_0_0_1px_rgba(139,92,246,0.15),0_8px_32px_rgba(139,92,246,0.12)] dark:border-violet-500/50 dark:bg-violet-500/5 dark:shadow-[0_0_0_1px_rgba(139,92,246,0.2),0_8px_32px_rgba(139,92,246,0.15)]"
+				? "border-indigo-400/60 bg-white shadow-[0_0_0_1px_rgba(99,102,241,0.15),0_8px_32px_rgba(99,102,241,0.12)] dark:border-indigo-500/50 dark:bg-indigo-500/5 dark:shadow-[0_0_0_1px_rgba(99,102,241,0.2),0_8px_32px_rgba(99,102,241,0.15)]"
 				: "border-gray-200 bg-white shadow-sm dark:border-white/8 dark:bg-white/4"
 		}`}
 	>
 		{tier.badge && (
-			<span className="absolute -top-3.5 left-1/2 -translate-x-1/2 inline-flex items-center whitespace-nowrap rounded-full bg-violet-600 px-4 py-1.5 text-[11px] font-bold uppercase tracking-widest text-white shadow-lg shadow-violet-500/40 ring-1 ring-violet-400/50">
+			<span className="absolute -top-3.5 left-1/2 -translate-x-1/2 inline-flex items-center whitespace-nowrap rounded-full bg-indigo-600 px-4 py-1.5 text-[11px] font-bold uppercase tracking-widest text-white shadow-lg shadow-indigo-500/40 ring-1 ring-indigo-400/50">
 				{tier.badge}
 			</span>
 		)}
 
 		<div className="mb-6">
-			<p className="mb-3 text-sm font-semibold uppercase tracking-widest text-gray-500 dark:text-white/40">
+			<p className="mb-3 text-sm font-semibold uppercase tracking-widest text-gray-600 dark:text-white/45">
 				{tier.name}
 			</p>
 			<div className="mb-3 flex items-end gap-1">
@@ -32,7 +32,7 @@ const TierCard = ({ tier, index }: TierCardProps) => (
 					{tier.price}
 				</span>
 				{tier.period && (
-					<span className="mb-1 text-sm text-gray-500 dark:text-white/40">
+					<span className="mb-1 text-sm text-gray-600 dark:text-white/45">
 						{tier.period}
 					</span>
 				)}
@@ -46,7 +46,7 @@ const TierCard = ({ tier, index }: TierCardProps) => (
 					<span
 						className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-full ${
 							tier.highlighted
-								? "bg-violet-100 text-violet-600 dark:bg-violet-500/15 dark:text-violet-400"
+								? "bg-indigo-100 text-indigo-600 dark:bg-indigo-500/15 dark:text-indigo-400"
 								: "bg-gray-100 text-gray-600 dark:bg-white/8 dark:text-white/60"
 						}`}
 					>
@@ -61,7 +61,7 @@ const TierCard = ({ tier, index }: TierCardProps) => (
 			href={tier.ctaHref}
 			className={`w-full rounded-xl px-5 py-3 text-center text-sm font-semibold transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] ${
 				tier.highlighted
-					? "bg-violet-600 text-white shadow-md shadow-violet-500/20 hover:bg-violet-500"
+					? "bg-indigo-600 text-white shadow-md shadow-indigo-500/20 hover:bg-indigo-500"
 					: "border border-gray-800 bg-gray-900 text-white hover:bg-gray-800 dark:border-white/10 dark:bg-white/8 dark:hover:bg-white/14"
 			}`}
 		>

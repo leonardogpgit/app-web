@@ -74,7 +74,7 @@ const TableOfContents = ({ content }: { content: string }) => {
 								level === 3 ? "pl-6" : "pl-4"
 							} ${
 								activeId === id
-									? "border-violet-500 text-violet-600 dark:text-violet-400 font-semibold"
+									? "border-indigo-500 text-indigo-600 dark:text-indigo-400 font-semibold"
 									: "border-transparent text-body hover:text-heading hover:border-gray-300 dark:hover:border-white/20"
 							}`}
 						>

@@ -20,7 +20,7 @@ const navLink = (label: string, href: string) => (
 		href={href}
 		className="group flex items-center gap-2 text-sm text-body transition-colors hover:text-heading"
 	>
-		<span className="h-px w-0 bg-violet-500 transition-all duration-300 group-hover:w-3" />
+		<span className="h-px w-0 bg-indigo-500 transition-all duration-300 group-hover:w-3" />
 		{label}
 	</a>
 );

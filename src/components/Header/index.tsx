@@ -19,13 +19,10 @@ export default function Header() {
 			<div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
 				<div className="flex h-16 items-center justify-between">
 					<Link href="/" className="flex items-center gap-3" aria-label="Go to home">
-						<div className="flex h-9 w-9 items-center justify-center rounded-xl bg-violet-600 text-lg font-bold text-white shadow-sm shadow-violet-500/30">
+						<div className="flex h-9 w-9 items-center justify-center rounded-xl bg-indigo-600 text-lg font-bold text-white shadow-sm shadow-indigo-500/30">
 							A
 						</div>
-						<span
-							className="text-xl tracking-tight text-slate-900 dark:text-white"
-							style={{ fontFamily: "var(--font-descscor)" }}
-						>
+						<span className="text-xl font-bold tracking-tight text-slate-900 dark:text-white">
 							{site.name}
 						</span>
 					</Link>
@@ -35,8 +32,7 @@ export default function Header() {
 							<Link
 								key={label}
 								href={href}
-								className="text-sm text-slate-600 transition-colors hover:text-violet-600 dark:text-slate-300 dark:hover:text-violet-400"
-								style={{ fontFamily: "var(--font-descscor)" }}
+								className="text-sm font-medium text-slate-700 transition-colors hover:text-indigo-600 dark:text-slate-300 dark:hover:text-indigo-400"
 							>
 								{label}
 							</Link>
@@ -46,8 +42,8 @@ export default function Header() {
 					<div className="hidden items-center gap-3 md:flex">
 						<ThemeToggle />
 						<Link
-							href="#pricing"
-							className="inline-flex items-center justify-center rounded-xl bg-violet-600 px-4 py-2 text-sm font-semibold text-white shadow-sm shadow-violet-500/30 transition-transform hover:-translate-y-0.5 hover:bg-violet-500"
+							href="#download"
+							className="inline-flex items-center justify-center rounded-xl bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-sm shadow-indigo-500/30 transition-transform hover:-translate-y-0.5 hover:bg-indigo-500"
 						>
 							Download app
 						</Link>
@@ -74,8 +70,7 @@ export default function Header() {
 								<Link
 									key={label}
 									href={href}
-									className="rounded-lg px-3 py-2 text-base text-slate-700 transition-colors hover:bg-slate-100 hover:text-violet-600 dark:text-slate-200 dark:hover:bg-slate-800 dark:hover:text-violet-400"
-									style={{ fontFamily: "var(--font-descscor)" }}
+									className="rounded-lg px-3 py-2 text-base font-medium text-slate-800 transition-colors hover:bg-slate-100 hover:text-indigo-600 dark:text-slate-200 dark:hover:bg-slate-800 dark:hover:text-indigo-400"
 									onClick={() => setMobileOpen(false)}
 								>
 									{label}
@@ -84,8 +79,8 @@ export default function Header() {
 						</nav>
 						<div className="mt-4 px-3">
 							<Link
-								href="#pricing"
-								className="inline-flex w-full items-center justify-center rounded-xl bg-violet-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm shadow-violet-500/30"
+								href="#download"
+								className="inline-flex w-full items-center justify-center rounded-xl bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm shadow-indigo-500/30"
 								onClick={() => setMobileOpen(false)}
 							>
 								Download app

@@ -32,14 +32,14 @@ const Reviews = ({ items }: ReviewsProps) => {
 					transition={{ duration: 0.4 }}
 					className="card-base relative mb-5 p-8 md:p-10"
 				>
-					<div className="mb-4 select-none font-serif text-5xl leading-none text-violet-400/40 dark:text-violet-500/30 md:text-6xl">
+					<div className="mb-4 select-none font-serif text-5xl leading-none text-indigo-400/40 dark:text-indigo-500/30 md:text-6xl">
 						"
 					</div>
-					<p className="mb-6 max-w-3xl text-xl font-medium leading-relaxed text-gray-800 dark:text-white/90 md:text-2xl">
+					<p className="mb-6 max-w-3xl text-xl font-medium leading-relaxed text-gray-900 dark:text-white/90 md:text-2xl">
 						{featured.text}
 					</p>
 					<div className="flex items-center gap-4">
-						<div className="flex h-10 w-10 items-center justify-center rounded-full bg-violet-100 text-sm font-bold text-violet-600 dark:bg-violet-500/15 dark:text-violet-400">
+						<div className="flex h-10 w-10 items-center justify-center rounded-full bg-indigo-100 text-sm font-bold text-indigo-600 dark:bg-indigo-500/15 dark:text-indigo-400">
 							{featured.author[0]}
 						</div>
 						<div>
