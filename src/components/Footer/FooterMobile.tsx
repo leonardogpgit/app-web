@@ -6,9 +6,9 @@ import { site } from "@/config";
 import { fade, LEGAL_LINKS } from "./links";
 
 const FooterMobile = () => (
-	<motion.div {...fade(0)} className="flex flex-col gap-6 md:hidden">
-		<div className="flex flex-wrap items-center justify-between gap-4">
-			<div className="flex flex-wrap gap-6">
+	<motion.div {...fade(0)} className="flex flex-col items-center gap-6 md:hidden">
+		<div className="flex flex-wrap items-center justify-center gap-6">
+			<div className="flex flex-wrap items-center justify-center gap-6">
 				{LEGAL_LINKS.map(({ label, href }) => (
 					<a
 						key={label}
@@ -19,7 +19,7 @@ const FooterMobile = () => (
 					</a>
 				))}
 			</div>
-			<div className="flex gap-2">
+			<div className="flex items-center justify-center gap-2">
 				<SocialLinks items={site.social} />
 			</div>
 		</div>
