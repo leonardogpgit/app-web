@@ -4,7 +4,6 @@ export const NAV_LINKS = [
 	{ label: "Screenshots", href: "#screenshots" },
 	{ label: "Community", href: "#reviews" },
 	{ label: "FAQ", href: "#faq" },
-	{ label: "Download", href: "#download" },
 ];
 
 export const LEGAL_LINKS = [

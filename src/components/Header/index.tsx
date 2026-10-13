@@ -41,12 +41,6 @@ export default function Header() {
 
 					<div className="hidden items-center gap-3 md:flex">
 						<ThemeToggle />
-						<Link
-							href="#download"
-							className="inline-flex items-center justify-center rounded-xl bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-sm shadow-indigo-500/30 transition-transform hover:-translate-y-0.5 hover:bg-indigo-500"
-						>
-							Download app
-						</Link>
 					</div>
 
 					<div className="flex items-center gap-2 md:hidden">
@@ -77,15 +71,6 @@ export default function Header() {
 								</Link>
 							))}
 						</nav>
-						<div className="mt-4 px-3">
-							<Link
-								href="#download"
-								className="inline-flex w-full items-center justify-center rounded-xl bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm shadow-indigo-500/30"
-								onClick={() => setMobileOpen(false)}
-							>
-								Download app
-							</Link>
-						</div>
 					</div>
 				)}
 			</div>

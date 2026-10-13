@@ -16,23 +16,12 @@ const AppHero = ({
 	title,
 	description,
 	storeLinks,
-	logo,
 	version,
 	minimumOS,
 	releaseDate,
 }: AppHeroProps) => (
 	<section className="relative flex min-h-svh flex-col items-center overflow-hidden px-4 text-center">
 		<div className="relative z-10 flex w-full max-w-4xl flex-1 flex-col items-center justify-center py-14 sm:py-20">
-			<motion.div {...up(0)} className="relative mx-auto mb-5 w-fit sm:mb-8">
-				<img
-					src={logo}
-					alt={`${title} icon`}
-					fetchPriority="high"
-					loading="eager"
-					className="relative h-24 w-24 rounded-3xl border border-gray-200/50 object-cover shadow-2xl dark:border-white/10 sm:h-28 sm:w-28 md:h-32 md:w-32"
-				/>
-			</motion.div>
-
 			<motion.h1
 				{...up(0.1)}
 				className="main-title font-descscor mb-4 text-4xl font-black tracking-tight text-gray-900 sm:mb-6 sm:text-5xl md:text-6xl lg:text-7xl xl:text-[6.5rem] dark:text-white"
