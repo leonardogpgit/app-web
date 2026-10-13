@@ -1,11 +1,9 @@
 import AppHero from "@/components/AppHero";
-import FAQ from "@/components/FAQ";
 import Features from "@/components/Features";
 import Pricing from "@/components/Pricing";
 import Reviews from "@/components/Reviews";
 import Screenshots from "@/components/Screenshots";
 import {
-	faqs,
 	features,
 	pricingTiers,
 	reviews,
@@ -43,20 +41,17 @@ export default async function HomePage() {
 				minimumOS={app.minimumOS}
 				releaseDate={app.releaseDate}
 			/>
-			<section id="screenshots" className="mb-16 scroll-mt-20 md:mb-24">
+			<section id="screenshots" className="mb-16 scroll-mt-28 md:scroll-mt-20 md:mb-24">
 				<Screenshots images={app.screenshots} />
 			</section>
-			<section id="features" className="mb-16 scroll-mt-20 md:mb-24">
+			<section id="features" className="mb-16 scroll-mt-28 md:scroll-mt-20 md:mb-24">
 				<Features items={features} />
 			</section>
-			<section id="pricing" className="mb-16 scroll-mt-20 md:mb-24">
+			<section id="pricing" className="mb-16 scroll-mt-28 md:scroll-mt-20 md:mb-24">
 				<Pricing tiers={pricingTiers} />
 			</section>
-			<section id="reviews" className="mb-16 scroll-mt-20 md:mb-24">
+			<section id="reviews" className="mb-16 scroll-mt-28 md:scroll-mt-20 md:mb-24">
 				<Reviews items={reviews} />
-			</section>
-			<section id="faq" className="mb-16 scroll-mt-20 md:mb-24">
-				<FAQ items={faqs} />
 			</section>
 		</main>
 	);

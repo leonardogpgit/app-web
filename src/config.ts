@@ -16,7 +16,7 @@ export const storeConfig = {
 export const navLinks = [
 	{ href: "/#features", label: "How It Works" },
 	{ href: "/#pricing", label: "Participation" },
-	{ href: "/#faq", label: "FAQ" },
+	{ href: "/faq", label: "FAQ" },
 	{ href: "https://animusproject.org", label: "The Project" },
 ] as const;
 
@@ -177,6 +177,11 @@ export const reviews: Review[] = [
 
 export const faqs: FAQItem[] = [
 	{
+		question: "What is the Animus Project?",
+		answer:
+			"Animus is an open initiative to map the collective mind and opinions of humanity in real time. We capture authentic human perspectives without algorithms or noise, organizing them into a living, interconnected graph database.",
+	},
+	{
 		question: "Is Animus completely free?",
 		answer:
 			"Yes. Animus is 100% free to download and participate in. There are no fees or subscriptions to answer questions and explore real-time community statistics.",
@@ -189,7 +194,7 @@ export const faqs: FAQItem[] = [
 	{
 		question: "How does the credit and question system work?",
 		answer:
-			"Animus operates on reciprocity. To prevent question spam and ensure rich statistical sample sizes, you earn credits by answering questions. Those credits give you the right to post your own questions and boost them across local and global feeds.",
+			"Animus operates on reciprocity ('Give to Ask'). To prevent question spam and ensure rich statistical sample sizes, you earn credits by answering questions. Those credits give you the right to post your own questions and boost them across local and global feeds.",
 	},
 	{
 		question: "What personal data does Animus collect?",
@@ -199,11 +204,16 @@ export const faqs: FAQItem[] = [
 	{
 		question: "Can multiple people ask the same question?",
 		answer:
-			"If your question has already been asked by someone else, Animus intelligently merges identical questions into a single node. This consolidates data volume and gives you much deeper statistics rather than fragmenting votes.",
+			"If your question has already been asked by someone else, Animus intelligently merges identical questions into a single knowledge node. This consolidates data volume and gives you much deeper statistics rather than fragmenting votes.",
 	},
 	{
 		question: "Why is Animus different from traditional social media?",
 		answer:
 			"No vanity follower counts, no endless algorithm rabbit holes, no toxic comment warfare. Just concise, thought-provoking questions and real human consensus in a clean, lightweight mobile app.",
+	},
+	{
+		question: "Who benefits from this data?",
+		answer:
+			"Humanity. Sociologists, behavioral scientists, educators, and the general public gain access to an authentic mirror of what people actually think and worry about, rather than what ad-driven algorithms amplify.",
 	},
 ];
