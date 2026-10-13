@@ -50,7 +50,6 @@ export const site = {
 	releaseDate: "2026",
 	social: [
 		{ url: "https://x.com/animusproject", icon: "RiTwitterXFill", label: "X (Twitter)" },
-		{ url: "https://animusproject.org", icon: "FiGlobe", label: "Animus Project" },
 	] as SocialLink[],
 } as const;
 

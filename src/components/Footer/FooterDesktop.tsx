@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import SocialLinks from "@/components/SocialLinks";
 import { site } from "@/config";
-import { fade, LEGAL_LINKS, NAV_LINKS } from "./links";
+import { fade, LEGAL_LINKS } from "./links";
 
 const navLink = (label: string, href: string) => (
 	<a
@@ -17,23 +17,13 @@ const navLink = (label: string, href: string) => (
 );
 
 const FooterDesktop = () => (
-	<div className="hidden md:grid md:grid-cols-[1fr_1fr_auto] md:gap-8 lg:gap-12">
-		<motion.div {...fade(0.1)} className="flex flex-col gap-4">
-			<nav className="flex flex-col gap-3">
-				{NAV_LINKS.map(({ label, href }) => navLink(label, href))}
-			</nav>
+	<div className="hidden md:flex md:items-center md:justify-between">
+		<motion.div {...fade(0.1)} className="flex items-center gap-6">
+			{LEGAL_LINKS.map(({ label, href }) => navLink(label, href))}
 		</motion.div>
 
-		<motion.div {...fade(0.15)} className="flex flex-col gap-4">
-			<nav className="flex flex-col gap-3">
-				{LEGAL_LINKS.map(({ label, href }) => navLink(label, href))}
-			</nav>
-		</motion.div>
-
-		<motion.div {...fade(0.2)} className="flex flex-col items-end gap-4">
-			<div className="flex flex-wrap justify-end gap-2">
-				<SocialLinks items={site.social} />
-			</div>
+		<motion.div {...fade(0.2)} className="flex items-center gap-2">
+			<SocialLinks items={site.social} />
 		</motion.div>
 	</div>
 );
