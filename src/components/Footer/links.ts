@@ -1,4 +1,5 @@
 export const LEGAL_LINKS = [
+	{ label: "Manifesto", href: "/manifesto" },
 	{ label: "Legal", href: "/legal" },
 ];
 

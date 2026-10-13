@@ -14,7 +14,7 @@ const SocialLinks = ({ items }: SocialLinksProps) => (
 					key={item.label}
 					initial={{ opacity: 0, scale: 0.8 }}
 					animate={{ opacity: 1, scale: 1 }}
-					transition={{ duration: 0.3, delay: index * 0.1 }}
+					transition={{ duration: 0.3, delay: index * 0.03 }}
 					whileHover={{ scale: 1.1, rotate: 5 }}
 					whileTap={{ scale: 0.95 }}
 					href={item.url}

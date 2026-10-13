@@ -19,7 +19,9 @@ import {
 	RiGithubFill,
 	RiInstagramFill,
 	RiLinkedinFill,
+	RiRedditFill,
 	RiTelegram2Fill,
+	RiTiktokFill,
 	RiTwitterXFill,
 	RiYoutubeFill,
 } from "react-icons/ri";
@@ -45,6 +47,8 @@ const iconMap: Record<string, IconType> = {
 	RiYoutubeFill,
 	RiGithubFill,
 	RiDiscordFill,
+	RiRedditFill,
+	RiTiktokFill,
 };
 
 export const getIcon = (name: string): IconType | null => iconMap[name] ?? null;
