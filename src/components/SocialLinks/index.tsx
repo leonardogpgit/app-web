@@ -25,7 +25,7 @@ const SocialLinks = ({ items }: SocialLinksProps) => (
 					title={item.label}
 				>
 					{Icon && (
-						<Icon className="h-4 w-4 text-gray-600 dark:text-gray-300" />
+						<Icon className="h-4 w-4 text-black dark:text-white" />
 					)}
 				</motion.a>
 			);

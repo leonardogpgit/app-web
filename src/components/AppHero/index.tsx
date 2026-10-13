@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { FiChevronDown } from "react-icons/fi";
-import RatingStars from "@/components/RatingStars";
 import type { AppHeroProps } from "@/types";
 import AppInfo from "./AppInfo";
 import StoreButtons from "./StoreButtons";
@@ -18,8 +17,6 @@ const AppHero = ({
 	description,
 	storeLinks,
 	logo,
-	rating,
-	ageRating,
 	version,
 	minimumOS,
 	releaseDate,
@@ -34,19 +31,6 @@ const AppHero = ({
 					loading="eager"
 					className="relative h-24 w-24 rounded-3xl border border-gray-200/50 object-cover shadow-2xl dark:border-white/10 sm:h-28 sm:w-28 md:h-32 md:w-32"
 				/>
-			</motion.div>
-
-			<motion.div
-				{...up(0.05)}
-				className="mb-3 flex flex-wrap items-center justify-center gap-2.5 sm:mb-6"
-			>
-				<RatingStars rating={rating.score} />
-				<span className="text-sm font-medium text-gray-600 dark:text-white/55">
-					{rating.score} · {rating.count} ratings
-				</span>
-				<span className="rounded-md border border-gray-200 bg-gray-100 px-2 py-0.5 text-xs font-semibold text-gray-600 dark:border-white/10 dark:bg-white/5 dark:text-white/60">
-					{ageRating}
-				</span>
 			</motion.div>
 
 			<motion.h1

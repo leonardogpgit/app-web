@@ -17,12 +17,6 @@ const TierCard = ({ tier, index }: TierCardProps) => (
 				: "border-gray-200 bg-white shadow-sm dark:border-white/8 dark:bg-white/4"
 		}`}
 	>
-		{tier.badge && (
-			<span className="absolute -top-3.5 left-1/2 -translate-x-1/2 inline-flex items-center whitespace-nowrap rounded-full bg-indigo-600 px-4 py-1.5 text-[11px] font-bold uppercase tracking-widest text-white shadow-lg shadow-indigo-500/40 ring-1 ring-indigo-400/50">
-				{tier.badge}
-			</span>
-		)}
-
 		<div className="mb-6">
 			<p className="mb-3 text-sm font-semibold uppercase tracking-widest text-gray-600 dark:text-white/45">
 				{tier.name}

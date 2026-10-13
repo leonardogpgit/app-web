@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import SocialLinks from "@/components/SocialLinks";
-import ThemeToggle from "@/components/ThemeToggle";
 import { site } from "@/config";
 import type { FooterProps } from "@/types";
 import { fade, LEGAL_LINKS, NAV_LINKS } from "./links";
@@ -16,11 +15,10 @@ const FooterMobile = ({ name, logo }: FooterProps) => (
 					alt={`${name} logo`}
 					className="h-9 w-9 rounded-xl border border-gray-200/60 object-cover dark:border-white/10"
 				/>
-				<span className="font-bold tracking-tight text-gray-900 dark:text-white">
+				<span className="text-sm font-bold tracking-tight text-black dark:text-white">
 					{name}
 				</span>
 			</a>
-			<ThemeToggle />
 		</div>
 
 		<div className="flex gap-8">
@@ -30,7 +28,7 @@ const FooterMobile = ({ name, logo }: FooterProps) => (
 						<a
 							key={label}
 							href={href}
-							className="text-sm text-body transition-colors hover:text-heading"
+							className="text-sm text-black dark:text-white transition-colors hover:text-indigo-600 dark:hover:text-indigo-400"
 						>
 							{label}
 						</a>
@@ -41,7 +39,7 @@ const FooterMobile = ({ name, logo }: FooterProps) => (
 						<a
 							key={label}
 							href={href}
-							className="text-sm text-body transition-colors hover:text-heading"
+							className="text-sm text-black dark:text-white transition-colors hover:text-indigo-600 dark:hover:text-indigo-400"
 						>
 							{label}
 						</a>
@@ -53,7 +51,7 @@ const FooterMobile = ({ name, logo }: FooterProps) => (
 					<a
 						key={label}
 						href={href}
-						className="text-sm text-body transition-colors hover:text-heading"
+						className="text-sm text-black dark:text-white transition-colors hover:text-indigo-600 dark:hover:text-indigo-400"
 					>
 						{label}
 					</a>
@@ -61,13 +59,10 @@ const FooterMobile = ({ name, logo }: FooterProps) => (
 			</div>
 		</div>
 
-		<div className="flex items-center justify-between">
+		<div className="flex items-center">
 			<div className="flex gap-2">
 				<SocialLinks items={site.social} />
 			</div>
-			<p className="text-xs text-gray-400 dark:text-white/25">
-				© {new Date().getFullYear()} {name}.
-			</p>
 		</div>
 	</motion.div>
 );

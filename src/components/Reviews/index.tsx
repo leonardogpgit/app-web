@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { memo } from "react";
-import RatingStars from "@/components/RatingStars";
 import type { ReviewsProps } from "@/types";
 import ReviewCard from "./ReviewCard";
 
@@ -18,7 +17,6 @@ const Reviews = ({ items }: ReviewsProps) => {
 				transition={{ duration: 0.4 }}
 				className="mb-12 flex flex-col items-center text-center"
 			>
-				<span className="section-label mb-4">Community Perspectives</span>
 				<h2 className="section-heading max-w-2xl">
 					Real voices. <span className="accent">Zero noise.</span>
 				</h2>
@@ -46,7 +44,6 @@ const Reviews = ({ items }: ReviewsProps) => {
 							<p className="font-semibold text-gray-900 dark:text-white">
 								{featured.author}
 							</p>
-							<RatingStars rating={featured.rating} />
 						</div>
 					</div>
 				</motion.div>

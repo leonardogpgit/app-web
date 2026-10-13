@@ -7,15 +7,6 @@ import type { GalleryProps } from "@/types";
 const Gallery = ({ images, onOpen }: GalleryProps) => (
 	<div>
 		<div className="mb-10 flex flex-col items-center gap-4 text-center">
-			<motion.span
-				initial={{ opacity: 0, y: 16 }}
-				whileInView={{ opacity: 1, y: 0 }}
-				viewport={{ once: true }}
-				transition={{ duration: 0.4 }}
-				className="section-label"
-			>
-				Screenshots
-			</motion.span>
 			<motion.h2
 				initial={{ opacity: 0, y: 20 }}
 				whileInView={{ opacity: 1, y: 0 }}

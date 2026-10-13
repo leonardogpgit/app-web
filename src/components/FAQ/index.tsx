@@ -14,7 +14,6 @@ const FAQ = ({ items }: FAQProps) => (
 			transition={{ duration: 0.4 }}
 			className="mb-12 flex flex-col items-center text-center"
 		>
-			<span className="section-label mb-4">FAQ</span>
 			<h2 className="section-heading max-w-2xl">
 				Got questions? <span className="accent">We've got answers.</span>
 			</h2>

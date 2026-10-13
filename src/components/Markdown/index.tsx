@@ -18,7 +18,6 @@ const MarkdownLayout = ({
 				transition={{ duration: 0.5 }}
 				className="relative mb-12 overflow-hidden rounded-2xl border border-gray-200/60 bg-white px-10 py-12 dark:border-white/8 dark:bg-white/4 md:px-16 md:py-14"
 			>
-				<span className="section-label mb-4 inline-flex">Legal</span>
 				<h1 className="mb-3 text-4xl font-black tracking-tight text-gray-900 dark:text-white md:text-5xl">
 					{title}
 				</h1>
