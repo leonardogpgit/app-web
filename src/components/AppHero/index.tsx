@@ -50,18 +50,20 @@ const AppHero = ({
 			</motion.div>
 		</div>
 
-		<motion.div
+		<motion.button
+			type="button"
+			aria-label="Scroll down"
+			onClick={() => window.scrollTo({ top: window.innerHeight - 64, behavior: "smooth" })}
 			animate={{ y: [0, 8, 0] }}
 			transition={{
 				repeat: Number.POSITIVE_INFINITY,
 				duration: 2.2,
 				ease: "easeInOut",
 			}}
-			className="relative z-10 mb-8 text-gray-400 dark:text-white/20"
-			aria-hidden="true"
+			className="relative z-10 mb-8 inline-flex h-10 w-10 items-center justify-center rounded-xl text-gray-400 transition-colors hover:text-indigo-600 dark:text-white/30 dark:hover:text-indigo-400"
 		>
 			<FiChevronDown size={22} />
-		</motion.div>
+		</motion.button>
 	</section>
 );
 

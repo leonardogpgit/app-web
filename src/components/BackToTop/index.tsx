@@ -8,16 +8,11 @@ const BackToTop = () => {
 	const [visible, setVisible] = useState(false);
 
 	useEffect(() => {
-		let timer: ReturnType<typeof setTimeout> | undefined;
 		const onScroll = () => {
-			if (timer) return;
-			timer = setTimeout(() => {
-				setVisible(window.scrollY > 300);
-				timer = undefined;
-			}, 100);
+			setVisible(window.scrollY > 300);
 		};
-		window.addEventListener("scroll", onScroll);
 		onScroll();
+		window.addEventListener("scroll", onScroll, { passive: true });
 		return () => window.removeEventListener("scroll", onScroll);
 	}, []);
 
@@ -26,17 +21,17 @@ const BackToTop = () => {
 			{visible && (
 				<motion.button
 					type="button"
-					initial={{ opacity: 0, scale: 0.8 }}
+					initial={{ opacity: 0, scale: 0.85 }}
 					animate={{ opacity: 1, scale: 1 }}
-					exit={{ opacity: 0, scale: 0.8 }}
+					exit={{ opacity: 0, scale: 0.85 }}
 					transition={{ duration: 0.2 }}
-					whileHover={{ scale: 1.1 }}
+					whileHover={{ scale: 1.06 }}
 					whileTap={{ scale: 0.95 }}
 					onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-					className="button-base fixed bottom-4 right-4 z-40 flex h-9 w-9 items-center justify-center shadow-lg transition-shadow duration-200 hover:shadow-xl md:bottom-8 md:right-8 md:h-12 md:w-12"
+					className="fixed bottom-5 right-5 z-40 flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-white/90 text-black shadow-lg backdrop-blur-md transition-colors duration-200 hover:border-indigo-500 hover:text-indigo-600 dark:border-slate-700 dark:bg-slate-900/90 dark:text-white dark:hover:border-indigo-400 dark:hover:text-indigo-400 md:bottom-8 md:right-8 md:h-11 md:w-11"
 					aria-label="Back to top"
 				>
-					<FiChevronUp size={22} />
+					<FiChevronUp size={20} />
 				</motion.button>
 			)}
 		</AnimatePresence>
