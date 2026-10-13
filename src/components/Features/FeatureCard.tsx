@@ -16,7 +16,7 @@ const FeatureCard = ({ feature, index }: FeatureCardProps) => {
 			whileHover={{ y: -4 }}
 			className="card-base group relative p-6 transition-shadow duration-300 hover:shadow-lg dark:hover:shadow-indigo-500/5"
 		>
-			<div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl border border-indigo-100 bg-indigo-50 dark:border-indigo-500/20 dark:bg-indigo-500/10">
+			<div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl border border-indigo-200 bg-indigo-100/80 dark:border-indigo-500/20 dark:bg-indigo-500/10">
 				{Icon && (
 					<Icon className="h-6 w-6 text-indigo-600 dark:text-indigo-400" />
 				)}

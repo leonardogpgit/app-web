@@ -56,10 +56,10 @@ const TableOfContents = ({ content }: { content: string }) => {
 
 	return (
 		<nav className="sticky top-24 hidden xl:block">
-			<p className="mb-4 text-xs font-bold uppercase tracking-widest text-gray-500 dark:text-white/30">
+			<p className="mb-4 text-xs font-bold uppercase tracking-widest text-slate-600 dark:text-white/30">
 				On This Page
 			</p>
-			<ul className="space-y-1 border-l-2 border-gray-100 dark:border-white/8">
+			<ul className="space-y-1 border-l-2 border-slate-300 dark:border-white/8">
 				{headings.map(({ id, text, level }) => (
 					<li key={id}>
 						<a

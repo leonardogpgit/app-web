@@ -16,13 +16,13 @@ const MarkdownLayout = ({
 				initial={{ opacity: 0, y: 20 }}
 				animate={{ opacity: 1, y: 0 }}
 				transition={{ duration: 0.5 }}
-				className="relative mb-12 overflow-hidden rounded-2xl border border-gray-200/60 bg-white px-10 py-12 dark:border-white/8 dark:bg-white/4 md:px-16 md:py-14"
+				className="relative mb-12 overflow-hidden rounded-2xl border border-slate-300 bg-[#f4f7fb] px-10 py-12 shadow-md shadow-slate-900/5 dark:border-white/8 dark:bg-white/4 dark:shadow-none md:px-16 md:py-14"
 			>
 				<h1 className="mb-3 text-4xl font-black tracking-tight text-gray-900 dark:text-white md:text-5xl">
 					{title}
 				</h1>
 				{lastUpdated && (
-					<p className="text-sm text-gray-500 dark:text-white/35">
+					<p className="text-sm text-gray-600 dark:text-white/35">
 						Last updated: {lastUpdated}
 					</p>
 				)}

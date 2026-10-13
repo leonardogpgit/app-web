@@ -59,7 +59,7 @@ export const viewport: Viewport = {
 	width: "device-width",
 	initialScale: 1,
 	themeColor: [
-		{ media: "(prefers-color-scheme: light)", color: "#f9fafb" },
+		{ media: "(prefers-color-scheme: light)", color: "#e6ecf2" },
 		{ media: "(prefers-color-scheme: dark)", color: "#060606" },
 	],
 };
@@ -72,7 +72,7 @@ export default function RootLayout({
 	return (
 		<html lang="en" suppressHydrationWarning>
 			<body
-				className={`${quantico.variable} ${descMenu.variable} ${descScor.variable} bg-[#fafafa] text-slate-900 transition-colors duration-300 dark:bg-[#09090b] dark:text-slate-100`}
+				className={`${quantico.variable} ${descMenu.variable} ${descScor.variable} bg-[#e6ecf2] text-slate-900 transition-colors duration-300 dark:bg-[#09090b] dark:text-slate-100`}
 			>
 				<Header />
 				<div className="mx-auto max-w-375">

@@ -13,8 +13,8 @@ const TierCard = ({ tier, index }: TierCardProps) => (
 		whileHover={{ y: -4 }}
 		className={`relative flex flex-col rounded-2xl border p-7 transition-shadow duration-300 ${
 			tier.highlighted
-				? "border-indigo-400/60 bg-white shadow-[0_0_0_1px_rgba(99,102,241,0.15),0_8px_32px_rgba(99,102,241,0.12)] dark:border-indigo-500/50 dark:bg-indigo-500/5 dark:shadow-[0_0_0_1px_rgba(99,102,241,0.2),0_8px_32px_rgba(99,102,241,0.15)]"
-				: "border-gray-200 bg-white shadow-sm dark:border-white/8 dark:bg-white/4"
+				? "border-indigo-500/70 bg-[#f4f7fb] shadow-[0_0_0_1px_rgba(99,102,241,0.2),0_10px_32px_rgba(99,102,241,0.14)] dark:border-indigo-500/50 dark:bg-indigo-500/5 dark:shadow-[0_0_0_1px_rgba(99,102,241,0.2),0_8px_32px_rgba(99,102,241,0.15)]"
+				: "border-slate-300 bg-[#f4f7fb] shadow-md shadow-slate-900/5 dark:border-white/8 dark:bg-white/4"
 		}`}
 	>
 		<div className="mb-6">
@@ -41,7 +41,7 @@ const TierCard = ({ tier, index }: TierCardProps) => (
 						className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-full ${
 							tier.highlighted
 								? "bg-indigo-100 text-indigo-600 dark:bg-indigo-500/15 dark:text-indigo-400"
-								: "bg-gray-100 text-gray-600 dark:bg-white/8 dark:text-white/60"
+								: "bg-slate-200 text-slate-700 dark:bg-white/8 dark:text-white/60"
 						}`}
 					>
 						<FiCheck className="h-3 w-3 stroke-[2.5]" />
