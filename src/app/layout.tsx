@@ -72,13 +72,13 @@ export default function RootLayout({
 	return (
 		<html lang="en" suppressHydrationWarning>
 			<body
-				className={`${quantico.variable} ${descMenu.variable} ${descScor.variable} bg-[#e6ecf2] text-slate-900 transition-colors duration-300 dark:bg-[#09090b] dark:text-slate-100`}
+				className={`${quantico.variable} ${descMenu.variable} ${descScor.variable} flex min-h-screen flex-col bg-[#e6ecf2] text-black transition-colors duration-300 dark:bg-[#09090b] dark:text-white`}
 			>
 				<Header />
-				<div className="mx-auto max-w-375">
+				<main className="mx-auto w-full max-w-375 flex-grow">
 					{children}
-					<Footer name={site.name} logo={site.logo} />
-				</div>
+				</main>
+				<Footer name={site.name} logo={site.logo} />
 				<BackToTop />
 			</body>
 		</html>
