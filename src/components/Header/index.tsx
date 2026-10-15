@@ -6,7 +6,7 @@ import { navLinks, site } from "@/config";
 
 export default function Header() {
 	return (
-		<header className="metal-bar-t3 sticky top-0 z-50 transition-colors">
+		<header className="metal-slab-bar sticky top-0 z-50 transition-colors">
 			<div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
 				<div className="flex h-14 items-center justify-between md:h-16">
 					<a href="https://animusproject.org" className="flex items-center gap-3" aria-label="Animus Project">

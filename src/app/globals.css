@@ -71,26 +71,24 @@ h6 {
 	}
 }
 
-.metal-bar-t3 {
-	background-image: 
-		linear-gradient(to bottom, rgba(255, 255, 255, 0.08) 0%, rgba(0, 0, 0, 0.28) 100%),
-		url('/textures/metal_dark_t3.webp');
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: center;
+.metal-slab-bar {
+	position: relative;
+	width: 100%;
+	background-image: url('/textures/etched_dark_slab_3840x240.webp');
+	background-repeat: repeat-x;
+	background-size: auto 100%;
+	background-position: left center;
 	border-top: 1px solid rgba(255, 255, 255, 0.18);
 	border-bottom: 1px solid rgba(0, 0, 0, 0.7);
 	box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
 }
 
-html.dark .metal-bar-t3,
-.dark .metal-bar-t3 {
-	background-image: 
-		linear-gradient(to bottom, rgba(255, 255, 255, 0.45) 0%, rgba(220, 230, 240, 0.12) 40%, rgba(0, 0, 0, 0.2) 100%),
-		url('/textures/metal_light_t3.webp');
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: center;
+html.dark .metal-slab-bar,
+.dark .metal-slab-bar {
+	background-image: url('/textures/chrome_slab_3840x240.webp');
+	background-repeat: repeat-x;
+	background-size: auto 100%;
+	background-position: left center;
 	border-top: 1px solid rgba(255, 255, 255, 0.8);
 	border-bottom: 1px solid rgba(0, 0, 0, 0.4);
 	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45);

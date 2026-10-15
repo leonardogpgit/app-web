@@ -7,7 +7,7 @@ import type { FooterProps } from "@/types";
 import { fade, LEGAL_LINKS } from "./links";
 
 const Footer = (_props: FooterProps) => (
-	<footer className="metal-bar-t3 w-full transition-colors">
+	<footer className="metal-slab-bar w-full transition-colors">
 		<div className="mx-auto max-w-6xl px-4 pt-6 pb-4 sm:px-6 md:pt-8 md:pb-5 lg:px-8">
 			{/* Social Icons (dedicated line above legal) */}
 			<motion.div {...fade(0)} className="mb-3 flex flex-wrap items-center justify-center gap-2 sm:gap-3 md:mb-4">
