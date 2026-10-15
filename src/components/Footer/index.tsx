@@ -7,7 +7,7 @@ import type { FooterProps } from "@/types";
 import { fade, LEGAL_LINKS } from "./links";
 
 const Footer = (_props: FooterProps) => (
-	<footer className="w-full border-t border-slate-300 bg-white transition-colors dark:border-slate-800 dark:bg-[#09090b]">
+	<footer className="metal-bar-t3 w-full transition-colors">
 		<div className="mx-auto max-w-6xl px-4 pt-6 pb-4 sm:px-6 md:pt-8 md:pb-5 lg:px-8">
 			{/* Social Icons (dedicated line above legal) */}
 			<motion.div {...fade(0)} className="mb-3 flex flex-wrap items-center justify-center gap-2 sm:gap-3 md:mb-4">
@@ -20,7 +20,7 @@ const Footer = (_props: FooterProps) => (
 					<a
 						key={label}
 						href={href}
-						className="text-sm font-medium text-black transition-opacity hover:opacity-70 dark:text-white dark:hover:opacity-80"
+						className="text-sm font-medium text-white/90 transition-opacity hover:opacity-100 dark:text-black/90 dark:hover:opacity-100"
 					>
 						{label}
 					</a>
@@ -29,9 +29,9 @@ const Footer = (_props: FooterProps) => (
 		</div>
 
 		{/* Full-width divider & All rights reserved */}
-		<div className="w-full border-t border-slate-300 bg-white py-4 dark:border-slate-800 dark:bg-[#09090b] md:py-5">
+		<div className="w-full border-t border-white/15 dark:border-black/15 bg-black/10 dark:bg-black/5 py-4 md:py-5">
 			<div className="mx-auto flex max-w-6xl items-center justify-center px-4 text-center sm:px-6 lg:px-8">
-				<p className="text-center text-sm font-medium text-black dark:text-white">
+				<p className="text-center text-sm font-medium text-white/90 dark:text-black/90">
 					© {new Date().getFullYear()} Animus Project. All rights reserved.
 				</p>
 			</div>

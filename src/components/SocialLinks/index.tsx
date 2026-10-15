@@ -20,7 +20,7 @@ const SocialLinks = ({ items }: SocialLinksProps) => (
 					href={item.url}
 					target="_blank"
 					rel="noopener noreferrer"
-					className="flex h-9 w-9 items-center justify-center rounded-lg border border-slate-300 bg-slate-100 text-black shadow-xs transition-colors hover:bg-slate-200 dark:border-slate-800 dark:bg-slate-900 dark:text-white dark:hover:bg-slate-800"
+					className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/20 bg-black/40 text-white shadow-xs transition-colors hover:bg-black/60 dark:border-black/20 dark:bg-white/40 dark:text-black dark:hover:bg-white/60"
 					aria-label={item.label}
 					title={item.label}
 				>
