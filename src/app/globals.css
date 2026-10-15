@@ -72,7 +72,6 @@ h6 {
 }
 
 .metal-slab-bar {
-	position: relative;
 	width: 100%;
 	background-image: url('/textures/etched_dark_slab_3840x240.webp');
 	background-repeat: repeat-x;
