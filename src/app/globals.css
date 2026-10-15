@@ -71,17 +71,6 @@ h6 {
 	}
 }
 
-.metal-bar {
-	background-image: url('/textures/dark_steel_slab.webp');
-	background-size: 100% 100%;
-	background-position: center;
-}
-html.dark .metal-bar,
-.dark .metal-bar {
-	background-image: url('/textures/titanium_slab.webp');
-	background-size: 100% 100%;
-	background-position: center;
-}
 
 html.theme-switching *,
 html.theme-switching {
