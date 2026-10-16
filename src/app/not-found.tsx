@@ -13,7 +13,7 @@ export default function NotFound() {
 			<p className="mb-4 text-sm font-semibold uppercase tracking-widest text-black/70 dark:text-white/70 font-michroma">
 				404 — Page not found
 			</p>
-			<h1 className="mb-5 text-5xl font-black font-orbitron tracking-tight text-black sm:text-6xl dark:text-white">
+			<h1 className="mb-5 text-5xl font-black font-michroma tracking-tight text-black sm:text-6xl dark:text-white">
 				Oops, wrong turn.
 			</h1>
 			<p className="mb-10 max-w-sm text-base leading-relaxed text-black dark:text-white font-tektur">

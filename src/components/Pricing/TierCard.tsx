@@ -18,7 +18,7 @@ const TierCard = ({ tier, index }: TierCardProps) => (
 				{tier.name}
 			</p>
 			<div className="mb-3 flex items-end gap-1">
-				<span className="text-4xl font-black tracking-tight text-black dark:text-white font-orbitron">
+				<span className="text-4xl font-black tracking-tight text-black dark:text-white font-michroma">
 					{tier.price}
 				</span>
 				{tier.period && (

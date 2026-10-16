@@ -18,13 +18,7 @@ html.dark body {
 }
 
 h1,
-h2 {
-	font-family: var(--font-orbitron), ui-sans-serif, sans-serif;
-	font-weight: 700;
-	letter-spacing: normal;
-	color: #000000;
-}
-
+h2,
 h3,
 h4,
 h5,
@@ -53,10 +47,7 @@ nav,
 
 .main-title,
 .font-descscor,
-.font-orbitron {
-	font-family: var(--font-orbitron), ui-sans-serif, sans-serif !important;
-}
-
+.font-orbitron,
 .font-descmenu,
 .font-michroma {
 	font-family: var(--font-michroma), ui-sans-serif, sans-serif !important;
