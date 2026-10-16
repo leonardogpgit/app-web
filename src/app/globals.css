@@ -22,8 +22,26 @@ h2,
 h3,
 h4,
 h5,
+h6,
+h1 *,
+h2 *,
+h3 *,
+h4 *,
+h5 *,
+h6 *,
+.section-heading,
+.section-heading *,
+.main-title,
+.main-title * {
+	font-family: var(--font-michroma), ui-sans-serif, sans-serif !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
 h6 {
-	font-family: var(--font-michroma), ui-sans-serif, sans-serif;
 	font-weight: 700;
 	letter-spacing: normal;
 	color: #000000;

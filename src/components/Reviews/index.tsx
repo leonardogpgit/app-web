@@ -33,7 +33,7 @@ const Reviews = ({ items }: ReviewsProps) => {
 					<div className="mb-4 select-none font-serif text-5xl leading-none text-slate-300 dark:text-white/20 md:text-6xl">
 						"
 					</div>
-					<p className="mb-6 max-w-3xl text-xl font-medium leading-relaxed text-black dark:text-white font-tektur md:text-2xl">
+					<p className="mb-6 max-w-3xl text-base font-medium leading-relaxed text-black dark:text-white font-tektur md:text-lg">
 						{featured.text}
 					</p>
 					<div className="flex items-center gap-4">
