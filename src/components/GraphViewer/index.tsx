@@ -438,6 +438,25 @@ export default function GraphViewer({ userId, userEmail }: GraphViewerProps) {
 				</div>
 			)}
 
+			{/* Empty State Overlay */}
+			{!loading && filteredData.nodes.length === 0 && (
+				<div className="absolute inset-0 z-10 flex flex-col items-center justify-center pointer-events-none p-6 text-center">
+					<div className="max-w-md rounded-2xl border border-slate-300/80 bg-[#f4f7fb]/85 p-6 shadow-sm backdrop-blur-md dark:border-white/10 dark:bg-[#111116]/85">
+						<FiLayers className="mx-auto h-7 w-7 text-black/40 dark:text-white/40 mb-3" />
+						<h3 className="font-michroma text-sm font-bold text-black dark:text-white mb-2">
+							Logical Graph Shell Ready
+						</h3>
+						<p className="text-xs text-black/60 dark:text-white/60 leading-relaxed mb-4">
+							Awaiting database connection. Consensus nodes, dilemmas and topology will render automatically once loaded from the backend.
+						</p>
+						<div className="inline-flex items-center gap-2 rounded-lg bg-black/5 dark:bg-white/5 px-3 py-1.5 text-[11px] font-mono text-black/60 dark:text-white/60">
+							<span className="h-1.5 w-1.5 rounded-full bg-slate-400" />
+							<span>0 active nodes in buffer</span>
+						</div>
+					</div>
+				</div>
+			)}
+
 			{/* Error Banner */}
 			{error && (
 				<div className="absolute bottom-6 left-6 z-30 max-w-md rounded-xl border border-slate-300 bg-[#f4f7fb] p-4 text-xs text-black shadow-lg dark:border-white/15 dark:bg-[#111116] dark:text-white">
