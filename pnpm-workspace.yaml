@@ -1,4 +1,6 @@
 allowBuilds:
+  '@firebase/util': true
+  protobufjs: true
   sharp: true
 minimumReleaseAgeExclude:
   - '@biomejs/biome@2.5.7'
