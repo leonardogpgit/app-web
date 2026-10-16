@@ -51,7 +51,7 @@ export default function Header() {
 									Viewer
 								</Link>
 								<Link
-									href="/login"
+									href="/app/profile"
 									className="flex h-8 w-8 items-center justify-center rounded-xl bg-white/20 dark:bg-black/20 text-xs font-bold text-white dark:text-black border border-white/30 dark:border-black/30 hover:opacity-80 transition-opacity"
 									title={user.email || user.uid}
 								>

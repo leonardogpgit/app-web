@@ -4,13 +4,18 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import ProtectedRoute from "@/components/ProtectedRoute";
 import { useAuth } from "@/context/AuthContext";
-import { FiLogOut, FiShare2 } from "react-icons/fi";
+import { FiLogOut, FiShare2, FiUser } from "react-icons/fi";
 
 const internalTabs = [
 	{
 		label: "Consensus Graph",
 		href: "/app/graph",
 		icon: FiShare2,
+	},
+	{
+		label: "Participant Profile",
+		href: "/app/profile",
+		icon: FiUser,
 	},
 ];
 
@@ -53,14 +58,18 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
 
 						{user && (
 							<div className="flex items-center gap-3">
-								<div className="hidden sm:flex flex-col text-right">
+								<Link
+									href="/app/profile"
+									className="hidden sm:flex flex-col text-right hover:opacity-80 transition-opacity"
+									title="View Profile"
+								>
 									<span className="text-xs font-medium text-black dark:text-white line-clamp-1 max-w-[200px]">
 										{user.displayName || user.email}
 									</span>
 									<span className="font-mono text-[10px] text-black/40 dark:text-white/40">
 										UID: {user.uid.slice(0, 8)}...
 									</span>
-								</div>
+								</Link>
 								<button
 									type="button"
 									onClick={() => logout()}
