@@ -4,6 +4,7 @@ import BackToTop from "@/components/BackToTop";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import { site } from "@/config";
+import { AuthProvider } from "@/context/AuthContext";
 import "./globals.css";
 
 const tektur = localFont({
@@ -68,12 +69,14 @@ export default function RootLayout({
 			<body
 				className={`${tektur.variable} ${michroma.variable} flex min-h-screen flex-col bg-[#e6ecf2] text-black transition-colors duration-300 dark:bg-[#09090b] dark:text-white`}
 			>
-				<Header />
-				<main className="mx-auto w-full max-w-375 flex-grow">
-					{children}
-				</main>
-				<Footer name={site.name} logo={site.logo} />
-				<BackToTop />
+				<AuthProvider>
+					<Header />
+					<main className="mx-auto w-full max-w-375 flex-grow">
+						{children}
+					</main>
+					<Footer name={site.name} logo={site.logo} />
+					<BackToTop />
+				</AuthProvider>
 			</body>
 		</html>
 	);
