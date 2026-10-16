@@ -8,25 +8,63 @@
 }
 
 body {
-	font-family: var(--font-quantico), ui-sans-serif, sans-serif;
+	font-family: var(--font-tektur), ui-sans-serif, sans-serif;
 	font-weight: 400;
 	letter-spacing: 0.025em;
+	color: #000000;
+}
+html.dark body {
+	color: #ffffff;
 }
 
 h1,
-h2,
+h2 {
+	font-family: var(--font-orbitron), ui-sans-serif, sans-serif;
+	font-weight: 700;
+	letter-spacing: normal;
+	color: #000000;
+}
+
 h3,
 h4,
 h5,
 h6 {
-	font-family: var(--font-quantico), ui-sans-serif, sans-serif;
+	font-family: var(--font-michroma), ui-sans-serif, sans-serif;
 	font-weight: 700;
 	letter-spacing: normal;
+	color: #000000;
+}
+
+html.dark h1,
+html.dark h2,
+html.dark h3,
+html.dark h4,
+html.dark h5,
+html.dark h6 {
+	color: #ffffff;
+}
+
+button,
+nav,
+.button-base,
+.store-button {
+	font-family: var(--font-michroma), ui-sans-serif, sans-serif;
 }
 
 .main-title,
-.font-descscor {
-	font-family: var(--font-descscor), ui-sans-serif, sans-serif !important;
+.font-descscor,
+.font-orbitron {
+	font-family: var(--font-orbitron), ui-sans-serif, sans-serif !important;
+}
+
+.font-descmenu,
+.font-michroma {
+	font-family: var(--font-michroma), ui-sans-serif, sans-serif !important;
+}
+
+.font-quantico,
+.font-tektur {
+	font-family: var(--font-tektur), ui-sans-serif, sans-serif !important;
 }
 
 @layer components {
@@ -116,10 +154,10 @@ html.dark body {
 
 .screenshots-scrollbar {
 	scrollbar-width: thin;
-	scrollbar-color: rgba(79, 70, 229, 0.35) transparent;
+	scrollbar-color: rgba(0, 0, 0, 0.25) transparent;
 }
 .dark .screenshots-scrollbar {
-	scrollbar-color: rgba(99, 102, 241, 0.45) transparent;
+	scrollbar-color: rgba(255, 255, 255, 0.25) transparent;
 }
 
 .screenshots-scrollbar::-webkit-scrollbar { height: 4px; }
@@ -129,18 +167,18 @@ html.dark body {
 }
 
 .screenshots-scrollbar::-webkit-scrollbar-thumb {
-	background: rgba(79, 70, 229, 0.35);
+	background: rgba(0, 0, 0, 0.25);
 	border-radius: 4px;
 }
 .dark .screenshots-scrollbar::-webkit-scrollbar-thumb {
-	background: rgba(99, 102, 241, 0.45);
+	background: rgba(255, 255, 255, 0.25);
 }
 
 .screenshots-scrollbar::-webkit-scrollbar-thumb:hover {
-	background: rgba(79, 70, 229, 0.6);
+	background: rgba(0, 0, 0, 0.45);
 }
 .dark .screenshots-scrollbar::-webkit-scrollbar-thumb:hover {
-	background: rgba(99, 102, 241, 0.7);
+	background: rgba(255, 255, 255, 0.45);
 }
 
 .prose {

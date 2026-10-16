@@ -60,7 +60,7 @@ const AppHero = ({
 				duration: 2.2,
 				ease: "easeInOut",
 			}}
-			className="relative z-10 mb-8 inline-flex h-10 w-10 items-center justify-center rounded-xl text-gray-400 transition-colors hover:text-indigo-600 dark:text-white/30 dark:hover:text-indigo-400"
+			className="relative z-10 mb-8 inline-flex h-10 w-10 items-center justify-center rounded-xl text-black/60 transition-colors hover:text-black dark:text-white/60 dark:hover:text-white"
 		>
 			<FiChevronDown size={22} />
 		</motion.button>

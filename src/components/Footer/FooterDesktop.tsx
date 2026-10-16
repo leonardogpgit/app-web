@@ -9,7 +9,7 @@ const navLink = (label: string, href: string) => (
 	<a
 		key={label}
 		href={href}
-		className="text-sm text-black dark:text-white transition-colors hover:text-indigo-600 dark:hover:text-indigo-400"
+		className="text-sm text-black dark:text-white font-michroma transition-opacity hover:opacity-75"
 	>
 		{label}
 	</a>

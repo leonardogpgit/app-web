@@ -12,14 +12,14 @@ const FAQCard = ({ item, index }: FAQCardProps) => (
 		className="card-base flex flex-col gap-3 p-6"
 	>
 		<div className="flex items-center gap-3">
-			<span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md border border-indigo-200 bg-indigo-100/80 text-[11px] font-bold tabular-nums text-indigo-700 dark:border-indigo-500/20 dark:bg-indigo-500/10 dark:text-indigo-400">
+			<span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md border border-slate-300 bg-slate-200 text-[11px] font-bold tabular-nums text-black font-michroma dark:border-white/10 dark:bg-white/10 dark:text-white">
 				{String(index + 1).padStart(2, "0")}
 			</span>
-			<h3 className="text-sm font-semibold text-gray-900 dark:text-white md:text-base">
+			<h3 className="text-sm font-semibold font-michroma text-black dark:text-white md:text-base">
 				{item.question}
 			</h3>
 		</div>
-		<p className="text-body text-sm leading-relaxed md:text-base">
+		<p className="font-tektur text-black dark:text-white text-sm leading-relaxed md:text-base">
 			{item.answer}
 		</p>
 	</motion.div>

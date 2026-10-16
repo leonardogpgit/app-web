@@ -23,7 +23,7 @@ export default function Header() {
 							<Link
 								key={label}
 								href={href}
-								className="text-sm font-medium text-white/90 transition-opacity hover:opacity-100 dark:text-black/90 dark:hover:opacity-100"
+								className="text-sm font-medium font-michroma text-white/90 transition-opacity hover:opacity-100 dark:text-black/90 dark:hover:opacity-100"
 							>
 								{label}
 							</Link>
@@ -40,7 +40,7 @@ export default function Header() {
 						<Link
 							key={label}
 							href={href}
-							className="text-xs sm:text-sm font-medium text-white/90 transition-opacity hover:opacity-100 dark:text-black/90 dark:hover:opacity-100"
+							className="text-xs sm:text-sm font-medium font-michroma text-white/90 transition-opacity hover:opacity-100 dark:text-black/90 dark:hover:opacity-100"
 						>
 							{label}
 						</Link>

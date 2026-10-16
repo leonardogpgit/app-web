@@ -6,21 +6,21 @@ import Header from "@/components/Header";
 import { site } from "@/config";
 import "./globals.css";
 
-const quantico = localFont({
-	src: "./fonts/Quantico-Regular.ttf",
-	variable: "--font-quantico",
+const tektur = localFont({
+	src: "./fonts/Tektur-VariableFont_wdth,wght.ttf",
+	variable: "--font-tektur",
 	display: "swap",
 });
 
-const descMenu = localFont({
-	src: "./fonts/DescMenu.ttf",
-	variable: "--font-descmenu",
+const michroma = localFont({
+	src: "./fonts/Michroma-Regular.ttf",
+	variable: "--font-michroma",
 	display: "swap",
 });
 
-const descScor = localFont({
-	src: "./fonts/DescScor.ttf",
-	variable: "--font-descscor",
+const orbitron = localFont({
+	src: "./fonts/Orbitron-VariableFont_wght.ttf",
+	variable: "--font-orbitron",
 	display: "swap",
 });
 
@@ -72,7 +72,7 @@ export default function RootLayout({
 	return (
 		<html lang="en" suppressHydrationWarning>
 			<body
-				className={`${quantico.variable} ${descMenu.variable} ${descScor.variable} flex min-h-screen flex-col bg-[#e6ecf2] text-black transition-colors duration-300 dark:bg-[#09090b] dark:text-white`}
+				className={`${tektur.variable} ${michroma.variable} ${orbitron.variable} flex min-h-screen flex-col bg-[#e6ecf2] text-black transition-colors duration-300 dark:bg-[#09090b] dark:text-white`}
 			>
 				<Header />
 				<main className="mx-auto w-full max-w-375 flex-grow">
