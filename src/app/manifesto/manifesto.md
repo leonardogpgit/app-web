@@ -48,7 +48,7 @@ Every question and answer becomes a node in an interconnected graph database:
 ### Taglines & Punchlines
 - **Primary**: "What do you think? The mind of humanity in real time."
 - **Secondary**: "Real voices. Zero noise."
-- **Core Hook**: "Every voice counts. Every bias is removed."
+- **Core Hook**: "Every voice counts. Every bias removed."
 - **Reciprocity**: "Give to ask. Answer to unlock."
 - **Philosophical**: "The collective mind of humanity in your pocket."
 - **Signal**: "Pure signal, zero noise."
