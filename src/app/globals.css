@@ -10,7 +10,7 @@
 body {
 	font-family: var(--font-tektur), ui-sans-serif, sans-serif;
 	font-weight: 400;
-	letter-spacing: 0.025em;
+	letter-spacing: 0.05em;
 	color: #000000;
 }
 html.dark body {
@@ -74,6 +74,11 @@ nav,
 .font-quantico,
 .font-tektur {
 	font-family: var(--font-tektur), ui-sans-serif, sans-serif !important;
+	letter-spacing: 0.05em;
+}
+
+p, li, a, input, textarea, select, label {
+	letter-spacing: 0.05em;
 }
 
 @layer components {
