@@ -20,7 +20,7 @@ export const navLinks = [
 ] as const;
 
 export const site = {
-	name: "Animus",
+	name: "Animus Project",
 	url: "https://app.animusproject.org",
 	description:
 		"The collective mind of humanity in your pocket. Give your opinion, reveal real human consensus without bias, and discover what the world truly thinks in real time.",

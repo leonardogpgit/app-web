@@ -101,10 +101,10 @@ export default function LoginPage() {
 			<div className="card-base w-full max-w-md p-8 space-y-6">
 				<div className="text-center space-y-2">
 					<h1 className="text-2xl sm:text-3xl font-bold font-michroma text-black dark:text-white">
-						{isSignUp ? "Join Animus" : "Access Animus"}
+						{isSignUp ? "Join Animus Project" : "Access Animus Project"}
 					</h1>
 					<p className="text-xs sm:text-sm text-black/70 dark:text-white/70">
-						Connect your mind to the collective consensus graph.
+						Unified authentication across the Animus Project ecosystem.
 					</p>
 				</div>
 
