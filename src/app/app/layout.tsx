@@ -8,14 +8,9 @@ import { FiLogOut, FiShare2, FiUser } from "react-icons/fi";
 
 const internalTabs = [
 	{
-		label: "Consensus Graph",
+		label: "Graph",
 		href: "/app/graph",
 		icon: FiShare2,
-	},
-	{
-		label: "Participant Profile",
-		href: "/app/profile",
-		icon: FiUser,
 	},
 ];
 
@@ -30,10 +25,6 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
 				<section className="border-b border-slate-300 dark:border-white/10 bg-[#e6ecf2]/80 dark:bg-[#09090b]/80 backdrop-blur-md px-4 sm:px-6 lg:px-8 py-3">
 					<div className="mx-auto max-w-7xl flex flex-wrap items-center justify-between gap-3">
 						<div className="flex items-center gap-3">
-							<span className="font-michroma text-xs font-bold uppercase tracking-wider text-black/60 dark:text-white/60">
-								Network
-							</span>
-							<div className="h-4 w-px bg-slate-300 dark:bg-white/20" />
 							<nav className="flex items-center gap-2">
 								{internalTabs.map((tab) => {
 									const isActive = pathname.startsWith(tab.href);

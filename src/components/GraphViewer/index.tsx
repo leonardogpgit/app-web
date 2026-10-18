@@ -433,7 +433,7 @@ export default function GraphViewer({ userId, userEmail }: GraphViewerProps) {
 				<div className="absolute inset-0 z-30 flex flex-col items-center justify-center gap-3 bg-[#e6ecf2]/60 dark:bg-[#09090b]/60 backdrop-blur-xs">
 					<div className="h-8 w-8 animate-spin rounded-full border-2 border-slate-400 border-t-black dark:border-white/20 dark:border-t-white" />
 					<p className="font-michroma text-xs text-black/70 dark:text-white/70">
-						Mapping Animus Consensus Graph...
+						Mapping Graph...
 					</p>
 				</div>
 			)}
@@ -575,7 +575,7 @@ export default function GraphViewer({ userId, userEmail }: GraphViewerProps) {
 
 					{/* Footer Details */}
 					<div className="pt-3 border-t border-slate-300 dark:border-white/10 flex justify-between items-center text-[10px] font-mono text-black/40 dark:text-white/40">
-						<span>Animus Human Consensus Graph</span>
+						<span>Animus Graph</span>
 						<span>Neo4j Cypher Synced</span>
 					</div>
 				</aside>

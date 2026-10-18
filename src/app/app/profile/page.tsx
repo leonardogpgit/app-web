@@ -51,11 +51,8 @@ export default function ProfilePage() {
 				{/* Header Section */}
 				<div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-b border-slate-300 dark:border-white/10 pb-6">
 					<div>
-						<span className="font-mono text-xs text-black/50 dark:text-white/50 uppercase tracking-widest">
-							Ecosystem Identity
-						</span>
-						<h1 className="mt-1 font-michroma text-2xl sm:text-3xl font-bold text-black dark:text-white">
-							Participant Profile
+						<h1 className="font-michroma text-2xl sm:text-3xl font-bold text-black dark:text-white">
+							User Profile
 						</h1>
 					</div>
 					<div className="flex items-center gap-2">
@@ -66,14 +63,6 @@ export default function ProfilePage() {
 							<FiShare2 className="h-3.5 w-3.5" />
 							<span>Open Graph</span>
 						</Link>
-						<button
-							type="button"
-							onClick={() => logout()}
-							className="inline-flex items-center gap-2 rounded-xl border border-red-300 dark:border-red-900/40 bg-red-500/5 px-4 py-2 text-xs font-michroma text-red-700 dark:text-red-400 hover:bg-red-500/10 transition-colors shadow-xs"
-						>
-							<FiLogOut className="h-3.5 w-3.5" />
-							<span>Sign out</span>
-						</button>
 					</div>
 				</div>
 
@@ -85,8 +74,9 @@ export default function ProfilePage() {
 								// eslint-disable-next-line @next/next/no-img-element
 								<img
 									src={user.photoURL}
-									alt={user.displayName || "Participant Avatar"}
+									alt={user.displayName || "User Avatar"}
 									className="h-full w-full rounded-2xl object-cover"
+									referrerPolicy="no-referrer"
 								/>
 							) : user.displayName ? (
 								user.displayName.charAt(0).toUpperCase()
@@ -97,13 +87,22 @@ export default function ProfilePage() {
 							)}
 						</div>
 						<div className="min-w-0 flex-1 space-y-1">
-							<div className="flex flex-wrap items-center gap-2">
+							<div className="flex flex-wrap items-center gap-3">
 								<h2 className="font-michroma text-xl font-bold text-black dark:text-white truncate">
-									{user.displayName || "Participant Mind"}
+									{user.displayName || user.email?.split("@")[0] || "User"}
 								</h2>
 								<span className="rounded-md bg-black/5 dark:bg-white/10 px-2 py-0.5 text-[10px] font-mono uppercase text-black/60 dark:text-white/60">
 									{authProvider}
 								</span>
+								<button
+									type="button"
+									onClick={() => logout()}
+									title="Sign out"
+									className="inline-flex items-center gap-1.5 rounded-lg border border-red-300 dark:border-red-900/40 bg-red-500/5 px-2.5 py-1 text-xs font-michroma text-red-700 dark:text-red-400 hover:bg-red-500/10 transition-colors shadow-xs"
+								>
+									<FiLogOut className="h-3 w-3" />
+									<span>Sign out</span>
+								</button>
 							</div>
 							<p className="text-sm text-black/60 dark:text-white/60 truncate flex items-center gap-2">
 								<FiMail className="h-3.5 w-3.5 shrink-0" />

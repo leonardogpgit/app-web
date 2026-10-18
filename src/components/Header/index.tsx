@@ -4,6 +4,7 @@ import Link from "next/link";
 import ThemeToggle from "@/components/ThemeToggle";
 import { navLinks, site } from "@/config";
 import { useAuth } from "@/context/AuthContext";
+import { FiUser } from "react-icons/fi";
 
 export default function Header() {
 	const { user } = useAuth();
@@ -43,25 +44,22 @@ export default function Header() {
 
 					<div className="flex items-center gap-3">
 						{user ? (
-							<div className="flex items-center gap-2">
-								<Link
-									href="/app/graph"
-									className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-white/25 dark:border-black/20 bg-white/10 dark:bg-black/10 text-xs font-michroma text-white dark:text-black hover:bg-white/20 dark:hover:bg-black/20 transition-colors"
-								>
-									Viewer
-								</Link>
-								<Link
-									href="/app/profile"
-									className="flex h-8 w-8 items-center justify-center rounded-xl bg-white/20 dark:bg-black/20 text-xs font-bold text-white dark:text-black border border-white/30 dark:border-black/30 hover:opacity-80 transition-opacity"
-									title={user.email || user.uid}
-								>
-									{user.displayName
-										? user.displayName.charAt(0).toUpperCase()
-										: user.email
-											? user.email.charAt(0).toUpperCase()
-											: "U"}
-								</Link>
-							</div>
+							<Link
+								href="/app/profile"
+								className="flex h-9 w-9 items-center justify-center rounded-xl overflow-hidden border border-white/30 dark:border-black/30 hover:opacity-80 transition-opacity bg-white/20 dark:bg-black/20"
+								title={user.displayName || user.email || "User Profile"}
+							>
+								{user.photoURL ? (
+									<img
+										src={user.photoURL}
+										alt={user.displayName || "User"}
+										className="h-full w-full object-cover"
+										referrerPolicy="no-referrer"
+									/>
+								) : (
+									<FiUser className="h-4 w-4 text-white dark:text-black" />
+								)}
+							</Link>
 						) : (
 							<Link
 								href="/login"
@@ -84,12 +82,19 @@ export default function Header() {
 							{label}
 						</Link>
 					))}
-					{user && (
+					{user ? (
 						<Link
 							href="/app/graph"
 							className="text-xs sm:text-sm font-bold font-michroma text-white underline underline-offset-4 dark:text-black hover:opacity-80 transition-opacity"
 						>
 							Graph
+						</Link>
+					) : (
+						<Link
+							href="/login"
+							className="text-xs sm:text-sm font-bold font-michroma text-white dark:text-black underline underline-offset-4 transition-opacity hover:opacity-80"
+						>
+							Login
 						</Link>
 					)}
 				</nav>

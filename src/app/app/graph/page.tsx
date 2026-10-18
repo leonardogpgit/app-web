@@ -11,7 +11,7 @@ const GraphViewer = dynamic(() => import("@/components/GraphViewer"), {
 			<div className="flex flex-col items-center gap-3 text-center">
 				<div className="h-8 w-8 animate-spin rounded-full border-2 border-slate-400 border-t-black dark:border-white/20 dark:border-t-white" />
 				<span className="font-michroma text-xs text-black/60 dark:text-white/60">
-					Initializing Consensus Graph Canvas...
+					Initializing Graph Canvas...
 				</span>
 			</div>
 		</div>

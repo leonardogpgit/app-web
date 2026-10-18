@@ -41,7 +41,7 @@ export default function LoginPage() {
 							onClick={() => router.push("/app/graph")}
 							className="w-full rounded-xl bg-black px-4 py-3 text-sm font-medium font-michroma text-white hover:opacity-90 dark:bg-white dark:text-black transition-opacity"
 						>
-							Open Consensus Graph
+							Open Graph
 						</button>
 						<button
 							type="button"
