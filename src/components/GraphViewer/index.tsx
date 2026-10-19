@@ -164,16 +164,28 @@ export default function GraphViewer({ userId, userEmail }: GraphViewerProps) {
 				.linkDirectionalParticles(2)
 				.linkDirectionalParticleSpeed(0.006)
 				.linkDirectionalParticleWidth(2)
-				.linkDirectionalParticleColor(() => (isDark ? "#ffffff" : "#000000"))
+				.linkDirectionalParticleColor(() =>
+					typeof document !== "undefined" &&
+					document.documentElement.classList.contains("dark")
+						? "#ffffff"
+						: "#000000",
+				)
 				.linkColor(() =>
-					isDark ? "rgba(255, 255, 255, 0.18)" : "rgba(0, 0, 0, 0.18)",
+					typeof document !== "undefined" &&
+					document.documentElement.classList.contains("dark")
+						? "rgba(255, 255, 255, 0.25)"
+						: "rgba(0, 0, 0, 0.18)",
 				)
 				.linkWidth(1.5)
 				.linkDirectionalArrowLength(5)
 				.linkDirectionalArrowRelPos(0.95)
 				.nodeCanvasObject((node: any, ctx, globalScale) => {
+					const isCurrentDark =
+						typeof document !== "undefined"
+							? document.documentElement.classList.contains("dark")
+							: isDark;
 					const radius = 16;
-					const color = getLabelColor(node.label || "Node", isDark);
+					const color = getLabelColor(node.label || "Node", isCurrentDark);
 					const isSelected = selectedNode?.id === node.id;
 
 					// Outer halo for selection
@@ -186,10 +198,10 @@ export default function GraphViewer({ userId, userEmail }: GraphViewerProps) {
 						2 * Math.PI,
 					);
 					ctx.fillStyle = isSelected
-						? isDark
+						? isCurrentDark
 							? "rgba(255, 255, 255, 0.4)"
 							: "rgba(0, 0, 0, 0.35)"
-						: isDark
+						: isCurrentDark
 							? "rgba(255, 255, 255, 0.08)"
 							: "rgba(0, 0, 0, 0.08)";
 					ctx.fill();
@@ -197,7 +209,7 @@ export default function GraphViewer({ userId, userEmail }: GraphViewerProps) {
 					// Inner solid circle
 					ctx.beginPath();
 					ctx.arc(node.x, node.y, radius, 0, 2 * Math.PI);
-					ctx.fillStyle = isDark ? "#111116" : "#f4f7fb";
+					ctx.fillStyle = isCurrentDark ? "#111116" : "#f4f7fb";
 					ctx.fill();
 					ctx.lineWidth = isSelected ? 3 : 1.5;
 					ctx.strokeStyle = color;
@@ -222,7 +234,7 @@ export default function GraphViewer({ userId, userEmail }: GraphViewerProps) {
 						ctx.font = `600 ${fontSize}px Michroma, sans-serif`;
 						ctx.textAlign = "center";
 						ctx.textBaseline = "middle";
-						ctx.fillStyle = isDark ? "#ffffff" : "#000000";
+						ctx.fillStyle = isCurrentDark ? "#ffffff" : "#000000";
 						ctx.fillText(String(label), node.x, node.y + radius + 11);
 					}
 				})
@@ -239,8 +251,13 @@ export default function GraphViewer({ userId, userEmail }: GraphViewerProps) {
 		}
 
 		// Update graph styling on theme change
-		fgInstanceRef.current.backgroundColor(isDark ? "#09090b" : "#e6ecf2");
+		const activeDark =
+			typeof document !== "undefined"
+				? document.documentElement.classList.contains("dark")
+				: isDark;
+		fgInstanceRef.current.backgroundColor(activeDark ? "#09090b" : "#e6ecf2");
 		fgInstanceRef.current.graphData(filteredData);
+		fgInstanceRef.current.refresh();
 
 		// Handle resize observer
 		const resizeObserver = new ResizeObserver(() => {
