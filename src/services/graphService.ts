@@ -40,20 +40,70 @@ export async function fetchUserGraph(
 	token?: string | null,
 ): Promise<GraphDataPayload> {
 	const backendUrl =
-		process.env.NEXT_PUBLIC_ANIMUS_BACKEND_URL || "http://localhost:3001";
+		process.env.NEXT_PUBLIC_ANIMUS_BACKEND_URL || "https://jarvisback.animusproject.org";
 
 	if (token) {
+		const lang =
+			typeof navigator !== "undefined" &&
+			navigator.language?.toLowerCase().startsWith("es")
+				? "es"
+				: "en";
+
+		const defaultHeaders = {
+			Authorization: `Bearer ${token}`,
+			"x-imago-language": lang,
+			"x-imago-user-role": "User",
+			"x-imago-assistant-role": "Jarvis",
+			Accept: "application/json",
+		};
+
 		try {
 			const res = await fetch(`${backendUrl}/graph`, {
-				headers: {
-					Authorization: `Bearer ${token}`,
-					Accept: "application/json",
-				},
+				headers: defaultHeaders,
 			});
 
 			if (res.ok) {
 				const json = await res.json();
 				if (json?.nodes && Array.isArray(json.nodes)) {
+					if (json.nodes.length === 0) {
+						// Attempt auto-bootstrap in case session was not initialized yet
+						try {
+							await fetch(`${backendUrl}/session/login-active`, {
+								method: "POST",
+								headers: {
+									...defaultHeaders,
+									"Content-Type": "application/json",
+								},
+								body: JSON.stringify({ initialAppLocale: lang }),
+							});
+							const retryRes = await fetch(`${backendUrl}/graph`, {
+								headers: defaultHeaders,
+							});
+							if (retryRes.ok) {
+								const retryJson = await retryRes.json();
+								if (
+									retryJson?.nodes &&
+									Array.isArray(retryJson.nodes) &&
+									retryJson.nodes.length > 0
+								) {
+									return {
+										success: true,
+										source: "neo4j",
+										userId,
+										nodes: retryJson.nodes,
+										links: retryJson.links || [],
+										summary: {
+											totalNodes: retryJson.nodes.length,
+											totalLinks: (retryJson.links || []).length,
+										},
+									};
+								}
+							}
+						} catch (bootErr) {
+							console.info("Auto-bootstrap attempt completed:", bootErr);
+						}
+					}
+
 					return {
 						success: true,
 						source: "neo4j",
