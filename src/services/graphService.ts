@@ -52,8 +52,6 @@ export async function fetchUserGraph(
 		const defaultHeaders = {
 			Authorization: `Bearer ${token}`,
 			"x-imago-language": lang,
-			"x-imago-user-role": "User",
-			"x-imago-assistant-role": "Jarvis",
 			Accept: "application/json",
 		};
 
