@@ -1,17 +1,24 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
 
 export default function LoginPage() {
 	const router = useRouter();
 	const { user, logout } = useAuth();
+	const [attempted, setAttempted] = useState(false);
 
 	useEffect(() => {
 		if (!user) {
-			const target = encodeURIComponent("https://app.animusproject.org/app/graph");
-			window.location.href = `https://animusproject.org/login?redirect=${target}`;
+			const hasAttempted = sessionStorage.getItem("auth_redirect_attempted");
+			if (!hasAttempted) {
+				sessionStorage.setItem("auth_redirect_attempted", "true");
+				const target = encodeURIComponent("https://app.animusproject.org/app/graph");
+				window.location.href = `https://animusproject.org/login?redirect=${target}`;
+			} else {
+				setAttempted(true);
+			}
 		}
 	}, [user]);
 
@@ -38,14 +45,14 @@ export default function LoginPage() {
 						<button
 							type="button"
 							onClick={() => router.push("/app/graph")}
-							className="w-full rounded-xl bg-black px-4 py-3 text-sm font-medium font-michroma text-white hover:opacity-90 dark:bg-white dark:text-black transition-opacity"
+							className="w-full rounded-xl bg-black px-4 py-3 text-sm font-medium font-michroma text-white hover:opacity-90 dark:bg-white dark:text-black transition-opacity cursor-pointer"
 						>
 							Open Graph
 						</button>
 						<button
 							type="button"
 							onClick={() => logout()}
-							className="w-full rounded-xl border border-slate-300 dark:border-white/10 bg-[#f4f7fb] dark:bg-white/5 px-4 py-3 text-sm font-medium font-michroma text-black dark:text-white hover:bg-slate-200/60 dark:hover:bg-white/10 transition-colors"
+							className="w-full rounded-xl border border-slate-300 dark:border-white/10 bg-[#f4f7fb] dark:bg-white/5 px-4 py-3 text-sm font-medium font-michroma text-black dark:text-white hover:bg-slate-200/60 dark:hover:bg-white/10 transition-colors cursor-pointer"
 						>
 							Sign Out
 						</button>
@@ -58,21 +65,25 @@ export default function LoginPage() {
 	return (
 		<section className="py-20 md:py-28 flex items-center justify-center px-4">
 			<div className="card-base w-full max-w-md p-8 text-center space-y-6">
-				<div className="mx-auto h-10 w-10 animate-spin rounded-full border-2 border-slate-400 border-t-black dark:border-white/20 dark:border-t-white" />
-				<div>
-					<h1 className="text-xl font-bold font-michroma text-black dark:text-white">
-						Redirecting to Animus Login...
-					</h1>
-					<p className="mt-2 text-xs text-black/60 dark:text-white/60">
-						Transferring to central ecosystem authentication.
-					</p>
-				</div>
-				<a
-					href="https://animusproject.org/login?redirect=https%3A%2F%2Fapp.animusproject.org%2Fapp%2Fgraph"
-					className="inline-block w-full rounded-xl bg-black px-4 py-3 text-xs font-medium font-michroma text-white hover:opacity-90 dark:bg-white dark:text-black transition-opacity"
+				<h1 className="text-xl font-bold font-michroma text-black dark:text-white">
+					Authentication Required
+				</h1>
+				<p className="mt-2 text-xs text-black/60 dark:text-white/60">
+					Sign in through the central Animus Project portal to access your consensus graph.
+				</p>
+				<button
+					type="button"
+					onClick={() => {
+						if (typeof window !== "undefined") {
+							sessionStorage.removeItem("auth_redirect_attempted");
+							const target = encodeURIComponent("https://app.animusproject.org/app/graph");
+							window.location.href = `https://animusproject.org/login?redirect=${target}`;
+						}
+					}}
+					className="inline-block w-full rounded-xl bg-black px-4 py-3 text-xs font-medium font-michroma text-white hover:opacity-90 dark:bg-white dark:text-black transition-opacity cursor-pointer"
 				>
-					Continue to Login
-				</a>
+					Sign In with Animus
+				</button>
 			</div>
 		</section>
 	);

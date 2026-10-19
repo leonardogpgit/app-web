@@ -9,8 +9,16 @@ export default function ProtectedRoute({ children }: { children: ReactNode }) {
 	useEffect(() => {
 		if (!loading && !user) {
 			if (typeof window !== "undefined") {
-				const current = encodeURIComponent(window.location.href);
-				window.location.href = `https://animusproject.org/login?redirect=${current}`;
+				const hasAttempted = sessionStorage.getItem("auth_redirect_attempted");
+				if (!hasAttempted) {
+					sessionStorage.setItem("auth_redirect_attempted", "true");
+					const current = encodeURIComponent(window.location.href);
+					window.location.href = `https://animusproject.org/login?redirect=${current}`;
+				}
+			}
+		} else if (user) {
+			if (typeof window !== "undefined") {
+				sessionStorage.removeItem("auth_redirect_attempted");
 			}
 		}
 	}, [user, loading]);
@@ -40,11 +48,12 @@ export default function ProtectedRoute({ children }: { children: ReactNode }) {
 						type="button"
 						onClick={() => {
 							if (typeof window !== "undefined") {
+								sessionStorage.removeItem("auth_redirect_attempted");
 								const current = encodeURIComponent(window.location.href);
 								window.location.href = `https://animusproject.org/login?redirect=${current}`;
 							}
 						}}
-						className="inline-block w-full rounded-xl bg-black px-4 py-2.5 font-michroma text-xs text-white hover:opacity-90 dark:bg-white dark:text-black transition-opacity"
+						className="inline-block w-full rounded-xl bg-black px-4 py-2.5 font-michroma text-xs text-white hover:opacity-90 dark:bg-white dark:text-black transition-opacity cursor-pointer"
 					>
 						Sign In via Animus
 					</button>

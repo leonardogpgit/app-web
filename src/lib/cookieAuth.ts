@@ -7,7 +7,7 @@ export interface SharedSessionData {
 	updatedAt: number;
 }
 
-const COOKIE_NAME = "animus_session";
+const STORAGE_KEY = "animus_session";
 
 export function getCookieDomain(): string {
 	if (typeof window === "undefined") return "";
@@ -22,46 +22,91 @@ export function getCookieDomain(): string {
 }
 
 export function setSharedSession(data: SharedSessionData): void {
-	if (typeof document === "undefined") return;
+	if (typeof window === "undefined") return;
 	try {
 		const jsonStr = JSON.stringify(data);
+		// 1. Scoped localStorage fallback (guaranteed to work across tabs even if third-party cookies partitioned)
+		try {
+			localStorage.setItem(STORAGE_KEY, jsonStr);
+		} catch {}
+
+		// 2. Cross-subdomain cookie on .animusproject.org
 		const encoded = encodeURIComponent(jsonStr);
 		const domainPart = getCookieDomain();
-		// 7 days expiration in seconds
-		const maxAge = 60 * 60 * 24 * 7;
-		document.cookie = `${COOKIE_NAME}=${encoded}; path=/; max-age=${maxAge}; SameSite=Lax; Secure${domainPart}`;
+		const maxAge = 60 * 60 * 24 * 7; // 7 days
+		document.cookie = `${STORAGE_KEY}=${encoded}; path=/; max-age=${maxAge}; SameSite=Lax; Secure${domainPart}`;
 	} catch (err) {
-		console.error("Failed to set shared session cookie:", err);
+		console.error("Failed to set shared session:", err);
 	}
 }
 
 export function getSharedSession(): SharedSessionData | null {
-	if (typeof document === "undefined") return null;
+	if (typeof window === "undefined") return null;
 	try {
+		// 1. Check URL hash for relayed session (#session=...)
+		if (window.location.hash && window.location.hash.includes("session=")) {
+			const hashStr = window.location.hash.replace(/^#/, "");
+			const hashParams = new URLSearchParams(hashStr);
+			const sessionParam = hashParams.get("session");
+			if (sessionParam) {
+				try {
+					const parsed = JSON.parse(decodeURIComponent(sessionParam)) as SharedSessionData;
+					if (parsed && typeof parsed.uid === "string") {
+						// Clean URL hash without reloading
+						const cleanUrl = window.location.pathname + window.location.search;
+						window.history.replaceState(null, "", cleanUrl);
+						setSharedSession(parsed);
+						return parsed;
+					}
+				} catch (e) {
+					console.error("Failed to parse hash session:", e);
+				}
+			}
+		}
+
+		// 2. Check localStorage
+		try {
+			const localStr = localStorage.getItem(STORAGE_KEY);
+			if (localStr) {
+				const parsed = JSON.parse(localStr) as SharedSessionData;
+				if (parsed && typeof parsed.uid === "string") {
+					return parsed;
+				}
+			}
+		} catch {}
+
+		// 3. Check document.cookie
 		const cookies = document.cookie.split(";");
 		for (const cookie of cookies) {
 			const [name, ...rest] = cookie.trim().split("=");
-			if (name === COOKIE_NAME) {
+			if (name === STORAGE_KEY) {
 				const value = rest.join("=");
-				if (!value) return null;
+				if (!value) continue;
 				const decoded = decodeURIComponent(value);
 				const parsed = JSON.parse(decoded) as SharedSessionData;
 				if (parsed && typeof parsed.uid === "string") {
+					try {
+						localStorage.setItem(STORAGE_KEY, decoded);
+					} catch {}
 					return parsed;
 				}
 			}
 		}
 	} catch (err) {
-		console.error("Failed to read shared session cookie:", err);
+		console.error("Failed to read shared session:", err);
 	}
 	return null;
 }
 
 export function clearSharedSession(): void {
-	if (typeof document === "undefined") return;
-	const domainPart = getCookieDomain();
-	document.cookie = `${COOKIE_NAME}=; path=/; max-age=0; SameSite=Lax; Secure${domainPart}`;
-	document.cookie = `${COOKIE_NAME}=; path=/; max-age=0; SameSite=Lax; Secure`;
+	if (typeof window === "undefined") return;
+	try {
+		localStorage.removeItem(STORAGE_KEY);
+		sessionStorage.removeItem("auth_redirect_attempted");
+		const domainPart = getCookieDomain();
+		document.cookie = `${STORAGE_KEY}=; path=/; max-age=0; SameSite=Lax; Secure${domainPart}`;
+		document.cookie = `${STORAGE_KEY}=; path=/; max-age=0; SameSite=Lax; Secure`;
+	} catch {}
 }
 
 export function getSafeRedirectUrl(url: string | null): string | null {
@@ -81,4 +126,15 @@ export function getSafeRedirectUrl(url: string | null): string | null {
 		return null;
 	}
 	return null;
+}
+
+export function buildRedirectWithSession(targetUrl: string, session: SharedSessionData): string {
+	try {
+		const url = new URL(targetUrl);
+		const sessionParam = encodeURIComponent(JSON.stringify(session));
+		url.hash = `session=${sessionParam}`;
+		return url.toString();
+	} catch {
+		return targetUrl;
+	}
 }

@@ -12,6 +12,7 @@ import {
 } from "firebase/auth";
 import {
 	createContext,
+	useCallback,
 	useContext,
 	useEffect,
 	useState,
@@ -95,14 +96,14 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
-		// Eagerly hydrate from shared session cookie if present
+		// Eagerly hydrate from shared session (URL hash relay, localStorage, or cookie)
 		const initialSession = getSharedSession();
 		if (initialSession) {
 			setUser(createSyntheticUser(initialSession));
 			setLoading(false);
 		}
 
-		const syncToken = async (currentUser: User | null) => {
+		const unsubAuth = onAuthStateChanged(auth, async (currentUser) => {
 			if (currentUser) {
 				setUser(currentUser);
 				setLoading(false);
@@ -120,20 +121,36 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 					console.error("Failed to sync ID token to shared session:", err);
 				}
 			} else {
-				const cookieSession = getSharedSession();
-				if (cookieSession) {
-					setUser(createSyntheticUser(cookieSession));
+				const session = getSharedSession();
+				if (session) {
+					setUser((prev) => {
+						if (prev && prev.uid === session.uid) return prev;
+						return createSyntheticUser(session);
+					});
 					setLoading(false);
-					promoteCustomToken(cookieSession.token);
+					promoteCustomToken(session.token);
 				} else {
 					setUser(null);
 					setLoading(false);
 				}
 			}
-		};
+		});
 
-		const unsubAuth = onAuthStateChanged(auth, syncToken);
-		const unsubToken = onIdTokenChanged(auth, syncToken);
+		const unsubToken = onIdTokenChanged(auth, async (currentUser) => {
+			if (currentUser) {
+				try {
+					const token = await currentUser.getIdToken();
+					setSharedSession({
+						uid: currentUser.uid,
+						email: currentUser.email,
+						displayName: currentUser.displayName,
+						photoURL: currentUser.photoURL,
+						token,
+						updatedAt: Date.now(),
+					});
+				} catch {}
+			}
+		});
 
 		return () => {
 			unsubAuth();
@@ -223,7 +240,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 		}
 	};
 
-	const getIdToken = async () => {
+	const getIdToken = useCallback(async () => {
 		if (auth.currentUser) {
 			const token = await auth.currentUser.getIdToken();
 			const session = getSharedSession();
@@ -234,7 +251,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 		}
 		const session = getSharedSession();
 		return session ? session.token : null;
-	};
+	}, []);
 
 	return (
 		<AuthContext.Provider
