@@ -1,78 +1,44 @@
 "use client";
 
-import { useEffect, useRef, useState, useMemo, useCallback } from "react";
 import ForceGraph from "force-graph";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import {
+	FiActivity,
+	FiFilter,
+	FiLayers,
+	FiMaximize2,
+	FiRotateCcw,
+	FiSearch,
+	FiX,
+} from "react-icons/fi";
 import { useAuth } from "@/context/AuthContext";
 import {
 	fetchUserGraph,
 	type GraphDataPayload,
-	type GraphNode as NodeData,
 	type GraphLink as LinkData,
+	type GraphNode as NodeData,
 } from "@/services/graphService";
-import {
-	FiSearch,
-	FiRotateCcw,
-	FiFilter,
-	FiX,
-	FiLayers,
-	FiActivity,
-	FiMaximize2,
-} from "react-icons/fi";
 
-export type { NodeData, LinkData, GraphDataPayload };
+export type { GraphDataPayload, LinkData, NodeData };
 
 interface GraphViewerProps {
 	userId: string;
 	userEmail?: string;
 }
 
-const TYPE_CONFIG: Record<
-	string,
-	{ label: string; lightColor: string; darkColor: string; radius: number }
-> = {
-	user: {
-		label: "Participant Mind",
-		lightColor: "#0f172a",
-		darkColor: "#f8fafc",
-		radius: 26,
-	},
-	dilemma: {
-		label: "Dilemma Question",
-		lightColor: "#334155",
-		darkColor: "#cbd5e1",
-		radius: 22,
-	},
-	option: {
-		label: "Choice Option",
-		lightColor: "#64748b",
-		darkColor: "#94a3b8",
-		radius: 16,
-	},
-	consensus: {
-		label: "Consensus Cluster",
-		lightColor: "#1e293b",
-		darkColor: "#e2e8f0",
-		radius: 20,
-	},
-	topic: {
-		label: "Knowledge Topic",
-		lightColor: "#475569",
-		darkColor: "#cbd5e1",
-		radius: 18,
-	},
-	reciprocity: {
-		label: "Reciprocity Hub",
-		lightColor: "#0f172a",
-		darkColor: "#f1f5f9",
-		radius: 19,
-	},
-	cluster: {
-		label: "Demographic Cohort",
-		lightColor: "#6b7280",
-		darkColor: "#9ca3af",
-		radius: 15,
-	},
-};
+/**
+ * Deterministically derives a distinguishable HSL color for any arbitrary Neo4j label.
+ * No hardcoded categories or predefined dictionaries needed.
+ */
+function getLabelColor(label: string, isDark: boolean): string {
+	if (!label) return isDark ? "#94a3b8" : "#475569";
+	let hash = 0;
+	for (let i = 0; i < label.length; i++) {
+		hash = label.charCodeAt(i) + ((hash << 5) - hash);
+	}
+	const hue = Math.abs(hash) % 360;
+	return isDark ? `hsl(${hue}, 65%, 65%)` : `hsl(${hue}, 65%, 38%)`;
+}
 
 export default function GraphViewer({ userId, userEmail }: GraphViewerProps) {
 	const containerRef = useRef<HTMLDivElement>(null);
@@ -86,19 +52,26 @@ export default function GraphViewer({ userId, userEmail }: GraphViewerProps) {
 
 	const [searchQuery, setSearchQuery] = useState("");
 	const [selectedNode, setSelectedNode] = useState<NodeData | null>(null);
-	const [activeTypes, setActiveTypes] = useState<Record<string, boolean>>({
-		user: true,
-		dilemma: true,
-		option: true,
-		consensus: true,
-		topic: true,
-		reciprocity: true,
-		cluster: true,
-	});
 	const [isFilterOpen, setIsFilterOpen] = useState(false);
+	const [isDark, setIsDark] = useState(false);
 	const { getIdToken } = useAuth();
 
-	// Fetch graph from API / Service
+	// Sync dark mode state reactively
+	useEffect(() => {
+		const checkDark = () => document.documentElement.classList.contains("dark");
+		setIsDark(checkDark());
+
+		const observer = new MutationObserver(() => {
+			setIsDark(checkDark());
+		});
+		observer.observe(document.documentElement, {
+			attributes: true,
+			attributeFilter: ["class"],
+		});
+		return () => observer.disconnect();
+	}, []);
+
+	// Fetch graph from API
 	const fetchGraph = useCallback(async () => {
 		try {
 			setLoading(true);
@@ -118,12 +91,39 @@ export default function GraphViewer({ userId, userEmail }: GraphViewerProps) {
 		fetchGraph();
 	}, [fetchGraph]);
 
-	// Filter nodes and links
+	// Extract unique labels dynamically from real Neo4j nodes
+	const availableLabels = useMemo(() => {
+		if (!rawGraphData?.nodes) return [];
+		const labels = new Set<string>();
+		for (const node of rawGraphData.nodes) {
+			labels.add(node.label || "Node");
+		}
+		return Array.from(labels).sort();
+	}, [rawGraphData]);
+
+	// Dynamic label visibility filter
+	const [activeLabels, setActiveLabels] = useState<Record<string, boolean>>({});
+
+	useEffect(() => {
+		if (availableLabels.length > 0) {
+			setActiveLabels((prev) => {
+				const next = { ...prev };
+				for (const label of availableLabels) {
+					if (next[label] === undefined) {
+						next[label] = true;
+					}
+				}
+				return next;
+			});
+		}
+	}, [availableLabels]);
+
+	// Filter nodes and links by active Neo4j labels
 	const filteredData = useMemo(() => {
 		if (!rawGraphData) return { nodes: [], links: [] };
 
 		const allowedNodes = rawGraphData.nodes.filter(
-			(n) => activeTypes[n.type] ?? true,
+			(n) => activeLabels[n.label || "Node"] ?? true,
 		);
 		const allowedNodeIds = new Set(allowedNodes.map((n) => n.id));
 
@@ -139,13 +139,12 @@ export default function GraphViewer({ userId, userEmail }: GraphViewerProps) {
 			nodes: allowedNodes,
 			links: allowedLinks,
 		};
-	}, [rawGraphData, activeTypes]);
+	}, [rawGraphData, activeLabels]);
 
 	// Initialize and update ForceGraph
 	useEffect(() => {
 		if (!containerRef.current) return;
 
-		const isDark = document.documentElement.classList.contains("dark");
 		const width = containerRef.current.clientWidth || 800;
 		const height = containerRef.current.clientHeight || 600;
 
@@ -157,7 +156,7 @@ export default function GraphViewer({ userId, userEmail }: GraphViewerProps) {
 				.nodeId("id")
 				.nodeLabel(
 					(node: any) =>
-						`<div style="background: rgba(0,0,0,0.85); color: #fff; padding: 4px 8px; border-radius: 6px; font-size: 11px; font-family: monospace;">${node.label}: ${node.name}</div>`,
+						`<div style="background: rgba(0,0,0,0.85); color: #fff; padding: 4px 8px; border-radius: 6px; font-size: 11px; font-family: monospace;">${node.label || "Node"}: ${node.name || node.id}</div>`,
 				)
 				.linkSource("source")
 				.linkTarget("target")
@@ -173,19 +172,19 @@ export default function GraphViewer({ userId, userEmail }: GraphViewerProps) {
 				.linkDirectionalArrowLength(5)
 				.linkDirectionalArrowRelPos(0.95)
 				.nodeCanvasObject((node: any, ctx, globalScale) => {
-					const config = TYPE_CONFIG[node.type] || {
-						radius: 16,
-						lightColor: "#475569",
-						darkColor: "#cbd5e1",
-					};
-					const baseRadius = config.radius;
-					const radius = baseRadius;
-					const color = isDark ? config.darkColor : config.lightColor;
+					const radius = 16;
+					const color = getLabelColor(node.label || "Node", isDark);
 					const isSelected = selectedNode?.id === node.id;
 
-					// Outer glow / halo
+					// Outer halo for selection
 					ctx.beginPath();
-					ctx.arc(node.x, node.y, radius + (isSelected ? 6 : 3), 0, 2 * Math.PI);
+					ctx.arc(
+						node.x,
+						node.y,
+						radius + (isSelected ? 6 : 3),
+						0,
+						2 * Math.PI,
+					);
 					ctx.fillStyle = isSelected
 						? isDark
 							? "rgba(255, 255, 255, 0.4)"
@@ -204,7 +203,7 @@ export default function GraphViewer({ userId, userEmail }: GraphViewerProps) {
 					ctx.strokeStyle = color;
 					ctx.stroke();
 
-					// Inner accent dot / symbol
+					// Accent center dot
 					ctx.beginPath();
 					ctx.arc(node.x, node.y, 4, 0, 2 * Math.PI);
 					ctx.fillStyle = color;
@@ -212,18 +211,23 @@ export default function GraphViewer({ userId, userEmail }: GraphViewerProps) {
 
 					// Node Label (Visible when zoomed in or selected)
 					if (globalScale > 0.6 || isSelected) {
-						const label = node.name || node.label;
+						const label =
+							node.name ||
+							node.properties?.name ||
+							node.properties?.title ||
+							node.properties?.displayName ||
+							node.label ||
+							node.id;
 						const fontSize = Math.max(10 / globalScale, 9);
 						ctx.font = `600 ${fontSize}px Michroma, sans-serif`;
 						ctx.textAlign = "center";
 						ctx.textBaseline = "middle";
 						ctx.fillStyle = isDark ? "#ffffff" : "#000000";
-						ctx.fillText(label, node.x, node.y + radius + 11);
+						ctx.fillText(String(label), node.x, node.y + radius + 11);
 					}
 				})
 				.onNodeClick((node: any) => {
 					setSelectedNode(node);
-					// Smoothly center camera on clicked node
 					fgInstanceRef.current.centerAt(node.x, node.y, 600);
 					fgInstanceRef.current.zoom(1.8, 600);
 				})
@@ -234,7 +238,8 @@ export default function GraphViewer({ userId, userEmail }: GraphViewerProps) {
 			fgInstanceRef.current = fg;
 		}
 
-		// Update graph data
+		// Update graph styling on theme change
+		fgInstanceRef.current.backgroundColor(isDark ? "#09090b" : "#e6ecf2");
 		fgInstanceRef.current.graphData(filteredData);
 
 		// Handle resize observer
@@ -251,7 +256,7 @@ export default function GraphViewer({ userId, userEmail }: GraphViewerProps) {
 		return () => {
 			resizeObserver.disconnect();
 		};
-	}, [filteredData, selectedNode]);
+	}, [filteredData, selectedNode, isDark]);
 
 	// Recenter handler
 	const handleRecenter = () => {
@@ -265,11 +270,12 @@ export default function GraphViewer({ userId, userEmail }: GraphViewerProps) {
 		e.preventDefault();
 		if (!searchQuery.trim() || !fgInstanceRef.current) return;
 
+		const q = searchQuery.toLowerCase();
 		const match = filteredData.nodes.find(
 			(n) =>
-				n.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-				n.label.toLowerCase().includes(searchQuery.toLowerCase()) ||
-				n.id.toLowerCase().includes(searchQuery.toLowerCase()),
+				n.name?.toLowerCase().includes(q) ||
+				n.label?.toLowerCase().includes(q) ||
+				n.id.toLowerCase().includes(q),
 		);
 
 		if (match) {
@@ -281,11 +287,11 @@ export default function GraphViewer({ userId, userEmail }: GraphViewerProps) {
 		}
 	};
 
-	// Toggle filter type
-	const toggleType = (type: string) => {
-		setActiveTypes((prev) => ({
+	// Toggle filter label
+	const toggleLabel = (label: string) => {
+		setActiveLabels((prev) => ({
 			...prev,
-			[type]: !prev[type],
+			[label]: !prev[label],
 		}));
 	};
 
@@ -322,13 +328,10 @@ export default function GraphViewer({ userId, userEmail }: GraphViewerProps) {
 			<div className="absolute top-4 left-4 right-4 z-20 flex flex-wrap items-center justify-between gap-3 pointer-events-none">
 				{/* Search & Actions */}
 				<div className="flex flex-wrap items-center gap-2 pointer-events-auto">
-					<form
-						onSubmit={handleSearch}
-						className="relative flex items-center"
-					>
+					<form onSubmit={handleSearch} className="relative flex items-center">
 						<input
 							type="text"
-							placeholder="Search dilemma or node..."
+							placeholder="Search node..."
 							value={searchQuery}
 							onChange={(e) => setSearchQuery(e.target.value)}
 							className="h-9 w-48 sm:w-64 rounded-xl border border-slate-300 bg-[#f4f7fb]/90 pl-9 pr-3 text-xs text-black outline-none backdrop-blur-md transition-all placeholder:text-neutral-500 focus:w-72 focus:border-black dark:border-white/15 dark:bg-[#111116]/90 dark:text-white dark:focus:border-white"
@@ -365,7 +368,7 @@ export default function GraphViewer({ userId, userEmail }: GraphViewerProps) {
 						}`}
 					>
 						<FiFilter className="h-3.5 w-3.5" />
-						<span>Filters</span>
+						<span>Labels ({availableLabels.length})</span>
 					</button>
 				</div>
 
@@ -382,12 +385,12 @@ export default function GraphViewer({ userId, userEmail }: GraphViewerProps) {
 				)}
 			</div>
 
-			{/* Filter Popover Panel */}
+			{/* Filter Popover Panel - Pure Dynamic Neo4j Labels */}
 			{isFilterOpen && (
 				<div className="absolute top-16 left-4 z-20 w-64 rounded-2xl border border-slate-300 bg-[#f4f7fb]/95 p-4 shadow-xl backdrop-blur-md dark:border-white/15 dark:bg-[#111116]/95">
 					<div className="flex items-center justify-between pb-2 mb-3 border-b border-slate-300 dark:border-white/10">
 						<span className="font-michroma text-xs font-bold text-black dark:text-white uppercase tracking-wider">
-							Visible Node Types
+							Neo4j Labels
 						</span>
 						<button
 							type="button"
@@ -397,27 +400,33 @@ export default function GraphViewer({ userId, userEmail }: GraphViewerProps) {
 							<FiX className="h-3.5 w-3.5" />
 						</button>
 					</div>
-					<div className="space-y-2">
-						{Object.entries(TYPE_CONFIG).map(([typeKey, config]) => (
-							<label
-								key={typeKey}
-								className="flex items-center justify-between gap-2 text-xs text-black/80 dark:text-white/80 cursor-pointer hover:opacity-80"
-							>
-								<div className="flex items-center gap-2">
-									<span
-										className="h-2.5 w-2.5 rounded-full"
-										style={{ backgroundColor: config.lightColor }}
+					<div className="space-y-2 max-h-60 overflow-y-auto">
+						{availableLabels.length === 0 ? (
+							<p className="text-xs text-black/50 dark:text-white/50 italic py-2">
+								No labels found in graph
+							</p>
+						) : (
+							availableLabels.map((label) => (
+								<label
+									key={label}
+									className="flex items-center justify-between gap-2 text-xs text-black/80 dark:text-white/80 cursor-pointer hover:opacity-80"
+								>
+									<div className="flex items-center gap-2">
+										<span
+											className="h-2.5 w-2.5 rounded-full"
+											style={{ backgroundColor: getLabelColor(label, isDark) }}
+										/>
+										<span className="font-mono">{label}</span>
+									</div>
+									<input
+										type="checkbox"
+										checked={activeLabels[label] ?? true}
+										onChange={() => toggleLabel(label)}
+										className="rounded border-slate-300 text-black focus:ring-black dark:border-white/20 dark:bg-white/10"
 									/>
-									<span>{config.label}</span>
-								</div>
-								<input
-									type="checkbox"
-									checked={activeTypes[typeKey] ?? true}
-									onChange={() => toggleType(typeKey)}
-									className="rounded border-slate-300 text-black focus:ring-black dark:border-white/20 dark:bg-white/10"
-								/>
-							</label>
-						))}
+								</label>
+							))
+						)}
 					</div>
 				</div>
 			)}
@@ -433,7 +442,7 @@ export default function GraphViewer({ userId, userEmail }: GraphViewerProps) {
 				<div className="absolute inset-0 z-30 flex flex-col items-center justify-center gap-3 bg-[#e6ecf2]/60 dark:bg-[#09090b]/60 backdrop-blur-xs">
 					<div className="h-8 w-8 animate-spin rounded-full border-2 border-slate-400 border-t-black dark:border-white/20 dark:border-t-white" />
 					<p className="font-michroma text-xs text-black/70 dark:text-white/70">
-						Mapping Graph...
+						Loading Neo4j Graph...
 					</p>
 				</div>
 			)}
@@ -444,14 +453,15 @@ export default function GraphViewer({ userId, userEmail }: GraphViewerProps) {
 					<div className="max-w-md rounded-2xl border border-slate-300/80 bg-[#f4f7fb]/85 p-6 shadow-sm backdrop-blur-md dark:border-white/10 dark:bg-[#111116]/85">
 						<FiLayers className="mx-auto h-7 w-7 text-black/40 dark:text-white/40 mb-3" />
 						<h3 className="font-michroma text-sm font-bold text-black dark:text-white mb-2">
-							Logical Graph Shell Ready
+							Graph Canvas Ready
 						</h3>
 						<p className="text-xs text-black/60 dark:text-white/60 leading-relaxed mb-4">
-							Awaiting database connection. Consensus nodes, dilemmas and topology will render automatically once loaded from the backend.
+							Awaiting Neo4j graph nodes. Any nodes and relationships returned
+							by the database will render automatically.
 						</p>
 						<div className="inline-flex items-center gap-2 rounded-lg bg-black/5 dark:bg-white/5 px-3 py-1.5 text-[11px] font-mono text-black/60 dark:text-white/60">
 							<span className="h-1.5 w-1.5 rounded-full bg-slate-400" />
-							<span>0 active nodes in buffer</span>
+							<span>0 nodes in buffer</span>
 						</div>
 					</div>
 				</div>
@@ -460,7 +470,9 @@ export default function GraphViewer({ userId, userEmail }: GraphViewerProps) {
 			{/* Error Banner */}
 			{error && (
 				<div className="absolute bottom-6 left-6 z-30 max-w-md rounded-xl border border-slate-300 bg-[#f4f7fb] p-4 text-xs text-black shadow-lg dark:border-white/15 dark:bg-[#111116] dark:text-white">
-					<p className="font-bold font-michroma mb-1">Graph Connection Notice</p>
+					<p className="font-bold font-michroma mb-1">
+						Graph Connection Notice
+					</p>
 					<p className="opacity-80">{error}</p>
 				</div>
 			)}
@@ -472,10 +484,16 @@ export default function GraphViewer({ userId, userEmail }: GraphViewerProps) {
 					<div className="flex items-start justify-between pb-4 border-b border-slate-300 dark:border-white/10">
 						<div>
 							<span className="inline-block rounded-md bg-black/5 dark:bg-white/10 px-2 py-0.5 text-[10px] font-mono uppercase text-black/70 dark:text-white/70">
-								{selectedNode.type}
+								{selectedNode.label || "Node"}
 							</span>
 							<h3 className="mt-1 text-lg font-bold font-michroma text-black dark:text-white break-words">
-								{selectedNode.name}
+								{String(
+									selectedNode.name ||
+										selectedNode.properties?.name ||
+										selectedNode.properties?.title ||
+										selectedNode.properties?.displayName ||
+										selectedNode.id,
+								)}
 							</h3>
 						</div>
 						<button
@@ -501,13 +519,21 @@ export default function GraphViewer({ userId, userEmail }: GraphViewerProps) {
 									{selectedNode.id}
 								</span>
 							</div>
+							<div className="flex justify-between border-b border-slate-200 dark:border-white/5 pb-1">
+								<span className="text-black/50 dark:text-white/50">label</span>
+								<span className="text-black dark:text-white break-all text-right max-w-[180px]">
+									{selectedNode.label || "Node"}
+								</span>
+							</div>
 							{Object.entries(selectedNode.properties || {}).map(
 								([key, value]) => (
 									<div
 										key={key}
 										className="flex justify-between border-b border-slate-200 dark:border-white/5 pb-1 last:border-0"
 									>
-										<span className="text-black/50 dark:text-white/50">{key}</span>
+										<span className="text-black/50 dark:text-white/50">
+											{key}
+										</span>
 										<span className="text-black dark:text-white break-all text-right max-w-[180px]">
 											{typeof value === "object"
 												? JSON.stringify(value)
@@ -536,7 +562,7 @@ export default function GraphViewer({ userId, userEmail }: GraphViewerProps) {
 									selectedNodeConnections.map((conn, idx) => (
 										<button
 											type="button"
-											key={idx}
+											key={`${conn.neighbor?.id || idx}-${conn.relationship}-${conn.direction}`}
 											onClick={() => {
 												if (conn.neighbor) {
 													setSelectedNode(conn.neighbor);
@@ -556,7 +582,12 @@ export default function GraphViewer({ userId, userEmail }: GraphViewerProps) {
 										>
 											<div className="min-w-0">
 												<div className="font-michroma text-[11px] text-black dark:text-white truncate">
-													{conn.neighbor?.name || "Unknown"}
+													{String(
+														conn.neighbor?.name ||
+															conn.neighbor?.properties?.name ||
+															conn.neighbor?.id ||
+															"Unknown",
+													)}
 												</div>
 												<div className="text-[10px] text-black/50 dark:text-white/50">
 													{conn.direction === "outgoing" ? "→" : "←"}{" "}
@@ -564,7 +595,7 @@ export default function GraphViewer({ userId, userEmail }: GraphViewerProps) {
 												</div>
 											</div>
 											<span className="rounded bg-black/5 dark:bg-white/10 px-1.5 py-0.5 text-[9px] font-mono uppercase text-black/60 dark:text-white/60">
-												{conn.neighbor?.type || "node"}
+												{conn.neighbor?.label || "Node"}
 											</span>
 										</button>
 									))

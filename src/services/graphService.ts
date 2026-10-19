@@ -1,21 +1,14 @@
 export interface GraphNode {
 	id: string;
 	label: string;
-	type:
-		| "user"
-		| "dilemma"
-		| "option"
-		| "consensus"
-		| "topic"
-		| "reciprocity"
-		| "cluster"
-		| string;
-	name: string;
+	labels?: string[];
+	name?: string;
 	properties: Record<string, unknown>;
 	x?: number;
 	y?: number;
 	vx?: number;
 	vy?: number;
+	[key: string]: unknown;
 }
 
 export interface GraphLink {
