@@ -8,33 +8,52 @@ export interface SharedSessionData {
 }
 
 const STORAGE_KEY = "animus_session";
+const LOGGED_OUT_KEY = "animus_logged_out";
 
-export function getCookieDomain(): string {
-	if (typeof window === "undefined") return "";
+export function getCookieDomains(): string[] {
+	if (typeof window === "undefined") return [];
 	const hostname = window.location.hostname;
 	if (hostname === "localhost" || hostname === "127.0.0.1") {
-		return "";
+		return [""];
 	}
 	if (hostname.endsWith("animusproject.org")) {
-		return "; domain=.animusproject.org";
+		return ["; domain=animusproject.org", "; domain=.animusproject.org"];
 	}
-	return "";
+	return [""];
+}
+
+export function isLoggedOut(): boolean {
+	if (typeof window === "undefined") return false;
+	try {
+		const cookies = document.cookie.split(";");
+		for (const cookie of cookies) {
+			const [name, value] = cookie.trim().split("=");
+			if (name === LOGGED_OUT_KEY && value === "1") {
+				return true;
+			}
+		}
+	} catch {}
+	return false;
 }
 
 export function setSharedSession(data: SharedSessionData): void {
 	if (typeof window === "undefined") return;
 	try {
 		const jsonStr = JSON.stringify(data);
-		// 1. Scoped localStorage fallback (guaranteed to work across tabs even if third-party cookies partitioned)
 		try {
 			localStorage.setItem(STORAGE_KEY, jsonStr);
 		} catch {}
 
-		// 2. Cross-subdomain cookie on .animusproject.org
 		const encoded = encodeURIComponent(jsonStr);
-		const domainPart = getCookieDomain();
 		const maxAge = 60 * 60 * 24 * 7; // 7 days
-		document.cookie = `${STORAGE_KEY}=${encoded}; path=/; max-age=${maxAge}; SameSite=Lax; Secure${domainPart}`;
+		const expires = new Date(Date.now() + maxAge * 1000).toUTCString();
+		const domains = getCookieDomains();
+
+		for (const d of domains) {
+			document.cookie = `${STORAGE_KEY}=${encoded}; path=/; max-age=${maxAge}; expires=${expires}; SameSite=Lax; Secure${d}`;
+			document.cookie = `${LOGGED_OUT_KEY}=; path=/; max-age=0; expires=Thu, 01 Jan 1970 00:00:00 GMT; SameSite=Lax; Secure${d}`;
+		}
+		document.cookie = `${LOGGED_OUT_KEY}=; path=/; max-age=0; expires=Thu, 01 Jan 1970 00:00:00 GMT; SameSite=Lax; Secure`;
 	} catch (err) {
 		console.error("Failed to set shared session:", err);
 	}
@@ -42,6 +61,8 @@ export function setSharedSession(data: SharedSessionData): void {
 
 export function getSharedSession(): SharedSessionData | null {
 	if (typeof window === "undefined") return null;
+	if (isLoggedOut()) return null;
+
 	try {
 		// 1. Check URL hash for relayed session (#session=...)
 		if (window.location.hash && window.location.hash.includes("session=")) {
@@ -52,7 +73,6 @@ export function getSharedSession(): SharedSessionData | null {
 				try {
 					const parsed = JSON.parse(decodeURIComponent(sessionParam)) as SharedSessionData;
 					if (parsed && typeof parsed.uid === "string") {
-						// Clean URL hash without reloading
 						const cleanUrl = window.location.pathname + window.location.search;
 						window.history.replaceState(null, "", cleanUrl);
 						setSharedSession(parsed);
@@ -64,18 +84,7 @@ export function getSharedSession(): SharedSessionData | null {
 			}
 		}
 
-		// 2. Check localStorage
-		try {
-			const localStr = localStorage.getItem(STORAGE_KEY);
-			if (localStr) {
-				const parsed = JSON.parse(localStr) as SharedSessionData;
-				if (parsed && typeof parsed.uid === "string") {
-					return parsed;
-				}
-			}
-		} catch {}
-
-		// 3. Check document.cookie
+		// 2. Check document.cookie
 		const cookies = document.cookie.split(";");
 		for (const cookie of cookies) {
 			const [name, ...rest] = cookie.trim().split("=");
@@ -92,6 +101,17 @@ export function getSharedSession(): SharedSessionData | null {
 				}
 			}
 		}
+
+		// 3. Check localStorage
+		try {
+			const localStr = localStorage.getItem(STORAGE_KEY);
+			if (localStr) {
+				const parsed = JSON.parse(localStr) as SharedSessionData;
+				if (parsed && typeof parsed.uid === "string") {
+					return parsed;
+				}
+			}
+		} catch {}
 	} catch (err) {
 		console.error("Failed to read shared session:", err);
 	}
@@ -103,9 +123,14 @@ export function clearSharedSession(): void {
 	try {
 		localStorage.removeItem(STORAGE_KEY);
 		sessionStorage.removeItem("auth_redirect_attempted");
-		const domainPart = getCookieDomain();
-		document.cookie = `${STORAGE_KEY}=; path=/; max-age=0; SameSite=Lax; Secure${domainPart}`;
-		document.cookie = `${STORAGE_KEY}=; path=/; max-age=0; SameSite=Lax; Secure`;
+
+		const domains = getCookieDomains();
+		for (const d of domains) {
+			document.cookie = `${STORAGE_KEY}=; path=/; max-age=0; expires=Thu, 01 Jan 1970 00:00:00 GMT; SameSite=Lax; Secure${d}`;
+			document.cookie = `${LOGGED_OUT_KEY}=1; path=/; max-age=604800; SameSite=Lax; Secure${d}`;
+		}
+		document.cookie = `${STORAGE_KEY}=; path=/; max-age=0; expires=Thu, 01 Jan 1970 00:00:00 GMT; SameSite=Lax; Secure`;
+		document.cookie = `${LOGGED_OUT_KEY}=1; path=/; max-age=604800; SameSite=Lax; Secure`;
 	} catch {}
 }
 

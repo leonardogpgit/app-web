@@ -22,6 +22,7 @@ import { auth, googleProvider } from "@/lib/firebase";
 import {
 	clearSharedSession,
 	getSharedSession,
+	isLoggedOut,
 	setSharedSession,
 	type SharedSessionData,
 } from "@/lib/cookieAuth";
@@ -96,7 +97,16 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
-		// Eagerly hydrate from shared session (URL hash relay, localStorage, or cookie)
+		// If globally logged out, ensure clean state
+		if (isLoggedOut()) {
+			clearSharedSession();
+			setUser(null);
+			setLoading(false);
+			firebaseSignOut(auth).catch(() => {});
+			return;
+		}
+
+		// Eagerly hydrate from shared session
 		const initialSession = getSharedSession();
 		if (initialSession) {
 			setUser(createSyntheticUser(initialSession));
@@ -104,6 +114,15 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 		}
 
 		const unsubAuth = onAuthStateChanged(auth, async (currentUser) => {
+			if (isLoggedOut()) {
+				if (currentUser) {
+					await firebaseSignOut(auth).catch(() => {});
+				}
+				setUser(null);
+				setLoading(false);
+				return;
+			}
+
 			if (currentUser) {
 				setUser(currentUser);
 				setLoading(false);
@@ -123,10 +142,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 			} else {
 				const session = getSharedSession();
 				if (session) {
-					setUser((prev) => {
-						if (prev && prev.uid === session.uid) return prev;
-						return createSyntheticUser(session);
-					});
+					setUser((prev) =>
+						prev && prev.uid === session.uid
+							? prev
+							: createSyntheticUser(session),
+					);
 					setLoading(false);
 					promoteCustomToken(session.token);
 				} else {
@@ -137,7 +157,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 		});
 
 		const unsubToken = onIdTokenChanged(auth, async (currentUser) => {
-			if (currentUser) {
+			if (currentUser && !isLoggedOut()) {
 				try {
 					const token = await currentUser.getIdToken();
 					setSharedSession({
@@ -157,6 +177,48 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 			unsubToken();
 		};
 	}, []);
+
+	// Active cross-tab / cross-subdomain session synchronization
+	useEffect(() => {
+		const syncState = () => {
+			if (isLoggedOut()) {
+				if (user !== null) {
+					setUser(null);
+					firebaseSignOut(auth).catch(() => {});
+				}
+				return;
+			}
+
+			const session = getSharedSession();
+			if (!session) {
+				if (user !== null && !auth.currentUser) {
+					setUser(null);
+				}
+			} else {
+				if (!user || user.uid !== session.uid) {
+					setUser(createSyntheticUser(session));
+					setLoading(false);
+				}
+			}
+		};
+
+		const interval = setInterval(syncState, 1500);
+		const handleFocus = () => syncState();
+		const handleVisibility = () => {
+			if (typeof document !== "undefined" && document.visibilityState === "visible") {
+				syncState();
+			}
+		};
+
+		window.addEventListener("focus", handleFocus);
+		document.addEventListener("visibilitychange", handleVisibility);
+
+		return () => {
+			clearInterval(interval);
+			window.removeEventListener("focus", handleFocus);
+			document.removeEventListener("visibilitychange", handleVisibility);
+		};
+	}, [user]);
 
 	const signInWithGoogle = async () => {
 		try {
