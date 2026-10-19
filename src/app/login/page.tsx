@@ -1,20 +1,19 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
-import { FcGoogle } from "react-icons/fc";
 
 export default function LoginPage() {
 	const router = useRouter();
-	const { user, signInWithGoogle, signInWithEmail, signUpWithEmail, logout } =
-		useAuth();
+	const { user, logout } = useAuth();
 
-	const [isSignUp, setIsSignUp] = useState(false);
-	const [email, setEmail] = useState("");
-	const [password, setPassword] = useState("");
-	const [error, setError] = useState<string | null>(null);
-	const [isSubmitting, setIsSubmitting] = useState(false);
+	useEffect(() => {
+		if (!user) {
+			const target = encodeURIComponent("https://app.animusproject.org/app/graph");
+			window.location.href = `https://animusproject.org/login?redirect=${target}`;
+		}
+	}, [user]);
 
 	if (user) {
 		return (
@@ -56,142 +55,24 @@ export default function LoginPage() {
 		);
 	}
 
-	const handleGoogleSignIn = async () => {
-		try {
-			setError(null);
-			setIsSubmitting(true);
-			await signInWithGoogle();
-			router.push("/app/graph");
-		} catch (err: unknown) {
-			const message =
-				err instanceof Error ? err.message : "Failed to sign in with Google";
-			setError(message);
-		} finally {
-			setIsSubmitting(false);
-		}
-	};
-
-	const handleEmailAuth = async (e: React.FormEvent) => {
-		e.preventDefault();
-		if (!email || !password) {
-			setError("Please fill in both email and password.");
-			return;
-		}
-
-		try {
-			setError(null);
-			setIsSubmitting(true);
-			if (isSignUp) {
-				await signUpWithEmail(email, password);
-			} else {
-				await signInWithEmail(email, password);
-			}
-			router.push("/app/graph");
-		} catch (err: unknown) {
-			const message =
-				err instanceof Error ? err.message : "Authentication failed";
-			setError(message);
-		} finally {
-			setIsSubmitting(false);
-		}
-	};
-
 	return (
 		<section className="py-20 md:py-28 flex items-center justify-center px-4">
-			<div className="card-base w-full max-w-md p-8 space-y-6">
-				<div className="text-center space-y-2">
-					<h1 className="text-2xl sm:text-3xl font-bold font-michroma text-black dark:text-white">
-						{isSignUp ? "Join Animus Project" : "Access Animus Project"}
+			<div className="card-base w-full max-w-md p-8 text-center space-y-6">
+				<div className="mx-auto h-10 w-10 animate-spin rounded-full border-2 border-slate-400 border-t-black dark:border-white/20 dark:border-t-white" />
+				<div>
+					<h1 className="text-xl font-bold font-michroma text-black dark:text-white">
+						Redirecting to Animus Login...
 					</h1>
-					<p className="text-xs sm:text-sm text-black/70 dark:text-white/70">
-						Unified authentication across the Animus Project ecosystem.
+					<p className="mt-2 text-xs text-black/60 dark:text-white/60">
+						Transferring to central ecosystem authentication.
 					</p>
 				</div>
-
-				{error && (
-					<div className="rounded-xl border border-slate-300 dark:border-white/10 bg-slate-200/50 dark:bg-white/5 p-3.5 text-xs text-black dark:text-white leading-relaxed">
-						{error}
-					</div>
-				)}
-
-				<button
-					type="button"
-					onClick={handleGoogleSignIn}
-					disabled={isSubmitting}
-					className="flex w-full items-center justify-center gap-3 rounded-xl border border-slate-300 dark:border-white/10 bg-[#f4f7fb] dark:bg-white/5 px-4 py-3 text-sm font-medium font-michroma text-black dark:text-white hover:bg-slate-200/60 dark:hover:bg-white/10 transition-colors disabled:opacity-50"
+				<a
+					href="https://animusproject.org/login?redirect=https%3A%2F%2Fapp.animusproject.org%2Fapp%2Fgraph"
+					className="inline-block w-full rounded-xl bg-black px-4 py-3 text-xs font-medium font-michroma text-white hover:opacity-90 dark:bg-white dark:text-black transition-opacity"
 				>
-					<FcGoogle className="h-5 w-5 shrink-0" />
-					<span>Continue with Google</span>
-				</button>
-
-				<div className="relative flex items-center justify-center">
-					<div className="w-full border-t border-slate-300 dark:border-white/10" />
-					<span className="absolute bg-[#f4f7fb] dark:bg-[#0f0f13] px-3 text-[11px] font-mono uppercase text-black/50 dark:text-white/50">
-						or email
-					</span>
-				</div>
-
-				<form onSubmit={handleEmailAuth} className="space-y-4">
-					<div>
-						<label
-							htmlFor="email"
-							className="mb-1.5 block text-xs font-medium font-michroma text-black dark:text-white"
-						>
-							Email Address
-						</label>
-						<input
-							id="email"
-							type="email"
-							value={email}
-							onChange={(e) => setEmail(e.target.value)}
-							placeholder="you@domain.com"
-							required
-							className="w-full rounded-xl border border-slate-300 bg-[#f4f7fb] px-4 py-2.5 text-sm text-black outline-none transition-colors placeholder:text-neutral-500 focus:border-black dark:border-white/10 dark:bg-white/5 dark:text-white dark:placeholder:text-neutral-400 dark:focus:border-white"
-						/>
-					</div>
-
-					<div>
-						<label
-							htmlFor="password"
-							className="mb-1.5 block text-xs font-medium font-michroma text-black dark:text-white"
-						>
-							Password
-						</label>
-						<input
-							id="password"
-							type="password"
-							value={password}
-							onChange={(e) => setPassword(e.target.value)}
-							placeholder="••••••••"
-							required
-							className="w-full rounded-xl border border-slate-300 bg-[#f4f7fb] px-4 py-2.5 text-sm text-black outline-none transition-colors placeholder:text-neutral-500 focus:border-black dark:border-white/10 dark:bg-white/5 dark:text-white dark:placeholder:text-neutral-400 dark:focus:border-white"
-						/>
-					</div>
-
-					<button
-						type="submit"
-						disabled={isSubmitting}
-						className="w-full rounded-xl bg-black px-4 py-3 text-sm font-medium font-michroma text-white hover:opacity-90 dark:bg-white dark:text-black transition-opacity disabled:opacity-50 mt-2"
-					>
-						{isSubmitting
-							? "Processing..."
-							: isSignUp
-								? "Create Account"
-								: "Sign In"}
-					</button>
-				</form>
-
-				<div className="text-center pt-2">
-					<button
-						type="button"
-						onClick={() => setIsSignUp(!isSignUp)}
-						className="text-xs text-black/70 hover:text-black dark:text-white/70 dark:hover:text-white underline transition-colors"
-					>
-						{isSignUp
-							? "Already registered? Sign In"
-							: "New to Animus? Create an account"}
-					</button>
-				</div>
+					Continue to Login
+				</a>
 			</div>
 		</section>
 	);
