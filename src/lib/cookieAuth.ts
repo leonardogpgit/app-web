@@ -8,7 +8,6 @@ export interface SharedSessionData {
 }
 
 const STORAGE_KEY = "animus_session";
-const LOGGED_OUT_KEY = "animus_logged_out";
 
 export function getCookieDomains(): string[] {
 	if (typeof window === "undefined") return [];
@@ -22,22 +21,22 @@ export function getCookieDomains(): string[] {
 	return [""];
 }
 
-export function isLoggedOut(): boolean {
-	if (typeof window === "undefined") return false;
+export function purgeLegacyCookies(): void {
+	if (typeof window === "undefined") return;
 	try {
-		const cookies = document.cookie.split(";");
-		for (const cookie of cookies) {
-			const [name, value] = cookie.trim().split("=");
-			if (name === LOGGED_OUT_KEY && value === "1") {
-				return true;
-			}
+		const isSecure = window.location.protocol === "https:";
+		const secureFlag = isSecure ? "; Secure" : "";
+		const domains = getCookieDomains();
+		for (const d of domains) {
+			document.cookie = `animus_logged_out=; path=/; max-age=0; expires=Thu, 01 Jan 1970 00:00:00 GMT; SameSite=Lax${secureFlag}${d}`;
 		}
+		document.cookie = `animus_logged_out=; path=/; max-age=0; expires=Thu, 01 Jan 1970 00:00:00 GMT; SameSite=Lax${secureFlag}`;
 	} catch {}
-	return false;
 }
 
 export function setSharedSession(data: SharedSessionData): void {
 	if (typeof window === "undefined") return;
+	purgeLegacyCookies();
 	try {
 		const jsonStr = JSON.stringify(data);
 		try {
@@ -48,12 +47,13 @@ export function setSharedSession(data: SharedSessionData): void {
 		const maxAge = 60 * 60 * 24 * 7; // 7 days
 		const expires = new Date(Date.now() + maxAge * 1000).toUTCString();
 		const domains = getCookieDomains();
+		const isSecure = window.location.protocol === "https:";
+		const secureFlag = isSecure ? "; Secure" : "";
 
 		for (const d of domains) {
-			document.cookie = `${STORAGE_KEY}=${encoded}; path=/; max-age=${maxAge}; expires=${expires}; SameSite=Lax; Secure${d}`;
-			document.cookie = `${LOGGED_OUT_KEY}=; path=/; max-age=0; expires=Thu, 01 Jan 1970 00:00:00 GMT; SameSite=Lax; Secure${d}`;
+			document.cookie = `${STORAGE_KEY}=${encoded}; path=/; max-age=${maxAge}; expires=${expires}; SameSite=Lax${secureFlag}${d}`;
 		}
-		document.cookie = `${LOGGED_OUT_KEY}=; path=/; max-age=0; expires=Thu, 01 Jan 1970 00:00:00 GMT; SameSite=Lax; Secure`;
+		document.cookie = `${STORAGE_KEY}=${encoded}; path=/; max-age=${maxAge}; expires=${expires}; SameSite=Lax${secureFlag}`;
 	} catch (err) {
 		console.error("Failed to set shared session:", err);
 	}
@@ -61,7 +61,7 @@ export function setSharedSession(data: SharedSessionData): void {
 
 export function getSharedSession(): SharedSessionData | null {
 	if (typeof window === "undefined") return null;
-	if (isLoggedOut()) return null;
+	purgeLegacyCookies();
 
 	try {
 		// 1. Check URL hash for relayed session (#session=...)
@@ -102,15 +102,9 @@ export function getSharedSession(): SharedSessionData | null {
 			}
 		}
 
-		// 3. Check localStorage
+		// 3. If cookie is not present and no hash relay, session is inactive - clear localStorage
 		try {
-			const localStr = localStorage.getItem(STORAGE_KEY);
-			if (localStr) {
-				const parsed = JSON.parse(localStr) as SharedSessionData;
-				if (parsed && typeof parsed.uid === "string") {
-					return parsed;
-				}
-			}
+			localStorage.removeItem(STORAGE_KEY);
 		} catch {}
 	} catch (err) {
 		console.error("Failed to read shared session:", err);
@@ -120,17 +114,19 @@ export function getSharedSession(): SharedSessionData | null {
 
 export function clearSharedSession(): void {
 	if (typeof window === "undefined") return;
+	purgeLegacyCookies();
 	try {
 		localStorage.removeItem(STORAGE_KEY);
 		sessionStorage.removeItem("auth_redirect_attempted");
 
+		const isSecure = window.location.protocol === "https:";
+		const secureFlag = isSecure ? "; Secure" : "";
 		const domains = getCookieDomains();
+
 		for (const d of domains) {
-			document.cookie = `${STORAGE_KEY}=; path=/; max-age=0; expires=Thu, 01 Jan 1970 00:00:00 GMT; SameSite=Lax; Secure${d}`;
-			document.cookie = `${LOGGED_OUT_KEY}=1; path=/; max-age=604800; SameSite=Lax; Secure${d}`;
+			document.cookie = `${STORAGE_KEY}=; path=/; max-age=0; expires=Thu, 01 Jan 1970 00:00:00 GMT; SameSite=Lax${secureFlag}${d}`;
 		}
-		document.cookie = `${STORAGE_KEY}=; path=/; max-age=0; expires=Thu, 01 Jan 1970 00:00:00 GMT; SameSite=Lax; Secure`;
-		document.cookie = `${LOGGED_OUT_KEY}=1; path=/; max-age=604800; SameSite=Lax; Secure`;
+		document.cookie = `${STORAGE_KEY}=; path=/; max-age=0; expires=Thu, 01 Jan 1970 00:00:00 GMT; SameSite=Lax${secureFlag}`;
 	} catch {}
 }
 

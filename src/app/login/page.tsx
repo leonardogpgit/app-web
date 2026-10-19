@@ -6,11 +6,11 @@ import { useAuth } from "@/context/AuthContext";
 
 export default function LoginPage() {
 	const router = useRouter();
-	const { user, logout } = useAuth();
+	const { user, loading, logout } = useAuth();
 	const [attempted, setAttempted] = useState(false);
 
 	useEffect(() => {
-		if (!user) {
+		if (!loading && !user) {
 			const hasAttempted = sessionStorage.getItem("auth_redirect_attempted");
 			if (!hasAttempted) {
 				sessionStorage.setItem("auth_redirect_attempted", "true");
@@ -20,7 +20,7 @@ export default function LoginPage() {
 				setAttempted(true);
 			}
 		}
-	}, [user]);
+	}, [user, loading]);
 
 	if (user) {
 		return (
