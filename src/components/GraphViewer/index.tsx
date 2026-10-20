@@ -141,138 +141,158 @@ export default function GraphViewer({ userId, userEmail }: GraphViewerProps) {
 		};
 	}, [rawGraphData, activeLabels]);
 
+	// Handle container resize
+	useEffect(() => {
+		if (!containerRef.current) return;
+		const resizeObserver = new ResizeObserver((entries) => {
+			for (const entry of entries) {
+				const { width, height } = entry.contentRect;
+				if (fgInstanceRef.current && width > 0 && height > 0) {
+					fgInstanceRef.current.width(width).height(height);
+				}
+			}
+		});
+		resizeObserver.observe(containerRef.current);
+		return () => {
+			resizeObserver.disconnect();
+		};
+	}, []);
+
+	// Clean up ForceGraph on unmount
+	useEffect(() => {
+		return () => {
+			if (fgInstanceRef.current) {
+				try {
+					fgInstanceRef.current._destructor?.();
+				} catch (e) {
+					// ignore destructor cleanup errors
+				}
+				fgInstanceRef.current = null;
+			}
+		};
+	}, []);
+
 	// Initialize and update ForceGraph
 	useEffect(() => {
 		if (!containerRef.current) return;
 
-		const width = containerRef.current.clientWidth || 800;
-		const height = containerRef.current.clientHeight || 600;
+		try {
+			const width = containerRef.current.clientWidth || 800;
+			const height = containerRef.current.clientHeight || 600;
 
-		if (!fgInstanceRef.current) {
-			const fg = new ForceGraph(containerRef.current)
-				.width(width)
-				.height(height)
-				.backgroundColor(isDark ? "#09090b" : "#e6ecf2")
-				.nodeId("id")
-				.nodeLabel(
-					(node: any) =>
-						`<div style="background: rgba(0,0,0,0.85); color: #fff; padding: 4px 8px; border-radius: 6px; font-size: 11px; font-family: monospace;">${node.label || "Node"}: ${node.name || node.id}</div>`,
-				)
-				.linkSource("source")
-				.linkTarget("target")
-				.linkLabel((link: any) => link.type || "RELATED")
-				.linkDirectionalParticles(2)
-				.linkDirectionalParticleSpeed(0.006)
-				.linkDirectionalParticleWidth(2)
-				.linkDirectionalParticleColor(() =>
-					typeof document !== "undefined" &&
-					document.documentElement.classList.contains("dark")
-						? "#ffffff"
-						: "#000000",
-				)
-				.linkColor(() =>
-					typeof document !== "undefined" &&
-					document.documentElement.classList.contains("dark")
-						? "rgba(255, 255, 255, 0.25)"
-						: "rgba(0, 0, 0, 0.18)",
-				)
-				.linkWidth(1.5)
-				.linkDirectionalArrowLength(5)
-				.linkDirectionalArrowRelPos(0.95)
-				.nodeCanvasObject((node: any, ctx, globalScale) => {
-					const isCurrentDark =
-						typeof document !== "undefined"
-							? document.documentElement.classList.contains("dark")
-							: isDark;
-					const radius = 16;
-					const color = getLabelColor(node.label || "Node", isCurrentDark);
-					const isSelected = selectedNode?.id === node.id;
+			if (!fgInstanceRef.current) {
+				const fg = new ForceGraph(containerRef.current)
+					.width(width)
+					.height(height)
+					.backgroundColor(isDark ? "#09090b" : "#e6ecf2")
+					.nodeId("id")
+					.nodeLabel(
+						(node: any) =>
+							`<div style="background: rgba(0,0,0,0.85); color: #fff; padding: 4px 8px; border-radius: 6px; font-size: 11px; font-family: monospace;">${node.label || "Node"}: ${node.name || node.id}</div>`,
+					)
+					.linkSource("source")
+					.linkTarget("target")
+					.linkLabel((link: any) => link.type || "RELATED")
+					.linkDirectionalParticles(2)
+					.linkDirectionalParticleSpeed(0.006)
+					.linkDirectionalParticleWidth(2)
+					.linkDirectionalParticleColor(() =>
+						typeof document !== "undefined" &&
+						document.documentElement.classList.contains("dark")
+							? "#ffffff"
+							: "#000000",
+					)
+					.linkColor(() =>
+						typeof document !== "undefined" &&
+						document.documentElement.classList.contains("dark")
+							? "rgba(255, 255, 255, 0.25)"
+							: "rgba(0, 0, 0, 0.18)",
+					)
+					.linkWidth(1.5)
+					.linkDirectionalArrowLength(5)
+					.linkDirectionalArrowRelPos(0.95)
+					.nodeCanvasObject((node: any, ctx, globalScale) => {
+						if (typeof node.x !== "number" || typeof node.y !== "number") return;
+						const isCurrentDark =
+							typeof document !== "undefined"
+								? document.documentElement.classList.contains("dark")
+								: isDark;
+						const radius = 16;
+						const color = getLabelColor(node.label || "Node", isCurrentDark);
+						const isSelected = selectedNode?.id === node.id;
 
-					// Outer halo for selection
-					ctx.beginPath();
-					ctx.arc(
-						node.x,
-						node.y,
-						radius + (isSelected ? 6 : 3),
-						0,
-						2 * Math.PI,
-					);
-					ctx.fillStyle = isSelected
-						? isCurrentDark
-							? "rgba(255, 255, 255, 0.4)"
-							: "rgba(0, 0, 0, 0.35)"
-						: isCurrentDark
-							? "rgba(255, 255, 255, 0.08)"
-							: "rgba(0, 0, 0, 0.08)";
-					ctx.fill();
+						// Outer halo for selection
+						ctx.beginPath();
+						ctx.arc(
+							node.x,
+							node.y,
+							radius + (isSelected ? 6 : 3),
+							0,
+							2 * Math.PI,
+						);
+						ctx.fillStyle = isSelected
+							? isCurrentDark
+								? "rgba(255, 255, 255, 0.4)"
+								: "rgba(0, 0, 0, 0.35)"
+							: isCurrentDark
+								? "rgba(255, 255, 255, 0.08)"
+								: "rgba(0, 0, 0, 0.08)";
+						ctx.fill();
 
-					// Inner solid circle
-					ctx.beginPath();
-					ctx.arc(node.x, node.y, radius, 0, 2 * Math.PI);
-					ctx.fillStyle = isCurrentDark ? "#111116" : "#f4f7fb";
-					ctx.fill();
-					ctx.lineWidth = isSelected ? 3 : 1.5;
-					ctx.strokeStyle = color;
-					ctx.stroke();
+						// Inner solid circle
+						ctx.beginPath();
+						ctx.arc(node.x, node.y, radius, 0, 2 * Math.PI);
+						ctx.fillStyle = isCurrentDark ? "#111116" : "#f4f7fb";
+						ctx.fill();
+						ctx.lineWidth = isSelected ? 3 : 1.5;
+						ctx.strokeStyle = color;
+						ctx.stroke();
 
-					// Accent center dot
-					ctx.beginPath();
-					ctx.arc(node.x, node.y, 4, 0, 2 * Math.PI);
-					ctx.fillStyle = color;
-					ctx.fill();
+						// Accent center dot
+						ctx.beginPath();
+						ctx.arc(node.x, node.y, 4, 0, 2 * Math.PI);
+						ctx.fillStyle = color;
+						ctx.fill();
 
-					// Node Label (Visible when zoomed in or selected)
-					if (globalScale > 0.6 || isSelected) {
-						const label =
-							node.name ||
-							node.properties?.name ||
-							node.properties?.title ||
-							node.properties?.displayName ||
-							node.label ||
-							node.id;
-						const fontSize = Math.max(10 / globalScale, 9);
-						ctx.font = `600 ${fontSize}px Michroma, sans-serif`;
-						ctx.textAlign = "center";
-						ctx.textBaseline = "middle";
-						ctx.fillStyle = isCurrentDark ? "#ffffff" : "#000000";
-						ctx.fillText(String(label), node.x, node.y + radius + 11);
-					}
-				})
-				.onNodeClick((node: any) => {
-					setSelectedNode(node);
-					fgInstanceRef.current.centerAt(node.x, node.y, 600);
-					fgInstanceRef.current.zoom(1.8, 600);
-				})
-				.onBackgroundClick(() => {
-					setSelectedNode(null);
-				});
+						// Node Label (Visible when zoomed in or selected)
+						if (globalScale > 0.6 || isSelected) {
+							const label =
+								node.name ||
+								node.properties?.name ||
+								node.properties?.title ||
+								node.properties?.displayName ||
+								node.label ||
+								node.id;
+							const fontSize = Math.max(10 / globalScale, 9);
+							ctx.font = `600 ${fontSize}px Michroma, sans-serif`;
+							ctx.textAlign = "center";
+							ctx.textBaseline = "middle";
+							ctx.fillStyle = isCurrentDark ? "#ffffff" : "#000000";
+							ctx.fillText(String(label), node.x, node.y + radius + 11);
+						}
+					})
+					.onNodeClick((node: any) => {
+						setSelectedNode(node);
+						fgInstanceRef.current?.centerAt(node.x, node.y, 600);
+						fgInstanceRef.current?.zoom(1.8, 600);
+					})
+					.onBackgroundClick(() => {
+						setSelectedNode(null);
+					});
 
-			fgInstanceRef.current = fg;
-		}
-
-		// Update graph styling on theme change
-		const activeDark =
-			typeof document !== "undefined"
-				? document.documentElement.classList.contains("dark")
-				: isDark;
-		fgInstanceRef.current.backgroundColor(activeDark ? "#09090b" : "#e6ecf2");
-		fgInstanceRef.current.graphData(filteredData);
-		fgInstanceRef.current.refresh();
-
-		// Handle resize observer
-		const resizeObserver = new ResizeObserver(() => {
-			if (containerRef.current && fgInstanceRef.current) {
-				const w = containerRef.current.clientWidth;
-				const h = containerRef.current.clientHeight;
-				fgInstanceRef.current.width(w).height(h);
+				fgInstanceRef.current = fg;
 			}
-		});
 
-		resizeObserver.observe(containerRef.current);
-
-		return () => {
-			resizeObserver.disconnect();
-		};
+			// Update graph styling on theme change
+			const activeDark =
+				typeof document !== "undefined"
+					? document.documentElement.classList.contains("dark")
+					: isDark;
+			fgInstanceRef.current.backgroundColor(activeDark ? "#09090b" : "#e6ecf2");
+			fgInstanceRef.current.graphData(filteredData);
+		} catch (err) {
+			console.error("ForceGraph error:", err);
+		}
 	}, [filteredData, selectedNode, isDark]);
 
 	// Recenter handler
