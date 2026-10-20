@@ -1,27 +1,19 @@
 "use client";
 
 import { useEffect, type ReactNode } from "react";
+import { useRouter } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
+import Link from "next/link";
 
 export default function ProtectedRoute({ children }: { children: ReactNode }) {
 	const { user, loading } = useAuth();
+	const router = useRouter();
 
 	useEffect(() => {
 		if (!loading && !user) {
-			if (typeof window !== "undefined") {
-				const hasAttempted = sessionStorage.getItem("auth_redirect_attempted");
-				if (!hasAttempted) {
-					sessionStorage.setItem("auth_redirect_attempted", "true");
-					const current = encodeURIComponent(window.location.href);
-					window.location.href = `https://animusproject.org/login?redirect=${current}`;
-				}
-			}
-		} else if (user) {
-			if (typeof window !== "undefined") {
-				sessionStorage.removeItem("auth_redirect_attempted");
-			}
+			router.push("/login");
 		}
-	}, [user, loading]);
+	}, [user, loading, router]);
 
 	if (loading) {
 		return (
@@ -44,19 +36,12 @@ export default function ProtectedRoute({ children }: { children: ReactNode }) {
 					<p className="text-xs text-black/70 dark:text-white/70">
 						You must be signed in to access your consensus graph.
 					</p>
-					<button
-						type="button"
-						onClick={() => {
-							if (typeof window !== "undefined") {
-								sessionStorage.removeItem("auth_redirect_attempted");
-								const current = encodeURIComponent(window.location.href);
-								window.location.href = `https://animusproject.org/login?redirect=${current}`;
-							}
-						}}
-						className="inline-block w-full rounded-xl bg-black px-4 py-2.5 font-michroma text-xs text-white hover:opacity-90 dark:bg-white dark:text-black transition-opacity cursor-pointer"
+					<Link
+						href="/login"
+						className="inline-block w-full rounded-xl bg-black px-4 py-2.5 font-michroma text-xs text-white hover:opacity-90 dark:bg-white dark:text-black transition-opacity"
 					>
-						Sign In via Animus
-					</button>
+						Sign In
+					</Link>
 				</div>
 			</div>
 		);

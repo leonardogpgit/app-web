@@ -61,12 +61,12 @@ export default function Header() {
 								)}
 							</Link>
 						) : (
-							<a
-								href="https://animusproject.org/login?redirect=https%3A%2F%2Fapp.animusproject.org%2Fapp%2Fgraph"
+							<Link
+								href="/login"
 								className="px-3 py-1.5 rounded-xl border border-white/25 dark:border-black/20 bg-white/10 dark:bg-black/10 text-xs font-michroma text-white dark:text-black hover:bg-white/20 dark:hover:bg-black/20 transition-colors"
 							>
 								Login
-							</a>
+							</Link>
 						)}
 						<ThemeToggle />
 					</div>
@@ -90,12 +90,12 @@ export default function Header() {
 							Graph
 						</Link>
 					) : (
-						<a
-							href="https://animusproject.org/login?redirect=https%3A%2F%2Fapp.animusproject.org%2Fapp%2Fgraph"
+						<Link
+							href="/login"
 							className="text-xs sm:text-sm font-bold font-michroma text-white dark:text-black underline underline-offset-4 transition-opacity hover:opacity-80"
 						>
 							Login
-						</a>
+						</Link>
 					)}
 				</nav>
 			</div>
