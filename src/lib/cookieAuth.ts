@@ -16,7 +16,7 @@ export function getCookieDomains(): string[] {
 		return [""];
 	}
 	if (hostname.endsWith("animusproject.org")) {
-		return ["; domain=animusproject.org", "; domain=.animusproject.org"];
+		return ["; domain=.animusproject.org", "; domain=animusproject.org"];
 	}
 	return [""];
 }
@@ -53,7 +53,6 @@ export function setSharedSession(data: SharedSessionData): void {
 		for (const d of domains) {
 			document.cookie = `${STORAGE_KEY}=${encoded}; path=/; max-age=${maxAge}; expires=${expires}; SameSite=Lax${secureFlag}${d}`;
 		}
-		document.cookie = `${STORAGE_KEY}=${encoded}; path=/; max-age=${maxAge}; expires=${expires}; SameSite=Lax${secureFlag}`;
 	} catch (err) {
 		console.error("Failed to set shared session:", err);
 	}
@@ -70,16 +69,19 @@ export function getSharedSession(): SharedSessionData | null {
 			const hashParams = new URLSearchParams(hashStr);
 			const sessionParam = hashParams.get("session");
 			if (sessionParam) {
+				let parsed: SharedSessionData | null = null;
 				try {
-					const parsed = JSON.parse(decodeURIComponent(sessionParam)) as SharedSessionData;
-					if (parsed && typeof parsed.uid === "string") {
-						const cleanUrl = window.location.pathname + window.location.search;
-						window.history.replaceState(null, "", cleanUrl);
-						setSharedSession(parsed);
-						return parsed;
-					}
-				} catch (e) {
-					console.error("Failed to parse hash session:", e);
+					parsed = JSON.parse(sessionParam) as SharedSessionData;
+				} catch {
+					try {
+						parsed = JSON.parse(decodeURIComponent(sessionParam)) as SharedSessionData;
+					} catch {}
+				}
+				if (parsed && typeof parsed.uid === "string") {
+					const cleanUrl = window.location.pathname + window.location.search;
+					window.history.replaceState(null, "", cleanUrl);
+					setSharedSession(parsed);
+					return parsed;
 				}
 			}
 		}
@@ -91,20 +93,32 @@ export function getSharedSession(): SharedSessionData | null {
 			if (name === STORAGE_KEY) {
 				const value = rest.join("=");
 				if (!value) continue;
-				const decoded = decodeURIComponent(value);
-				const parsed = JSON.parse(decoded) as SharedSessionData;
+				let parsed: SharedSessionData | null = null;
+				try {
+					parsed = JSON.parse(decodeURIComponent(value)) as SharedSessionData;
+				} catch {
+					try {
+						parsed = JSON.parse(value) as SharedSessionData;
+					} catch {}
+				}
 				if (parsed && typeof parsed.uid === "string") {
 					try {
-						localStorage.setItem(STORAGE_KEY, decoded);
+						localStorage.setItem(STORAGE_KEY, JSON.stringify(parsed));
 					} catch {}
 					return parsed;
 				}
 			}
 		}
 
-		// 3. If cookie is not present and no hash relay, session is inactive - clear localStorage
+		// 3. Check localStorage (as fallback)
 		try {
-			localStorage.removeItem(STORAGE_KEY);
+			const localStr = localStorage.getItem(STORAGE_KEY);
+			if (localStr) {
+				const parsed = JSON.parse(localStr) as SharedSessionData;
+				if (parsed && typeof parsed.uid === "string") {
+					return parsed;
+				}
+			}
 		} catch {}
 	} catch (err) {
 		console.error("Failed to read shared session:", err);
