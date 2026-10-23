@@ -51,7 +51,7 @@ export async function fetchUserGraph(
 
 		const defaultHeaders = {
 			Authorization: `Bearer ${token}`,
-			"x-imago-language": lang,
+			"x-replica-language": lang,
 			Accept: "application/json",
 		};
 
