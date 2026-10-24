@@ -499,6 +499,9 @@ export default function GraphViewer({ userId, userEmail }: GraphViewerProps) {
 							<span className="h-1.5 w-1.5 rounded-full bg-amber-500" />
 							<span>Modo sin conexión activa</span>
 						</div>
+						<div className="mt-4 pt-3 border-t border-slate-300/60 dark:border-white/10 text-[11px] text-black/70 dark:text-white/70 font-tektur text-center leading-relaxed">
+							<span className="font-semibold text-black dark:text-white">Puente Replica:</span> Si lo decides, tus respuestas en Animus pueden alimentar tu grafo personal de <strong className="font-michroma">Replica</strong> para acelerar y perfeccionar su fidelidad.
+						</div>
 					</div>
 				</div>
 			)}

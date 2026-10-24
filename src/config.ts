@@ -98,6 +98,12 @@ export const features: Feature[] = [
 			"Engineered with Kotlin Multiplatform for blazing-fast navigation, minimal data transfer, low battery consumption, and zero clutter.",
 		icon: "FiSliders",
 	},
+	{
+		title: "Feed Your Living Replica (Opt-In)",
+		description:
+			"If you choose to enable the bridge, your answers on Animus automatically feed your personal Replica knowledge graph. Effortlessly teach your digital surrogate how you think, reason, and decide with deep authenticity.",
+		icon: "FiCpu",
+	},
 ];
 
 export const screenshots: string[] = [
@@ -121,6 +127,7 @@ export const pricingTiers: PricingTier[] = [
 			"Zero personal tracking or paywalls",
 			"Instant demographic insights upon answering",
 			"Earn participation credits with every answer",
+			"Optional Animus Replica persona bridge",
 			"Available on Android & iOS",
 		],
 		cta: "Download Free",
@@ -218,6 +225,11 @@ export const faqs: FAQItem[] = [
 		question: "Why is Animus different from traditional social media?",
 		answer:
 			"No vanity follower counts, no endless algorithm rabbit holes, no toxic comment warfare. Just concise, thought-provoking questions and real human consensus in a clean, lightweight mobile app.",
+	},
+	{
+		question: "Can my Animus answers be used to train my personal Replica?",
+		answer:
+			"Yes, if you choose to connect them. By default, Animus operates with complete anonymity. However, if you activate the optional Animus Replica Bridge, your answers and moral choices in Animus automatically feed your personal Neo4j graph in Replica. Because answering real-world dilemmas captures your authentic convictions and nuances effortlessly, this makes your Replica learn your way of thinking vastly faster and with unmatched fidelity.",
 	},
 	{
 		question: "Who benefits from this data?",
