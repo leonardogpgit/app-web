@@ -412,7 +412,7 @@ export default function GraphViewer({ userId, userEmail }: GraphViewerProps) {
 				{/* Metadata Stats Pill */}
 				{rawGraphData && (
 					<div className="hidden md:flex items-center gap-2 rounded-xl border border-slate-300 bg-[#f4f7fb]/90 px-3 py-1.5 text-[11px] font-mono text-black/70 backdrop-blur-md dark:border-white/15 dark:bg-[#111116]/90 dark:text-white/70 shadow-xs pointer-events-auto">
-						<span className="flex h-2 w-2 rounded-full bg-slate-500 animate-pulse" />
+						<span className={`flex h-2 w-2 rounded-full ${rawGraphData.source === "neo4j" ? "bg-emerald-500 animate-pulse" : "bg-amber-500"}`} />
 						<span>{rawGraphData.source.toUpperCase()}</span>
 						<span>•</span>
 						<span>{filteredData.nodes.length} Nodes</span>
@@ -490,15 +490,14 @@ export default function GraphViewer({ userId, userEmail }: GraphViewerProps) {
 					<div className="max-w-md rounded-2xl border border-slate-300/80 bg-[#f4f7fb]/85 p-6 shadow-sm backdrop-blur-md dark:border-white/10 dark:bg-[#111116]/85">
 						<FiLayers className="mx-auto h-7 w-7 text-black/40 dark:text-white/40 mb-3" />
 						<h3 className="font-michroma text-sm font-bold text-black dark:text-white mb-2">
-							Graph Canvas Ready
+							Animus Consensus Graph
 						</h3>
 						<p className="text-xs text-black/60 dark:text-white/60 leading-relaxed mb-4">
-							Awaiting Neo4j graph nodes. Any nodes and relationships returned
-							by the database will render automatically.
+							Red de consenso colectivo en modo standby. La conexión a la red de consenso de Animus opera de forma independiente al grafo personal de Replica y se encuentra sin conexión activa temporalmente.
 						</p>
 						<div className="inline-flex items-center gap-2 rounded-lg bg-black/5 dark:bg-white/5 px-3 py-1.5 text-[11px] font-mono text-black/60 dark:text-white/60">
-							<span className="h-1.5 w-1.5 rounded-full bg-slate-400" />
-							<span>0 nodes in buffer</span>
+							<span className="h-1.5 w-1.5 rounded-full bg-amber-500" />
+							<span>Modo sin conexión activa</span>
 						</div>
 					</div>
 				</div>
