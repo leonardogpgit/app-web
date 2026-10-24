@@ -53,7 +53,7 @@ export default function ProfilePage() {
 								// eslint-disable-next-line @next/next/no-img-element
 								<img
 									src={user.photoURL}
-									alt={user.displayName || "User Avatar"}
+									alt={user.displayName || "User Profile"}
 									className="h-full w-full rounded-2xl object-cover"
 									referrerPolicy="no-referrer"
 								/>
