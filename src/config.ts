@@ -23,7 +23,7 @@ export const site = {
 	name: "Animus Project",
 	url: "https://app.animusproject.org",
 	description:
-		"The collective mind of humanity in your pocket. Give your opinion, reveal real human consensus without bias, and discover what the world truly thinks in real time.",
+		"The real-time pulse of human thought. Answer questions to see honest consensus without crowd bias, and discover what people truly think.",
 	logo: "/favicon.svg",
 	keywords: [
 		"animus",
@@ -63,45 +63,45 @@ export const site = {
 
 export const features: Feature[] = [
 	{
-		title: "Zero Bias, Pure Consensus",
+		title: "Answer Before You See",
 		description:
-			"To see how the world thinks, you must answer first. No pre-conditioned opinions, algorithms, or echo chambers—only honest, raw perspectives.",
+			"To see how people voted, you must answer first. No herd mentality, no bandwagon effect—just honest, uninfluenced answers.",
 		icon: "FiEye",
 	},
 	{
 		title: "Give to Ask",
 		description:
-			"An honest reciprocity engine. Answer community questions to earn participation credits, unlock the right to ask your own, and boost their reach.",
+			"A fair reciprocity system. Answer community questions to earn credits, ask your own questions, and reach a wider audience.",
 		icon: "FiZap",
 	},
 	{
-		title: "Radical Privacy",
+		title: "Anonymous by Design",
 		description:
-			"Your personal identity does not interest us. No names, no tracking, no surveillance. Only age bracket, gender, and general location to map genuine societal patterns.",
+			"No names, no tracking, and no ad profiling. We only use broad demographic brackets (age, gender, general region) to show genuine patterns across groups.",
 		icon: "FiLock",
 	},
 	{
-		title: "One-Tap Simplicity",
+		title: "Quick and Simple",
 		description:
-			"Multiple choice and numerical answers designed for rapid input. Build a healthy daily habit of answering dozens of interesting questions in minutes.",
+			"Multiple choice and rating scales built for speed. Answer dozens of interesting questions in a few minutes every day.",
 		icon: "FiStar",
 	},
 	{
-		title: "Cross-Demographic Breakdown",
+		title: "Clear Demographic Patterns",
 		description:
-			"Dive into rich cross-sectional patterns. See how different generations, regions, and viewpoints contrast on real issues with total clarity.",
+			"See how different generations, regions, and backgrounds answer the same question, with zero noise or toxic comment threads.",
 		icon: "FiBarChart2",
 	},
 	{
-		title: "Ultra-Lightweight & Fast",
+		title: "Fast and Lightweight",
 		description:
-			"Engineered with Kotlin Multiplatform for blazing-fast navigation, minimal data transfer, low battery consumption, and zero clutter.",
+			"Built natively with Kotlin Multiplatform for instant response times, minimal data usage, and long battery life.",
 		icon: "FiSliders",
 	},
 	{
-		title: "Feed Your Living Replica (Opt-In)",
+		title: "Feed Your Living Replica (Optional)",
 		description:
-			"If you choose to enable the bridge, your answers on Animus automatically feed your personal Replica knowledge graph. Effortlessly teach your digital surrogate how you think, reason, and decide with deep authenticity.",
+			"If you use Animus Replica, you can link your account so your answers teach Replica how you think and decide—with zero extra effort.",
 		icon: "FiCpu",
 	},
 ];
@@ -121,14 +121,14 @@ export const pricingTiers: PricingTier[] = [
 	{
 		name: "Everyday Voice",
 		price: "Free",
-		description: "100% free forever for all participants. Built for open, authentic human expression.",
+		description: "100% free forever. Share your perspective and see honest human consensus.",
 		features: [
-			"Full access to daily questions",
+			"Full access to daily community questions",
+			"Instant demographic results upon answering",
 			"Zero personal tracking or paywalls",
-			"Instant demographic insights upon answering",
-			"Earn participation credits with every answer",
-			"Optional Animus Replica persona bridge",
-			"Available on Android & iOS",
+			"Earn credits with every answer",
+			"Optional link to Animus Replica",
+			"Available on Android and iOS",
 		],
 		cta: "Download Free",
 		ctaHref: "#download",
@@ -137,13 +137,13 @@ export const pricingTiers: PricingTier[] = [
 		name: "Ask & Boost",
 		price: "Credits",
 		period: "earned by answering",
-		description: "Turn your answers into reach. Elevate your questions to the wider world.",
+		description: "Turn your answers into reach. Ask questions to the community and explore what people think.",
 		features: [
 			"Ask your own targeted questions",
-			"Duplicate questions merged into single nodes",
+			"Duplicate questions automatically merged",
 			"Boost questions across local & global feeds",
 			"Climb community reputation boards",
-			"Tradable participation currency in the future",
+			"Zero paywalls—earn everything by answering",
 		],
 		cta: "Earn Credits",
 		ctaHref: "#download",
@@ -151,16 +151,16 @@ export const pricingTiers: PricingTier[] = [
 		badge: "Core Engine",
 	},
 	{
-		name: "Custom Groups",
+		name: "Communities & Teams",
 		price: "Open",
-		period: "for communities",
-		description: "Create focused questions for your university, group, organization, or followers.",
+		period: "for groups",
+		description: "Ask focused questions for your classroom, workplace, community, or audience.",
 		features: [
-			"Instant direct question links",
-			"Invite members to download and answer with zero fatigue",
-			"Clean, aggregated group breakdown",
-			"Participants discover the wider Animus network",
-			"Pure signal, zero comment toxicity",
+			"Direct question links for fast sharing",
+			"Clean aggregated results with zero survey fatigue",
+			"Explore demographic patterns instantly",
+			"Pure signal with no toxic comments",
+			"Open access for all participants",
 		],
 		cta: "Explore the Project",
 		ctaHref: "https://animusproject.org",
@@ -171,22 +171,22 @@ export const reviews: Review[] = [
 	{
 		author: "Carlos M., 44 · Systems Architect",
 		rating: 5,
-		text: "I love the reciprocity rule. You have to contribute before you can ask, and you don't see results until you commit your answer. Pure signal, zero noise.",
+		text: "I love the reciprocity rule: you answer before you ask, and you don't see results until you commit your answer. Pure signal, zero noise.",
 	},
 	{
 		author: "Dr. Julian V. · Sociologist & Researcher",
 		rating: 5,
-		text: "Finally, a platform that captures authentic human sentiment without the toxicity of comment threads. The demographic breakdown is uniquely valuable.",
+		text: "Finally, a platform that captures authentic human sentiment without comment wars. The demographic breakdown is uniquely valuable.",
 	},
 	{
 		author: "Patricia L., 39 · Educator",
 		rating: 5,
-		text: "It replaced my mindless scrolling habit. I answer 15 to 20 questions with my morning coffee. Quick, thought-provoking, and completely respectful of privacy.",
+		text: "It replaced my mindless scrolling. I answer 15 to 20 questions with my morning coffee. Quick, thought-provoking, and completely private.",
 	},
 	{
 		author: "Elena R. · Community Coordinator",
 		rating: 5,
-		text: "We shared a set of questions with our community. People loved how quick it was to answer without filling out long, boring forms, and immediately seeing the group breakdown.",
+		text: "We shared questions with our community. People loved how quick it was without boring forms, and seeing the group breakdown immediately.",
 	},
 ];
 
@@ -194,46 +194,46 @@ export const faqs: FAQItem[] = [
 	{
 		question: "What is the Animus Project?",
 		answer:
-			"Animus is an open initiative to map the collective mind and opinions of humanity in real time. We capture authentic human perspectives without algorithms or noise, organizing them into a living, interconnected graph database.",
+			"Animus is an open platform that captures what people actually think in real time. Instead of social media algorithms designed for outrage and clicks, Animus gathers honest, uninfluenced opinions and organizes them into a clear picture of human thought.",
 	},
 	{
-		question: "Is Animus completely free?",
+		question: "Is Animus free?",
 		answer:
-			"Yes. Animus is 100% free to download and participate in. There are no fees or subscriptions to answer questions and explore real-time community statistics.",
+			"Yes, 100% free. There are no fees or subscriptions. You participate by answering questions and seeing real-time community results.",
 	},
 	{
-		question: "Why do I have to answer a question before seeing the results?",
+		question: "Why do I have to answer before seeing the results?",
 		answer:
-			"To ensure completely unbiased results. Seeing the consensus beforehand inherently skews human answers. Committing your own opinion first preserves authentic, uninfluenced truth.",
+			"To prevent herd mentality. When people see what everyone else voted first, their answers change. Committing your answer first keeps results honest and accurate.",
 	},
 	{
-		question: "How does the credit and question system work?",
+		question: "How does the credit system work?",
 		answer:
-			"Animus operates on reciprocity ('Give to Ask'). To prevent question spam and ensure rich statistical sample sizes, you earn credits by answering questions. Those credits give you the right to post your own questions and boost them across local and global feeds.",
+			"Animus uses a simple principle: Give to Ask. You earn credits by answering questions. You then use those credits to post your own questions and boost them to more people.",
 	},
 	{
-		question: "What personal data does Animus collect?",
+		question: "What personal data do you collect?",
 		answer:
-			"We deliberately do not want your personal identity. No real names, no phone books, no surveillance tracking. We only request non-identifiable demographic markers (age bracket, gender, and general country/city) to enable cross-sectional analysis.",
+			"None that identifies you. No names, no email address display, no phone contacts, and no ad tracking. We only ask for broad demographic categories (age range, gender, general region) so everyone can see patterns across groups.",
 	},
 	{
-		question: "Can multiple people ask the same question?",
+		question: "What happens if someone asks a question that already exists?",
 		answer:
-			"If your question has already been asked by someone else, Animus intelligently merges identical questions into a single knowledge node. This consolidates data volume and gives you much deeper statistics rather than fragmenting votes.",
+			"Animus automatically merges identical questions into a single question. This keeps all the answers together and provides much larger, more reliable sample sizes.",
 	},
 	{
-		question: "Why is Animus different from traditional social media?",
+		question: "How is Animus different from social networks?",
 		answer:
-			"No vanity follower counts, no endless algorithm rabbit holes, no toxic comment warfare. Just concise, thought-provoking questions and real human consensus in a clean, lightweight mobile app.",
+			"No follower counts, no algorithmic outrage feeds, and no comment wars. Just clear questions, instant honest results, and demographic patterns.",
 	},
 	{
-		question: "Can my Animus answers be used to train my personal Replica?",
+		question: "Can my answers help teach my personal Replica?",
 		answer:
-			"Yes, if you choose to connect them. By default, Animus operates with complete anonymity. However, if you activate the optional Animus Replica Bridge, your answers and moral choices in Animus automatically feed your personal Neo4j graph in Replica. Because answering real-world dilemmas captures your authentic convictions and nuances effortlessly, this makes your Replica learn your way of thinking vastly faster and with unmatched fidelity.",
+			"Yes, if you choose to connect them. By default, Animus is completely anonymous. If you link your account to Animus Replica, the real-world dilemmas you answer on Animus automatically teach your Replica how you think and make decisions.",
 	},
 	{
-		question: "Who benefits from this data?",
+		question: "Who can see and use this data?",
 		answer:
-			"Humanity. Sociologists, behavioral scientists, educators, and the general public gain access to an authentic mirror of what people actually think and worry about, rather than what ad-driven algorithms amplify.",
+			"Everyone. Teachers, researchers, journalists, and everyday people can see genuine public opinion without the distortion of click-driven social media.",
 	},
 ];

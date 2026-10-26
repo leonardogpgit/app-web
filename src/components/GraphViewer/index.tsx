@@ -493,14 +493,14 @@ export default function GraphViewer({ userId, userEmail }: GraphViewerProps) {
 							Animus Consensus Graph
 						</h3>
 						<p className="text-xs text-black/60 dark:text-white/60 leading-relaxed mb-4">
-							Red de consenso colectivo en modo standby. La conexión a la red de consenso de Animus opera de forma independiente al grafo personal de Replica y se encuentra sin conexión activa temporalmente.
+							Red de consenso en pausa. La red pública de Animus opera de forma independiente al grafo privado de Replica y se encuentra temporalmente en espera.
 						</p>
 						<div className="inline-flex items-center gap-2 rounded-lg bg-black/5 dark:bg-white/5 px-3 py-1.5 text-[11px] font-mono text-black/60 dark:text-white/60">
 							<span className="h-1.5 w-1.5 rounded-full bg-amber-500" />
-							<span>Modo sin conexión activa</span>
+							<span>Sin conexión activa</span>
 						</div>
 						<div className="mt-4 pt-3 border-t border-slate-300/60 dark:border-white/10 text-[11px] text-black/70 dark:text-white/70 font-tektur text-center leading-relaxed">
-							<span className="font-semibold text-black dark:text-white">Puente Replica:</span> Si lo decides, tus respuestas en Animus pueden alimentar tu grafo personal de <strong className="font-michroma">Replica</strong> para acelerar y perfeccionar su fidelidad.
+							<span className="font-semibold text-black dark:text-white">Conexión con Replica:</span> Si lo decides, tus respuestas en Animus pueden enseñar a tu <strong className="font-michroma">Replica</strong> cómo piensas, sin esfuerzo adicional.
 						</div>
 					</div>
 				</div>

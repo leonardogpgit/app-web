@@ -145,7 +145,7 @@ No vanity follower counts, no endless algorithm rabbit holes, no toxic comment w
 Humanity. Sociologists, behavioral scientists, educators, and the general public gain access to an authentic mirror of what people actually think and worry about, rather than what ad-driven algorithms amplify.
 
 ### Can my Animus answers train my personal Replica?
-Yes, via the optional Animus Synaptic Bridge. By default, Animus operates with absolute anonymity. However, if you explicitly choose to link your Animus activity to your personal **Animus Replica** vault, every real dilemma and ethical question you answer in Animus securely routes belief nodes into your personal Neo4j knowledge graph. This makes synthesizing your living likeness and surrogate vastly faster and deeply faithful to your genuine worldview, requiring zero artificial prompting.
+Yes, if you choose to connect them. By default, Animus is completely anonymous. If you link your account to **Animus Replica**, the real-world dilemmas you answer on Animus automatically teach your Replica how you think and make decisions—with zero extra effort.
 
 ---
 
@@ -170,5 +170,5 @@ Yes, via the optional Animus Synaptic Bridge. By default, Animus operates with a
 #### Angle D: "The Anti-Algorithm Network"
 > *"No likes. No followers. No comments section. Just questions, answers, and the real mind of humanity."*
 
-#### Angle E: "Feed Your Living Replica"
-> *"Every opinion you share in Animus can optionally teach your Animus Replica how you genuinely think. Answering real-world dilemmas effortlessly builds your digital surrogate with unmatched fidelity."*
+#### Angle E: "Teach Your Replica"
+> *"Every question you answer in Animus can teach your Animus Replica how you think. Answering real dilemmas helps your digital voice sound like you with zero extra work."*
