@@ -38,6 +38,7 @@ export const site = {
 	storeLinks: {
 		apple: "#",
 		google: "#",
+		apk: "#",
 	},
 	rating: {
 		score: 4.9,

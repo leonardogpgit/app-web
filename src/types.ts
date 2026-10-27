@@ -2,7 +2,7 @@ export interface AppHeroProps {
 	title: string;
 	description: string;
 	logo: string;
-	storeLinks: { apple: string; google: string };
+	storeLinks: { apple: string; google: string; apk?: string };
 	rating: { score: number; count: string };
 	ageRating: string;
 	version?: string;
@@ -63,13 +63,13 @@ export interface StoreData {
 	minimumOS?: string;
 	releaseDate?: string;
 	screenshots: string[];
-	storeLinks: { apple: string; google: string };
+	storeLinks: { apple: string; google: string; apk?: string };
 }
 
 export type ThemeMode = "light" | "dark";
 
 export interface StoreButtonsProps {
-	storeLinks: { apple: string; google: string };
+	storeLinks: { apple: string; google: string; apk?: string };
 }
 
 export interface AppInfoProps {
