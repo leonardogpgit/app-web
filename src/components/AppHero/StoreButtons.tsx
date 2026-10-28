@@ -25,7 +25,7 @@ const StoreButtons = ({ storeLinks }: StoreButtonsProps) => (
 					<span className="block text-[10px] font-normal leading-tight opacity-60">
 						Coming soon to
 					</span>
-					<span className="block text-sm font-bold leading-tight">App Store</span>
+					<span translate="no" className="block text-sm font-bold leading-tight notranslate">App Store</span>
 				</span>
 			</div>
 			<div
@@ -40,7 +40,7 @@ const StoreButtons = ({ storeLinks }: StoreButtonsProps) => (
 					<span className="block text-[10px] font-normal leading-tight text-gray-500 dark:text-white/50">
 						Coming soon to
 					</span>
-					<span className="block text-sm font-bold leading-tight">
+					<span translate="no" className="block text-sm font-bold leading-tight notranslate">
 						Google Play
 					</span>
 				</span>
@@ -61,7 +61,7 @@ const StoreButtons = ({ storeLinks }: StoreButtonsProps) => (
 				className="font-semibold text-black dark:text-white underline underline-offset-4 hover:opacity-80 transition-opacity"
 				title="Download APK for consideration"
 			>
-				Download APK
+				Download <span translate="no" className="notranslate">APK</span>
 			</a>
 		</p>
 	</div>

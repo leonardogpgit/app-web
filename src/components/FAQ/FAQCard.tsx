@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { protectBrand } from "@/lib/protectBrand";
 import type { FAQCardProps } from "@/types";
 
 const FAQCard = ({ item, index }: FAQCardProps) => (
@@ -16,11 +17,11 @@ const FAQCard = ({ item, index }: FAQCardProps) => (
 				{String(index + 1).padStart(2, "0")}
 			</span>
 			<h3 className="text-sm font-semibold font-michroma text-black dark:text-white md:text-base">
-				{item.question}
+				{protectBrand(item.question)}
 			</h3>
 		</div>
 		<p className="font-tektur text-black dark:text-white text-sm leading-relaxed md:text-base">
-			{item.answer}
+			{protectBrand(item.answer)}
 		</p>
 	</motion.div>
 );

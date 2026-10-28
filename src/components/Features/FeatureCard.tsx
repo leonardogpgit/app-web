@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { getIcon } from "@/getIcon";
+import { protectBrand } from "@/lib/protectBrand";
 import type { FeatureCardProps } from "@/types";
 
 const FeatureCard = ({ feature, index }: FeatureCardProps) => {
@@ -22,10 +23,10 @@ const FeatureCard = ({ feature, index }: FeatureCardProps) => {
 				)}
 			</div>
 			<h3 className="mb-2.5 text-lg font-bold font-michroma text-black dark:text-white">
-				{feature.title}
+				{protectBrand(feature.title)}
 			</h3>
 			<p className="text-base leading-relaxed font-tektur text-black dark:text-white">
-				{feature.description}
+				{protectBrand(feature.description)}
 			</p>
 		</motion.div>
 	);

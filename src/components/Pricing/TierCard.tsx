@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { FiCheck } from "react-icons/fi";
+import { protectBrand } from "@/lib/protectBrand";
 import type { TierCardProps } from "@/types";
 
 const TierCard = ({ tier, index }: TierCardProps) => (
@@ -15,7 +16,7 @@ const TierCard = ({ tier, index }: TierCardProps) => (
 	>
 		<div className="mb-6">
 			<p className="mb-3 text-sm font-semibold uppercase tracking-widest text-black/80 dark:text-white/80 font-michroma">
-				{tier.name}
+				{protectBrand(tier.name)}
 			</p>
 			<div className="mb-3 flex items-end gap-1">
 				<span className="text-4xl font-black tracking-tight text-black dark:text-white font-michroma">
@@ -27,7 +28,7 @@ const TierCard = ({ tier, index }: TierCardProps) => (
 					</span>
 				)}
 			</div>
-			<p className="text-sm leading-relaxed text-black dark:text-white font-tektur">{tier.description}</p>
+			<p className="text-sm leading-relaxed text-black dark:text-white font-tektur">{protectBrand(tier.description)}</p>
 		</div>
 
 		<ul className="mb-8 flex-1 space-y-3 font-tektur">
@@ -36,7 +37,7 @@ const TierCard = ({ tier, index }: TierCardProps) => (
 					<span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-200 text-black dark:bg-white/10 dark:text-white">
 						<FiCheck className="h-3 w-3 stroke-[2.5]" />
 					</span>
-					<span className="text-black dark:text-white">{feature}</span>
+					<span className="text-black dark:text-white">{protectBrand(feature)}</span>
 				</li>
 			))}
 		</ul>

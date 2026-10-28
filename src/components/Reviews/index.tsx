@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { memo } from "react";
+import { protectBrand } from "@/lib/protectBrand";
 import type { ReviewsProps } from "@/types";
 import ReviewCard from "./ReviewCard";
 
@@ -34,7 +35,7 @@ const Reviews = ({ items }: ReviewsProps) => {
 						"
 					</div>
 					<p className="mb-6 max-w-3xl text-base font-medium leading-relaxed text-black dark:text-white font-tektur md:text-lg">
-						{featured.text}
+						{protectBrand(featured.text)}
 					</p>
 					<div className="flex items-center gap-4">
 						<div className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-200 text-sm font-bold text-black font-michroma dark:bg-white/10 dark:text-white">

@@ -32,7 +32,7 @@ const Footer = (_props: FooterProps) => (
 		<div className="w-full border-t border-white/15 dark:border-black/15 bg-black/10 dark:bg-black/5 py-4 md:py-5">
 			<div className="mx-auto flex max-w-6xl items-center justify-center px-4 text-center sm:px-6 lg:px-8">
 				<p className="text-center text-sm font-medium text-white/90 dark:text-black/90">
-					© {new Date().getFullYear()} Animus Project. All rights reserved.
+					© {new Date().getFullYear()} <span translate="no" className="notranslate">Animus Project</span>. All rights reserved.
 				</p>
 			</div>
 		</div>

@@ -17,7 +17,7 @@ export default function Header() {
 						<div className="flex h-9 w-9 items-center justify-center rounded-xl bg-black border border-white/20 text-lg font-bold text-white shadow-xs dark:bg-white dark:text-black dark:border-black/20">
 							A
 						</div>
-						<span className="font-descscor text-xl font-bold tracking-tight text-white dark:text-black">
+						<span translate="no" className="font-descscor text-xl font-bold tracking-tight text-white dark:text-black notranslate">
 							{site.name}
 						</span>
 					</a>

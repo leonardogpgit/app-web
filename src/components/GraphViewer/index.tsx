@@ -426,7 +426,7 @@ export default function GraphViewer({ userId, userEmail }: GraphViewerProps) {
 			{isFilterOpen && (
 				<div className="absolute top-16 left-4 z-20 w-64 rounded-2xl border border-slate-300 bg-[#f4f7fb]/95 p-4 shadow-xl backdrop-blur-md dark:border-white/15 dark:bg-[#111116]/95">
 					<div className="flex items-center justify-between pb-2 mb-3 border-b border-slate-300 dark:border-white/10">
-						<span className="font-michroma text-xs font-bold text-black dark:text-white uppercase tracking-wider">
+						<span translate="no" className="font-michroma text-xs font-bold text-black dark:text-white uppercase tracking-wider notranslate">
 							Neo4j Labels
 						</span>
 						<button
@@ -479,7 +479,7 @@ export default function GraphViewer({ userId, userEmail }: GraphViewerProps) {
 				<div className="absolute inset-0 z-30 flex flex-col items-center justify-center gap-3 bg-[#e6ecf2]/60 dark:bg-[#09090b]/60 backdrop-blur-xs">
 					<div className="h-8 w-8 animate-spin rounded-full border-2 border-slate-400 border-t-black dark:border-white/20 dark:border-t-white" />
 					<p className="font-michroma text-xs text-black/70 dark:text-white/70">
-						Loading Neo4j Graph...
+						Loading <span translate="no" className="notranslate">Neo4j</span> Graph...
 					</p>
 				</div>
 			)}
@@ -490,17 +490,17 @@ export default function GraphViewer({ userId, userEmail }: GraphViewerProps) {
 					<div className="max-w-md rounded-2xl border border-slate-300/80 bg-[#f4f7fb]/85 p-6 shadow-sm backdrop-blur-md dark:border-white/10 dark:bg-[#111116]/85">
 						<FiLayers className="mx-auto h-7 w-7 text-black/40 dark:text-white/40 mb-3" />
 						<h3 className="font-michroma text-sm font-bold text-black dark:text-white mb-2">
-							Animus Consensus Graph
+							<span translate="no" className="notranslate">Animus</span> Consensus Graph
 						</h3>
 						<p className="text-xs text-black/60 dark:text-white/60 leading-relaxed mb-4">
-							Red de consenso en pausa. La red pública de Animus opera de forma independiente al grafo privado de Replica y se encuentra temporalmente en espera.
+							Red de consenso en pausa. La red pública de <span translate="no" className="notranslate">Animus</span> opera de forma independiente al grafo privado de <span translate="no" className="notranslate">Replica</span> y se encuentra temporalmente en espera.
 						</p>
 						<div className="inline-flex items-center gap-2 rounded-lg bg-black/5 dark:bg-white/5 px-3 py-1.5 text-[11px] font-mono text-black/60 dark:text-white/60">
 							<span className="h-1.5 w-1.5 rounded-full bg-amber-500" />
 							<span>Sin conexión activa</span>
 						</div>
 						<div className="mt-4 pt-3 border-t border-slate-300/60 dark:border-white/10 text-[11px] text-black/70 dark:text-white/70 font-tektur text-center leading-relaxed">
-							<span className="font-semibold text-black dark:text-white">Conexión con Replica:</span> Si lo decides, tus respuestas en Animus pueden enseñar a tu <strong className="font-michroma">Replica</strong> cómo piensas, sin esfuerzo adicional.
+							<span className="font-semibold text-black dark:text-white">Conexión con <span translate="no" className="notranslate">Replica</span>:</span> Si lo decides, tus respuestas en <span translate="no" className="notranslate">Animus</span> pueden enseñar a tu <strong className="font-michroma" translate="no"><span className="notranslate">Replica</span></strong> cómo piensas, sin esfuerzo adicional.
 						</div>
 					</div>
 				</div>
@@ -645,8 +645,8 @@ export default function GraphViewer({ userId, userEmail }: GraphViewerProps) {
 
 					{/* Footer Details */}
 					<div className="pt-3 border-t border-slate-300 dark:border-white/10 flex justify-between items-center text-[10px] font-mono text-black/40 dark:text-white/40">
-						<span>Animus Graph</span>
-						<span>Neo4j Cypher Synced</span>
+						<span translate="no" className="notranslate">Animus Graph</span>
+						<span><span translate="no" className="notranslate">Neo4j</span> Cypher Synced</span>
 					</div>
 				</aside>
 			)}
