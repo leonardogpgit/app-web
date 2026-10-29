@@ -76,9 +76,9 @@ export const features: Feature[] = [
 		icon: "FiZap",
 	},
 	{
-		title: "Anonymous by Design",
+		title: "Anonymous by Design & Zero Spyware",
 		description:
-			"No names, no tracking, and no ad profiling. We only use broad demographic brackets (age, gender, general region) to show genuine patterns across groups.",
+			"Zero spyware, zero tracking, and zero unnecessary network calls—easily auditable by monitoring network traffic. Anonymous by design with irrevocable deletion on demand.",
 		icon: "FiLock",
 	},
 	{
@@ -236,5 +236,10 @@ export const faqs: FAQItem[] = [
 		question: "Who can see and use this data?",
 		answer:
 			"Everyone. Teachers, researchers, journalists, and everyday people can see genuine public opinion without the distortion of click-driven social media.",
+	},
+	{
+		question: "How strict is Animus about privacy, and do the apps contain spyware?",
+		answer:
+			"Privacy is our sacred foundation. Our apps contain zero spyware, zero tracking SDKs, and make no network calls that aren't strictly necessary to operate—which you can easily verify by auditing app network traffic with tools like Wireshark. Your responses are encrypted, nothing is ever shared or sold, and accounts can be permanently and irrevocably deleted following strict authentication protocols, with zero possibility of recovery.",
 	},
 ];

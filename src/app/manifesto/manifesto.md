@@ -74,9 +74,9 @@ Every question and answer becomes a node in an interconnected graph database:
 - **Headline**: Understand not just what people think, but who thinks it.
 - **Body**: Filter real human sentiment across age brackets (18–24, 25–34, 35–44, 45–54, 55+), genders, and geographic regions. Discover generational consensus and cultural contrasts.
 
-### 3. Radical Privacy & Cryptographic Safety
+### 3. Radical Privacy, Zero Spyware & Cryptographic Safety
 - **Headline**: Your answers are private; humanity's knowledge is permanent.
-- **Body**: Built on privacy-first architecture with end-to-end encryption in transit (TLS). We store aggregate statistics, not personal dossiers.
+- **Body**: Built on privacy-first architecture with end-to-end encryption in transit (TLS 1.3) and at rest (AES-256). Zero spyware, zero background telemetry, and zero hidden network calls—auditable by any user through real-time network traffic inspection. Irrevocable permanent deletion upon request. We store aggregate statistics, not personal dossiers.
 
 ### 4. Reciprocal Participation Engine
 - **Headline**: Earn credits through participation; spend credits to ask and boost.
@@ -121,10 +121,7 @@ Every question and answer becomes a node in an interconnected graph database:
 
 ---
 
-## 6. Official Questions & Answers (FAQ)
-
-### What is the Animus Project?
-Animus is an open initiative to map the collective mind and opinions of humanity in real time. We capture authentic human perspectives without algorithms or noise, organizing them into a living, interconnected graph database.
+## 6. Frequently Asked Questions
 
 ### Is Animus completely free?
 Yes, 100% free. There are no paywalls, premium tiers, or hidden subscriptions. The entire system runs on participation reciprocity: you give answers to gain the right to ask questions.
@@ -132,8 +129,10 @@ Yes, 100% free. There are no paywalls, premium tiers, or hidden subscriptions. T
 ### How does the credit and question system work?
 Animus operates on reciprocity ("Give to Ask"). To prevent question spam and ensure rich statistical sample sizes, you earn credits by answering questions. Those credits give you the right to post your own questions and boost them across local and global feeds.
 
-### What personal data does Animus collect?
-Radical anonymity is our core principle. We do not ask for your real name, email, phone number, or social media accounts. We only collect high-level, aggregate demographic markers (age bracket, gender, general region) so the consensus graph can show how perspectives vary across populations.
+### What personal data does Animus collect, and do the apps contain spyware?
+Radical anonymity is our sacred foundation. We do not ask for your real name, email, phone number, address, or contact list. We only collect high-level, aggregate demographic markers (age bracket, gender, general region) so the consensus graph can show how perspectives vary across populations.
+
+Our applications contain zero spyware, zero tracking SDKs, and make no network calls that aren't strictly necessary for app functionality—which is easily verifiable by inspecting the application's network traffic with standard packet analysis tools. We never sell or share data, and if you request account deletion, your records are wiped completely and irrevocably following strict authentication protocols, with zero possibility of recovery.
 
 ### Can multiple people ask the same question?
 If your question has already been asked by someone else, Animus intelligently merges identical questions into a single knowledge node. This consolidates data volume and gives you much deeper statistics rather than fragmenting votes.
