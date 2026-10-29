@@ -230,7 +230,7 @@ export const faqs: FAQItem[] = [
 	{
 		question: "Can my answers help teach my personal Replica?",
 		answer:
-			"Yes, if you choose to connect them. By default, Animus is completely anonymous. If you link your account to Animus Replica, the real-world dilemmas you answer on Animus automatically teach your Replica how you think and make decisions.",
+			"Yes, if you choose to connect them. By default, Animus is completely anonymous. If you link your account to Animus Replica, the dilemmas you answer automatically calibrate your digital persona—the mask through which you speak and reason—teaching it how you decide with zero extra effort.",
 	},
 	{
 		question: "Who can see and use this data?",

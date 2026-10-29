@@ -500,7 +500,7 @@ export default function GraphViewer({ userId, userEmail }: GraphViewerProps) {
 							<span>Sin conexión activa</span>
 						</div>
 						<div className="mt-4 pt-3 border-t border-slate-300/60 dark:border-white/10 text-[11px] text-black/70 dark:text-white/70 font-tektur text-center leading-relaxed">
-							<span className="font-semibold text-black dark:text-white">Conexión con <span translate="no" className="notranslate">Replica</span>:</span> Si lo decides, tus respuestas en <span translate="no" className="notranslate">Animus</span> pueden enseñar a tu <strong className="font-michroma" translate="no"><span className="notranslate">Replica</span></strong> cómo piensas, sin esfuerzo adicional.
+							<span className="font-semibold text-black dark:text-white">Conexión con <span translate="no" className="notranslate">Replica</span>:</span> Si lo decides, tus respuestas en <span translate="no" className="notranslate">Animus</span> calibran la máscara de tu <strong className="font-michroma" translate="no"><span className="notranslate">Replica</span></strong> —enseñándole cómo piensas y decides ante dilemas reales, sin esfuerzo adicional.
 						</div>
 					</div>
 				</div>

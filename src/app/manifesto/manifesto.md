@@ -145,7 +145,9 @@ No vanity follower counts, no endless algorithm rabbit holes, no toxic comment w
 Humanity. Sociologists, behavioral scientists, educators, and the general public gain access to an authentic mirror of what people actually think and worry about, rather than what ad-driven algorithms amplify.
 
 ### Can my Animus answers train my personal Replica?
-Yes, if you choose to connect them. By default, Animus is completely anonymous. If you link your account to **Animus Replica**, the real-world dilemmas you answer on Animus automatically teach your Replica how you think and make decisions—with zero extra effort.
+Yes, if you choose to connect them. By default, Animus is completely anonymous. If you link your account to **Animus Replica**, the real-world dilemmas you answer on Animus automatically calibrate your digital persona—the mask through which you speak, reason, and face the world.
+
+In classical origins, *persona* literally meant *mask*—the crafted face an actor wore to project their voice to the crowd. Nobody can trap an ungraspable soul in silicon, but you can build an authentic, structured replica of that mask: your voice, your moral boundaries, and how you choose when faced with hard questions. Answering questions on Animus continuously teaches that replica how you think, with zero extra work.
 
 ---
 
@@ -170,5 +172,5 @@ Yes, if you choose to connect them. By default, Animus is completely anonymous. 
 #### Angle D: "The Anti-Algorithm Network"
 > *"No likes. No followers. No comments section. Just questions, answers, and the real mind of humanity."*
 
-#### Angle E: "Teach Your Replica"
-> *"Every question you answer in Animus can teach your Animus Replica how you think. Answering real dilemmas helps your digital voice sound like you with zero extra work."*
+#### Angle E: "Teach Your Replica (The Living Mask)"
+> *"Every persona is a mask you wear for the world. Every question you answer in Animus calibrates that mask in Animus Replica—teaching your digital presence how you speak, reason, and decide with zero extra effort."*
