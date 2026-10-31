@@ -4,7 +4,7 @@
 
 ## 1. Core Vision & The Central Question
 
-> *"What do you think? The mind of humanity in real time."*
+> *"Tell us what you think. The mind of humanity in real time."*
 
 Animus is an open, anonymous consensus network created to map the collective mind and opinions of humanity in real time. We capture authentic human perspectives without algorithms, ads, or noise, organizing them into a living, interconnected knowledge graph.
 
@@ -46,7 +46,7 @@ Every question and answer becomes a node in an interconnected graph database:
 ## 3. Brand Copy & Messaging Vault
 
 ### Taglines & Punchlines
-- **Primary**: "What do you think? The mind of humanity in real time."
+- **Primary**: "Tell us what you think. The mind of humanity in real time."
 - **Secondary**: "Real voices. Zero noise."
 - **Core Hook**: "Every voice counts. Every bias removed."
 - **Reciprocity**: "Give to ask. Answer to unlock."

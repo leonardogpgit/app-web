@@ -15,7 +15,7 @@ const Features = ({ items }: FeaturesProps) => (
 			className="mb-12 flex flex-col items-center text-center"
 		>
 			<h2 className="section-heading max-w-2xl">
-				What do you think? <span className="accent">Your stance matters.</span>
+				Tell us what you think. <span className="accent">Your stance matters.</span>
 			</h2>
 		</motion.div>
 
