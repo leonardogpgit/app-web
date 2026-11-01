@@ -15,7 +15,7 @@
 	},
 	"dependencies": {
 		"@tailwindcss/typography": "^0.5.20",
-		"firebase": "^13.0.0",
+		"firebase": "^13.1.0",
 		"force-graph": "^1.52.0",
 		"framer-motion": "^12.43.0",
 		"marked": "^18.0.7",
