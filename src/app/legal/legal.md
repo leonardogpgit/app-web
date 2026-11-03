@@ -1,102 +1,134 @@
-# Legal
+# Animus Ecosystem — Master Legal Framework & Unified Privacy Policy
 
-**Last updated: October 2026**
+**Last updated: November 2026**
 
-## Part I — Privacy Policy
+## Part I — Unified Privacy Policy
 
-### 1. Privacy as Our Sacred Foundation
+### 1. Privacy and Human Sovereignty as Our Sacred Foundation
 
-Privacy and human dignity are the core reasons the Animus Project exists. We believe that modern social media and traditional online polling have corrupted public discourse through surveillance capitalism, algorithmic outrage, invasive tracking, and identity exposure.
+Privacy, individual sovereignty, and human dignity are the non-negotiable reasons the **Animus Project** and its entire ecosystem exist. In an era dominated by surveillance capitalism, predatory engagement algorithms, non-consensual biometric training, and covert commercial profiling, Animus stands as an uncompromising fortress for personal autonomy.
 
-Animus was built from day one as an uncompromising counter-model: a collective intelligence network founded on **radical anonymity, absolute data minimization, and total cryptographic security**. Privacy is not an afterthought or marketing term for us; it is our sacred, non-negotiable principle.
+This Unified Privacy Policy applies across the entire Animus Ecosystem, including:
+- **Animus Project Hub** (`animusproject.org`) — The collective intelligence and consensus graph network.
+- **Animus App** (`app.animusproject.org`) — The daily mobile application for dilemmas and thought reciprocity.
+- **Animus Replica** (`replica.animusproject.org`) — The personal AI companion, memory vault, and neural voice mask.
+- **Animus Resonance** (`resonance.animusproject.org`) — The ethical, multidimensional human connection network.
 
----
-
-### 2. Zero-Spyware Commitment & Transparent Network Auditability
-
-We believe that genuine privacy must be provable through technical verification, not blind trust.
-
-- **Absolute Zero-Spyware Guarantee**: The Animus mobile and web applications contain **zero spyware, zero adware, zero third-party tracking SDKs, and zero commercial behavioral profiling tools**.
-- **Strict Network Call Minimization**: Our applications **never** initiate calls to any server or service that is not strictly, indispensably required for the operation of the network (such as fetching daily questions, retrieving aggregate demographic distributions, or synchronizing participation credits).
-- **Publicly and Independently Auditable**: We engineered the application's network layer with total transparency. Any user, developer, or cybersecurity researcher can easily verify our claims by inspecting the network traffic of the Animus app in real time using standard packet inspection and monitoring tools (such as Wireshark, Little Snitch, mitmproxy, Charles Proxy, or mobile proxy inspection). You will observe zero background pings to data brokers, zero hidden beacons, and zero unprompted telemetry.
+Privacy is not an afterthought, a compliance checkmark, or marketing spin for us; it is our sacred founding principle, embedded directly into the software architecture of every client, server, and graph node we deploy.
 
 ---
 
-### 3. Radical Anonymity: Information We Collect & What We Reject
+### 2. Zero-Spyware Commitment & Real-Time Network Auditability
 
-We collect only high-level, non-identifiable demographic markers required to calculate aggregate consensus across human populations:
+We believe genuine privacy must be provable through transparent technical verification, not blind trust in corporate statements.
 
-- **What We Collect**:
-  - **Age Bracket** — e.g., 18–24, 25–34, 35–44, 45–54, 55+.
-  - **Gender** — for broad statistical demographic slicing.
-  - **General Location** — broad region or country level to understand cultural trends.
-  - **Your Dilemma Responses & Reciprocal Credits** — the anonymous answers you submit and the credits you earn.
-
-- **What We Explicitly Reject**:
-  - We do **not** want your real name, email address, phone number, physical address, or contact list.
-  - We do **not** collect device serial numbers, advertising IDs (IDFA/GAID), or biometric identifiers.
-  - We do **not** build individual tracking dossiers or monitor your browsing activity outside our application.
+- **Absolute Zero-Spyware Guarantee**: None of the applications in the Animus ecosystem—across Linux, Windows, Android, iOS, or the web—contain any spyware, adware, commercial tracking SDKs, device fingerprinting libraries, or hidden behavioral telemetry agents.
+- **Strict Network Call Minimization**: Our software **never** initiates network requests or communicates with any server, data broker, or third-party service that is not strictly, indispensably necessary for the direct execution of features explicitly requested by you.
+- **Publicly and Independently Auditable**: We engineered our network communication layer with total transparency. Any user, developer, or independent cybersecurity researcher can easily verify our claims by inspecting the network traffic of any Animus application in real time using standard packet inspection and network monitoring tools (including **Wireshark, Little Snitch, mitmproxy, Charles Proxy**, or native operating system socket inspectors). You will observe zero background pings to advertising brokers, zero covert analytics beacons, and zero unprompted outbound connections.
 
 ---
 
-### 4. Cryptographic Security & End-to-End Encryption
+### 3. Cryptographic Security Standards
 
-Every interaction across the Animus network is protected by enterprise-grade cryptographic protocols:
+Every interaction, vote, memory node, voice sample, and message across the Animus ecosystem is protected by enterprise-grade cryptographic standards:
 
-- **Encryption in Transit & At Rest**: All network communications between your device and our servers use encrypted TLS 1.3 channels. All persistent records in our database clusters are encrypted at rest using AES-256.
-- **Demographic Aggregation**: Once your response is registered, it is aggregated into statistical demographic distributions in our Neo4j graph database (`:Question`-`[:CONSENSUS]`->`:Demographics`). Individual votes are detached from personal identifiers.
-- **Ecosystem Connection to Replica (Optional)**: If you choose to link your Animus account to Animus Replica, your responses calibrate your personal persona graph. This process is strictly encrypted, entirely optional, and under your exclusive control.
-
----
-
-### 5. Uncompromising Data Handling & Zero Sharing
-
-Animus operates under strict rules regarding data integrity:
-
-- We will **never** sell, rent, monetize, license, or share your individual responses or demographic data with advertisers, data brokers, private corporations, or government surveillance entities.
-- We do **not** run targeted advertisements, and our applications will never display third-party tracking scripts.
-- Aggregate sociological insights are published openly to advance human knowledge, sociology, and public understanding—never to exploit individuals.
+- **Encryption in Transit**: All network communications between your devices and our backend clusters use encrypted TLS 1.3 channels with forward secrecy.
+- **Encryption at Rest**: All persistent records in our database clusters and storage volumes are encrypted at rest using industry-standard AES-256.
+- **End-to-End Encrypted Communications**: Private dialogues, audio exchanges, and resonance notes are encrypted end-to-end between participating devices. Our infrastructure facilitates delivery without inspecting or retaining the cleartext contents of your conversations.
+- **Zero Third-Party Model Training**: Your voice samples, private journal entries, conversation transcripts, and memory graphs will **never** be sold, leaked, or used to train, fine-tune, or benchmark public foundation AI models or external algorithms.
 
 ---
 
-### 6. Irrevocable & Permanent Deletion Protocol ("Right to Absolute Erasure")
+### 4. Right to Absolute Erasure: Irrevocable & Permanent Deletion Protocol
 
-You retain absolute sovereignty over your participation in the Animus network:
+You retain absolute, inviolable sovereignty over your identity and participation across the entire ecosystem:
 
-- **Strict Pre-Deletion Authentication Protocols**: To prevent accidental account loss, malicious unauthorized requests, or automated destruction, account deletion requests must complete a strict authentication protocol to confirm ownership.
-- **Complete, Irrevocable & Permanent Deletion**: Upon confirmed request, your account record, credentials, participation history, and earned credits are permanently and irrevocably wiped from all active database clusters.
-- **Zero Possibility of Recovery / No Shadow Copies**: We do not perform deceptive "soft-deletes" or keep shadow archives. Once the purge is executed, your data is mathematically unrecoverable and cannot be restored by anyone, including Animus engineers.
-
----
-
-## Part II — Terms of Service
-
-### 1. Acceptance of Terms
-
-By downloading, installing, or accessing the Animus application or website, you agree to these Terms of Service.
-
-### 2. Free Participation & Reciprocity
-
-- Animus is 100% free to download and use.
-- The network operates on fair reciprocity ("Give to Ask"): you earn credits by answering questions from others, and you spend credits to submit and boost your own questions. This prevents automated spam and bot manipulation without requiring paywalls or financial fees.
-
-### 3. Lawful & Respectful Conduct
-
-You agree to use Animus exclusively for lawful, honest, and respectful expression. Users must not submit defamatory, abusive, illegal, or harassing questions, or attempt to compromise the integrity of the network through botting or automated manipulation. Animus reserves the right to moderate questions that violate community guidelines or human dignity.
-
-### 4. Intellectual Property
-
-The Animus consensus graph, architecture, design assets, and application codebase are the property of Animus Project LLC. Aggregate statistical insights are shared freely in service of human knowledge and sociological research.
-
-### 5. Disclaimer of Warranties & Limitation of Liability
-
-The application and network are provided "as is". While we work continuously to ensure statistical rigor, bot resistance, and system availability, consensus distributions reflect community contributions at any given moment. To the fullest extent permitted by law, Animus Project LLC is not liable for indirect, incidental, or consequential damages resulting from the use of the platform.
+- **Strict Pre-Deletion Authentication Protocols**: Because voice models, lifetime memory vaults, and graph histories represent irreplaceable personal heritage, deletion requests require strict identity authentication to prevent accidental account loss, automated destruction, or unauthorized third-party tampering.
+- **Complete, Irrevocable & Permanent Deletion**: Upon confirmed request, our systems execute an irreversible cryptographic purge of all your account records, credentials, voice checkpoints, memory graph nodes, credit balances, and active resonance links from all active database clusters.
+- **Zero Possibility of Recovery / No Shadow Copies**: We refuse to perform deceptive "soft-deletes" or keep shadow archives. Once the purge is executed, your data is mathematically unrecoverable and cannot be restored by anyone—including Animus systems administrators.
 
 ---
 
-## Contact & Privacy Verification
+### 5. Application-Specific Privacy Provisions
 
-For questions regarding our privacy architecture, network auditability, or legal matters, contact:
-- **X (Twitter)**: [@animusproject](https://x.com/animusproject)
-- **Legal Desk**: [legal@animusproject.org](mailto:legal@animusproject.org)
-- **Privacy & Security Desk**: [privacy@animusproject.org](mailto:privacy@animusproject.org)
+#### 5.1. Animus Core & Animus App (`animusproject.org` / `app.animusproject.org`)
+- **Radical Anonymity**: Animus does not request, collect, or store your real name, email address, phone number, address book, or social media handles.
+- **Demographic Slicing Without Identity**: When answering dilemmas, your response is linked only to broad, non-identifiable demographic brackets (age group, general region, gender identity). This enables rich sociological cross-sections without personal surveillance.
+- **Commit-to-Unlock Integrity**: Individual votes are committed to the graph before aggregate community statistics are displayed, destroying herd bias at the protocol level.
+- **Consensus Aggregation**: Question nodes are merged in Neo4j property graphs (`:Question`-`[:CONSENSUS]`->`:Demographics`), transforming individual perspectives into pure statistical insights detached from personal trackers.
+
+#### 5.2. Animus Replica (`replica.animusproject.org`)
+- **Architectural Isolation**: Your personal memory graph (`/user`), synthetic persona reasoning network (`/persona`), and operating system automation tools (`/system/jarvis`) are strictly partitioned into isolated sectors to prevent cross-contamination.
+- **Personal Voice Sovereignty**: Neural voice weights and acoustic markers are cryptographically bound to your private user vault. They are accessible exclusively by you or designated beneficiaries explicitly authorized through your private keys.
+- **Desktop Autonomy (Jarvis)**: On desktop operating systems (Linux, Windows), local task automation, terminal executions, and file operations run directly on your hardware and remain strictly confined within your machine.
+- **Legacy Crystal Standalone Export**: You hold the right to export your entire memory graph and voice persona into an encrypted, offline archive ("Legacy Crystal") for independent family custody without ongoing cloud dependence.
+- **Optional Animus Synergy**: You may voluntarily link your Animus dilemma responses to calibrate your Replica mask automatically. This flow is strictly client-directed, unilateral, and can be revoked at any moment.
+
+#### 5.3. Animus Resonance (`resonance.animusproject.org`)
+- **Mandatory Animus Prerequisite**: Resonance does not use superficial questionnaires, public bios, or photo swipe carousels. It operates exclusively on the mathematical thought graph generated by your responses in Animus.
+- **Cognitive Concordance Without Raw Exposure**: Compatibility is calculated via vector alignment (>90% threshold) across ethical, philosophical, and everyday dilemmas. Other users **never** see your individual question history or specific answers; they see only high-level resonance percentages and mutual alignment categories.
+- **Mind First (Radical Initial Blindness)**: All prospective matches begin completely blind—with zero photographs, zero real names, zero social handles, and zero vanity metrics.
+- **Double-Blind Progressive Disclosure**: Unlocking subsequent communication phases (anonymous text chat -> voice notes -> mutual persona/mask reveal) requires independent, bilateral consent from both parties. If either party chooses not to advance, the other is never alerted, preventing one-sided exposure, social awkwardness, or explicit rejection.
+
+---
+
+### 6. Zero Commercial Monetization & Zero Data Sales
+
+- We do **not** sell, rent, lease, monetize, license, or trade your personal responses, audio files, or knowledge graphs to advertisers, data brokers, private marketing firms, or surveillance entities.
+- We do **not** serve commercial third-party advertisements or embed third-party advertising tracking scripts into our products.
+- Aggregate sociological knowledge is published openly to advance collective human intelligence and scientific understanding—never to exploit individuals.
+
+---
+
+## Part II — Unified Terms of Service
+
+### 1. Acceptance of Terms & Ecosystem Scope
+
+By downloading, installing, browsing, or accessing any service, application, or website within the Animus Ecosystem (Animus, Animus App, Animus Replica, or Animus Resonance), you enter into a legally binding agreement to abide by these Unified Terms of Service.
+
+---
+
+### 2. Operational Rules & Application Conduct
+
+#### 2.1. Animus & Animus App: Reciprocity ("Give to Ask")
+- Participation in Animus is 100% free and founded on reciprocity.
+- Users earn participation credits by answering community dilemmas and spend those credits to post their own inquiries or boost reach across demographic slices.
+- Attempting to exploit, game, or artificially inflate credit balances using automated scripts, scrapers, or bot farms is strictly prohibited and grounds for immediate, permanent termination.
+
+#### 2.2. Animus Replica: Ethical AI & Likeness Ownership
+- Replica is engineered for personal productivity, memory preservation, ethical digital assistance, and family legacy.
+- You strictly agree that you will **not** upload audio samples, clone the voice, or synthesize the likeness of any third-party individual without their explicit, verifiable, informed written consent.
+- You will not employ Jarvis system automation tools to distribute malware, conduct unauthorized network intrusions, or violate computer security laws.
+
+#### 2.3. Animus Resonance: Multidimensional Human Connection
+- **Age Eligibility**: Resonance is restricted strictly to individuals aged 18 years or older.
+- **Purpose**: Resonance provides genuine cognitive matching for multidimensional human connection: finding like-minded friends in your city or across the globe, project collaborators, startup co-founders, gaming partners, travel connections, and romantic partners.
+- **Code of Conduct**: You agree to treat matched peers with dignity, respect, and empathy. Harassment, stalking, intimidation, non-consensual sexual exploitation, hate speech, or malicious deception will result in immediate, irreversible expulsion from the Resonance pool.
+
+---
+
+### 3. Intellectual Property & User Ownership
+
+- **Your Sovereignty**: You retain 100% moral, legal, and intellectual ownership over your personal memories, private reflections, audio recordings, and voice models generated through the ecosystem.
+- **Animus Intellectual Property**: The Animus consensus architecture, property graph schemas, neural interfaces, design assets, and client source code are the exclusive intellectual property of Animus Project LLC.
+- **Public Consensus Data**: Anonymous, aggregate demographic distributions published by the Animus consensus graph are shared freely for public education, academic sociology, and collective human progress.
+
+---
+
+### 4. Disclaimers & Limitation of Liability
+
+- **"As Is" Provision**: All applications, algorithms, and graph networks across the ecosystem are provided on an "as is" and "as available" basis without warranties of any kind, whether express or implied.
+- **No Substitute for Professional Judgment**: Animus Replica personas represent probabilistic reasoning approximations and do not constitute formal legal, financial, psychiatric, or medical advice.
+- **Human Connection Disclaimer**: While Animus Resonance measures mathematical cognitive alignment, human relationships rely on character, emotional maturity, and personal responsibility. Animus Project LLC is not liable for interpersonal interactions, meetings, or outcomes between matched individuals.
+- **Limitation of Liability**: To the maximum extent permitted by applicable law, Animus Project LLC, its founders, and contributors shall not be liable for any indirect, incidental, punitive, or consequential damages resulting from the use or inability to use any part of the ecosystem.
+
+---
+
+### 5. Official Legal & Privacy Contacts
+
+For questions regarding our privacy architecture, independent network auditability, or legal inquiries across the ecosystem, contact:
+
+- **Ecosystem Hub**: `https://animusproject.org`
+- **Legal Affairs Desk**: [legal@animusproject.org](mailto:legal@animusproject.org)
+- **Privacy & Security Verification**: [privacy@animusproject.org](mailto:privacy@animusproject.org)
+- **Official X (Twitter)**: [@animusproject](https://x.com/animusproject)

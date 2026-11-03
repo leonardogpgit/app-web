@@ -1,6 +1,12 @@
+export const SUITE_LINKS = [
+	{ label: "Animus (Hub)", href: "https://animusproject.org" },
+	{ label: "Animus Replica", href: "https://replica.animusproject.org" },
+	{ label: "Animus Resonance", href: "https://resonance.animusproject.org" },
+];
+
 export const LEGAL_LINKS = [
 	{ label: "Manifesto", href: "/manifesto" },
-	{ label: "Legal", href: "/legal" },
+	{ label: "Legal & Privacy", href: "/legal" },
 ];
 
 export const fade = (delay = 0) => ({
