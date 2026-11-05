@@ -3,12 +3,10 @@ import AppHero from "@/components/AppHero";
 import Features from "@/components/Features";
 import Pricing from "@/components/Pricing";
 import Reviews from "@/components/Reviews";
-import Screenshots from "@/components/Screenshots";
 import {
 	features,
 	pricingTiers,
 	reviews,
-	screenshots,
 	site,
 } from "@/config";
 import { fetchStoreData } from "@/fetchStoreData";
@@ -30,7 +28,6 @@ export default async function HomePage() {
 		version: storeData.version ?? site.version,
 		minimumOS: storeData.minimumOS ?? site.minimumOS,
 		releaseDate: storeData.releaseDate ?? site.releaseDate,
-		screenshots: storeData.screenshots ?? screenshots,
 	};
 
 	return (
@@ -46,9 +43,6 @@ export default async function HomePage() {
 				minimumOS={app.minimumOS}
 				releaseDate={app.releaseDate}
 			/>
-			<section id="screenshots" className="mb-16 scroll-mt-28 md:scroll-mt-20 md:mb-24">
-				<Screenshots images={app.screenshots} />
-			</section>
 			<section id="features" className="mb-16 scroll-mt-28 md:scroll-mt-20 md:mb-24 space-y-16 md:space-y-24">
 				<Features items={features} />
 				<Pricing tiers={pricingTiers} />

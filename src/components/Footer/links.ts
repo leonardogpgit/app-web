@@ -5,8 +5,8 @@ export const SUITE_LINKS = [
 ];
 
 export const LEGAL_LINKS = [
-	{ label: "Manifesto", href: "/manifesto" },
-	{ label: "Legal & Privacy", href: "/legal" },
+	{ label: "Privacy Policy", href: "/privacy" },
+	{ label: "Terms of Service", href: "/terms" },
 ];
 
 export const fade = (delay = 0) => ({
