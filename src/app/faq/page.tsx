@@ -4,7 +4,7 @@ import { faqs } from "@/config";
 
 export const metadata: Metadata = {
 	title: "FAQ",
-	description: "Frequently asked questions about the Animus Project and mobile application.",
+	description: "Frequently asked questions about Animus.",
 };
 
 export default function FAQPage() {

@@ -1,12 +1,8 @@
 import type { Metadata } from "next";
 import AppHero from "@/components/AppHero";
 import Features from "@/components/Features";
-import Pricing from "@/components/Pricing";
-import Reviews from "@/components/Reviews";
 import {
 	features,
-	pricingTiers,
-	reviews,
 	site,
 } from "@/config";
 import { fetchStoreData } from "@/fetchStoreData";
@@ -45,10 +41,6 @@ export default async function HomePage() {
 			/>
 			<section id="features" className="mb-16 scroll-mt-28 md:scroll-mt-20 md:mb-24 space-y-16 md:space-y-24">
 				<Features items={features} />
-				<Pricing tiers={pricingTiers} />
-			</section>
-			<section id="reviews" className="mb-8 scroll-mt-28 md:scroll-mt-20 md:mb-12">
-				<Reviews items={reviews} />
 			</section>
 		</main>
 	);

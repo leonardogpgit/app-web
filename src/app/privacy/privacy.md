@@ -10,7 +10,7 @@ Privacy, individual sovereignty, and human dignity are the non-negotiable reason
 
 This Privacy Policy governs all applications, websites, and services across the **Animus Ecosystem**, including:
 - **Animus Project** (`animusproject.org`) — The collective intelligence and consensus graph network.
-- **Animus** (`animus.animusproject.org`) — The daily application for dilemmas and consensus reciprocity.
+- **Animus** (`animus.animusproject.org`) — The platform for dilemmas and consensus reciprocity.
 - **Animus Remnant** (`remnant.animusproject.org`) — The personal AI companion, memory vault, and neural voice mask.
 - **Animus Resonance** (`resonance.animusproject.org`) — The ethical, multidimensional human connection network.
 
