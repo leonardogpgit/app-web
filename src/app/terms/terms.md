@@ -6,7 +6,7 @@
 
 ### Section 1: Object, Acceptance & License of Use
 
-By accessing, downloading, installing, or using any software, platform, application, or service within the **Animus Ecosystem**—including **Animus Project Hub** (`animusproject.org`), **Animus App** (`app.animusproject.org`), **Animus Replica** (`replica.animusproject.org`), and **Animus Resonance** (`resonance.animusproject.org`)—you enter into a legally binding agreement to be governed by these Terms of Service.
+By accessing, downloading, installing, or using any software, platform, application, or service within the **Animus Ecosystem**—including **Animus Project** (`animusproject.org`), **Animus** (`animus.animusproject.org`), **Animus Remnant** (`remnant.animusproject.org`), and **Animus Resonance** (`resonance.animusproject.org`)—you enter into a legally binding agreement to be governed by these Terms of Service.
 
 **License Grant**:
 Animus Project LLC grants you a personal, limited, non-exclusive, non-transferable, revocable license to access and use the applications strictly for lawful, personal, and non-commercial purposes in accordance with these Terms.
@@ -27,7 +27,7 @@ To preserve the statistical integrity of human consensus and ensure a secure, un
 ### Section 3: Intellectual Property & Trademark Notice
 
 **Registered Trademarks**:
-- **ANIMUS™**, **RESONANCE™**, **REMNANT™**, and **REPLICA™** are trademarks and service marks of **Animus Project LLC**.
+- **ANIMUS™**, **RESONANCE™**, and **REMNANT™** are trademarks and service marks of **Animus Project LLC**.
 - All brand marks, trade dress, slogans, graphic interfaces, iconography, and typographic assets are the exclusive intellectual property of Animus Project LLC.
 
 **System Architecture**:
@@ -41,13 +41,13 @@ To preserve the statistical integrity of human consensus and ensure a secure, un
 
 ### Section 4: Operational Rules by Application
 
-#### 4.1. Animus & Animus App: Reciprocity ("Give to Ask")
+#### 4.1. Animus: Reciprocity ("Give to Ask")
 - Participation in Animus is 100% free and founded on strict reciprocity.
 - Users earn participation credits by answering community dilemmas and spend those credits to post their own inquiries or boost reach across demographic slices.
 - Attempting to exploit, game, or artificially inflate credit balances using automated scripts or bot farms is grounds for permanent expulsion.
 
-#### 4.2. Animus Replica: Ethical AI & Likeness Ownership
-- Replica is engineered for personal productivity, memory preservation, ethical digital assistance, and family legacy.
+#### 4.2. Animus Remnant: Ethical AI & Likeness Ownership
+- Remnant is engineered for personal productivity, memory preservation, ethical digital assistance, and family legacy.
 - **Strict Prohibition on Non-Consensual Voice Cloning**: You agree that you will **never** upload audio samples, clone the voice, or synthesize the likeness of any third-party individual without their explicit, verifiable, informed written consent.
 - You will not employ Jarvis system automation tools to distribute malware, conduct unauthorized network intrusions, or violate computer security laws.
 
@@ -61,7 +61,7 @@ To preserve the statistical integrity of human consensus and ensure a secure, un
 ### Section 5: "As-Is" Provision, Disclaimer of Warranties & Limitation of Liability
 
 - **"As Is" Provision**: All applications, algorithms, neural models, and graph networks across the ecosystem are provided on an "as is" and "as available" basis without warranties of any kind, whether express or implied.
-- **No Substitute for Professional Judgment**: Animus Replica personas represent probabilistic reasoning approximations and do not constitute formal legal, financial, psychiatric, or medical advice.
+- **No Substitute for Professional Judgment**: Animus Remnant personas represent probabilistic reasoning approximations and do not constitute formal legal, financial, psychiatric, or medical advice.
 - **Human Connection Disclaimer**: While Animus Resonance measures mathematical cognitive alignment, human relationships rely on character, emotional maturity, and personal responsibility. Animus Project LLC is not liable for interpersonal interactions, meetings, or outcomes between matched individuals.
 - **Limitation of Liability**: To the maximum extent permitted by applicable law, Animus Project LLC, its founders, and contributors shall not be liable for any indirect, incidental, punitive, or consequential damages resulting from the use or inability to use any part of the ecosystem.
 

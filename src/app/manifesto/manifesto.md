@@ -1,175 +1,130 @@
-# Animus — Manifesto & Brand Foundation
+# Animus — Manifesto, Vision & Strategic Roadmap
 
-**Last updated: October 2026**
+**Last updated: November 2026**
 
-## 1. Core Vision & The Central Question
+---
+
+## 1. Vision & Core Purpose
 
 > *"Tell us what you think. The mind of humanity in real time."*
 
-Animus is an open, anonymous consensus network created to map the collective mind and opinions of humanity in real time. We capture authentic human perspectives without algorithms, ads, or noise, organizing them into a living, interconnected knowledge graph.
+For the past two decades, the internet promised to connect humanity. Instead, it delivered an architecture of division. Major social platforms optimized their algorithms for rage, vanity follower counts, toxic comment wars, and commercial surveillance. People no longer express what they genuinely think—they perform for algorithmic engagement. Meanwhile, traditional surveys are slow, expensive, and framed by institutional pollsters.
 
-### The Problem
-Traditional social media feeds amplify outrage, polarization, vanity follower counts, and algorithmic echo chambers. People do not share what they genuinely think—they share what wins engagement. Surveys and public polling suffer from small sample sizes, demographic bias, and passive respondent fatigue.
+**Animus exists to build an uncompromising alternative:** an open, anonymous collective intelligence network that captures authentic human perspectives without outrage algorithms, ads, or herd bias, organizing them into a living, real-time knowledge graph.
 
-### The Animus Premise
-What if you could ask a question and instantly see what hundreds of thousands of people across diverse age groups, genders, and regions genuinely believe? Not an argument thread. Not an influencer's hot take. Pure, unadulterated human consensus.
-
----
-
-## 2. Fundamental Pillars
-
-### I. Answer to Unlock (Zero Bias)
-To see how the world thinks, you must commit your own answer first. No herd mentality, no prior influence, no seeing vote percentages before committing your own response. Pure, honest perspective—guaranteed.
-
-### II. Radical Anonymity by Design
-Your personal identity does not interest us.
-- **No public profiles.**
-- **No real names, emails, or phone numbers.**
-- **No social graphs, friend lists, or follower counts.**
-- **Zero tracking dossiers or data sold to ad networks.**
-Only non-identifiable demographic markers (age bracket, gender, general region) are associated with responses to unlock authentic demographic patterns.
-
-### III. The Reciprocal Engine ("Give to Ask")
-Animus operates on strict reciprocity:
-- Every time you answer questions from fellow humans, you earn participation credits.
-- Those credits grant you the right to post your own questions and boost them across local and global feeds.
-- This reciprocity loop creates millions of genuine answers, eliminates spam, and rewards active participation.
-
-### IV. The Living Consensus Graph (Neo4j Architecture)
-Every question and answer becomes a node in an interconnected graph database:
-- **Intelligent Knowledge Consolidation**: When people ask identical or overlapping dilemmas, Animus intelligently merges them into a single knowledge node rather than fragmenting responses.
-- **Cross-Sectional Demographics**: Real-time multi-dimensional breakdowns by age group, gender, and geography.
-- **Dynamic Consensus**: Real-time stream as verified human responses arrive from across the globe in seconds.
+### The Mission
+To provide humanity with an unmanipulated mirror of its own conscience—where every voice counts, every bias is removed, and where true consensus unlocks a suite of sovereign technologies for daily reflection, deep human connection, and personal memory preservation.
 
 ---
 
-## 3. Brand Copy & Messaging Vault
+## 2. The Three Pillars of the Ecosystem
 
-### Taglines & Punchlines
-- **Primary**: "Tell us what you think. The mind of humanity in real time."
-- **Secondary**: "Real voices. Zero noise."
-- **Core Hook**: "Every voice counts. Every bias removed."
-- **Reciprocity**: "Give to ask. Answer to unlock."
-- **Philosophical**: "The collective mind of humanity in your pocket."
-- **Signal**: "Pure signal, zero noise."
-- **Free Model**: "100% Free Forever. Powered by reciprocity."
+Animus is not a single isolated feature; it is an integrated, sovereign digital ecosystem composed of three complementary pillars:
 
-### Elevator Pitches
+```
+                           ┌───────────────────────────────┐
+                           │         ANIMUS PROJECT        │
+                           │   El Grafo de Consenso Humano │
+                           │     (animusproject.org)       │
+                           └───────────────┬───────────────┘
+                                           │
+            ┌──────────────────────────────┼──────────────────────────────┐
+            ▼                              ▼                              ▼
+  ┌───────────────────┐          ┌───────────────────┐          ┌───────────────────┐
+  │      ANIMUS       │          │      REMNANT      │          │     RESONANCE     │
+  │  Consumo y Dilemas│          │  La Máscara Viva  │          │   El Anti-Tinder  │
+  │ (animus.animus...)│          │ (remnant.animus..)│          │(resonance.animus.)│
+  └─────────┬─────────┘          └─────────▲─────────┘          └─────────▲─────────┘
+            │                              │                              │
+            │ (Opcional: Respuestas        │                              │ (Obligatorio:
+            │  alimentan a Remnant)        │                              │  Grafo de Animus
+            └──────────────────────────────┘                              │  para calcular >90%
+            │                                                             │  de concordancia)
+            └─────────────────────────────────────────────────────────────┘
+```
 
-#### 30-Second Pitch
-> "Animus is the collective mind of humanity in your pocket. An open, anonymous mobile network where you answer daily dilemmas to unlock real global consensus without algorithms, echo chambers, or toxicity. Answer questions to earn credits, ask your own questions to the world, and discover what humanity truly thinks in real time."
+### Pillar I — Animus (The Core Consensus Engine & Daily Habit)
+* **The Daily Ritual**: An agile mobile experience where users spend 3 to 5 minutes answering 10 to 20 micro-dilemmas that matter to them.
+* **Commit-to-Unlock Protocol**: You cannot view how demographic groups or the global community voted until you commit your own honest response a blind. Herd mentality and conformity bias are eliminated at the protocol layer.
+* **Radical Anonymity**: Zero names, zero emails, zero tracking dossiers. Answers attach only to broad, anonymous demographic brackets (age group, gender, general region).
+* **Fair Reciprocity ("Give to Ask")**: Every answer earns participation credits; credits allow you to submit dilemmas and boost their reach. A self-sustaining economy of human curiosity without paywalls.
+* **The Neo4j Knowledge Graph**: Semantic deduplication automatically merges overlapping questions into consolidated nodes, giving deep statistical insight without vote fragmentation.
 
-#### 10-Second Hook
-> "No feeds. No followers. No fake outrage. Just thought-provoking dilemmas and the real pulse of humanity across every age group and region."
+### Pillar II — Animus Remnant (The Living Mask & Elite Assistant)
+* **The Concept of the Mask (*Persona*)**: In classical antiquity, *persona* was the actor's mask through which their voice resonated. Remnant creates an authentic, structured digital likeness of that mask—learning your values, humor, reasoning criteria, and true cloned voice.
+* **Dual Architecture**:
+  1. *Jarvis*: Desktop assistant (Linux, Windows) with proactive local automation, active listening, and private episodic memory construction.
+  2. *Remnant*: The living voice mask. Speaks with your real cloned voice and reasons through novel scenarios based on your verified convictions.
+* **Sacred Use Cases**: Family legacy and intergenerational guidance (the Jor-El principle), clinical support in palliative care and cognitive health, and 24/7 personal work representation.
+* **Ecosystem Synergy**: Connecting Animus to Remnant is strictly client-controlled and optional. When enabled, your daily dilemma answers in Animus effortlessly calibrate your Remnant mask with zero extra work.
 
----
-
-## 4. Feature Matrix & Product Mechanics
-
-### 1. Zero Bias, Pure Consensus
-- **Headline**: Real opinions, unconditioned by algorithms.
-- **Body**: To see how the world thinks, you must answer first. No pre-conditioned opinions, algorithmic feeds, or echo chambers—only honest, raw perspectives.
-
-### 2. Demographic Pulse & Cross-Sectional Filters
-- **Headline**: Understand not just what people think, but who thinks it.
-- **Body**: Filter real human sentiment across age brackets (18–24, 25–34, 35–44, 45–54, 55+), genders, and geographic regions. Discover generational consensus and cultural contrasts.
-
-### 3. Radical Privacy, Zero Spyware & Cryptographic Safety
-- **Headline**: Your answers are private; humanity's knowledge is permanent.
-- **Body**: Built on privacy-first architecture with end-to-end encryption in transit (TLS 1.3) and at rest (AES-256). Zero spyware, zero background telemetry, and zero hidden network calls—auditable by any user through real-time network traffic inspection. Irrevocable permanent deletion upon request. We store aggregate statistics, not personal dossiers.
-
-### 4. Reciprocal Participation Engine
-- **Headline**: Earn credits through participation; spend credits to ask and boost.
-- **Body**: Answering questions yields credits. Credits unlock question publishing, priority demographic boosting, and community reputation. A self-sustaining economy of human curiosity.
-
-### 5. The Consensus Graph (Neo4j)
-- **Headline**: A living, interconnected knowledge map of human thought.
-- **Body**: Queries like `MATCH (q:Question)-[:CONSENSUS]->(d:Demographics) RETURN q.title, d.ageGroup, d.breakdown` enable deep sociological queries and collective intelligence modeling.
-
-### 6. Intelligent Dilemma Deduplication
-- **Headline**: Consolidated knowledge, not fragmented votes.
-- **Body**: Identical questions are merged into a single node to maximize sample size and analytical depth.
-
----
-
-## 5. Participation Tiers & Access Model
-
-### Tier 1: Everyday Voice (Free Participant)
-- **Cost**: 100% Free Forever
-- **Access**:
-  - Full access to answer daily community dilemmas.
-  - Instant demographic consensus revealed upon answering.
-  - Zero ad tracking, algorithmic feeds, or paywalls.
-  - Earn participation credits with every response.
-  - Native mobile experience on Android & iOS.
-
-### Tier 2: Ask & Boost (Reciprocity Credits)
-- **Cost**: Earned through in-app participation (Reciprocity)
-- **Access**:
-  - Post custom questions and dilemmas to the global network.
-  - Intelligent duplicate merging into consolidated nodes.
-  - Boost questions to target specific demographic slices.
-  - Deep cross-sectional analytics and historical consensus trends.
-  - Tradable participation currency in the future.
-
-### Tier 3: Custom Groups & Research Collectives
-- **Cost**: Open community spaces
-- **Access**:
-  - Dedicated consensus circles for universities, research institutes, creators, and collectives.
-  - Private or public demographic consensus reporting.
-  - API export of anonymized aggregate graphs for sociological and academic research.
+### Pillar III — Animus Resonance (Cognitive Resonance & Multidimensional Connection)
+* **The "Anti-Tinder" Philosophy**: Modern connection apps reduce human beings to 2-second photo evaluations and superficial bios. Resonance connects people based strictly on **cognitive and ethical alignment**.
+* **The Animus Prerequisite**: **There is no Resonance without Animus.** Resonance does not use artificial personality tests. It calculates compatibility from your active, honest choices across hundreds of dilemmas answered in Animus.
+* **The Flywheel of Connection**: **The more you use Animus, the sharper, deeper, and more accurate your resonance becomes.**
+* **Multidimensional Scope**: Resonance is not merely a dating app. It is a universal engine for human affinity:
+  - Finding like-minded friends in your neighborhood or across the globe.
+  - Discovering co-founders and collaborators to build projects and startups.
+  - Connecting with gaming partners, creative peers, travel hosts (*couchsurfing*), or language pen-pals.
+  - Forming authentic romantic partnerships rooted in deep shared values.
+* **Double-Blind Progressive Disclosure**:
+  - *Phase 1 (Mind First)*: Blind matching based purely on mathematical resonance (>90% alignment). Zero photos, zero names.
+  - *Phase 2*: Anonymous end-to-end encrypted dialogue.
+  - *Phase 3*: Voice note exchange to perceive tone, cadence, and human warmth.
+  - *Phase 4*: Mutual mask unveil (simultaneous, bilateral exchange of identities). If either participant chooses not to proceed, identities remain permanently private with zero awkwardness or explicit rejection.
 
 ---
 
-## 6. Frequently Asked Questions
+## 3. The Strategic Roadmap
 
-### Is Animus completely free?
-Yes, 100% free. There are no paywalls, premium tiers, or hidden subscriptions. The entire system runs on participation reciprocity: you give answers to gain the right to ask questions.
+```
+  PHASE 1: THE FOUNDATION             PHASE 2: VIRAL RESONANCE            PHASE 3: LIVING PERSONA            PHASE 4: GLOBAL SCALE
+┌───────────────────────────────┐   ┌───────────────────────────────┐   ┌───────────────────────────────┐   ┌───────────────────────────────┐
+│ • Neo4j Consensus Graph.      │   │ • Resonance matching engine.  │   │ • Desktop Jarvis (Linux/Win). │   │ • Sub-120ms semantic merge.   │
+│ • Commit-to-Unlock Protocol.  │   │ • Double-blind disclosure.    │   │ • High-fidelity voice cloning.│   │ • 50,000+ node live WebSocket.│
+│ • "Give to Ask" Credit loop.  │   │ • Multidimensional matching   │   │ • Episodic memory vault.      │   │ • Academic & NGO Research API.│
+│ • Radical Anonymity & Zero PII│   │   (friends, partners, co-fnd).│   │ • Legacy Crystal offline pack.│   │ • Global collective benchmark.│
+└───────────────────────────────┘   └───────────────────────────────┘   └───────────────────────────────┘   └───────────────────────────────┘
+```
 
-### How does the credit and question system work?
-Animus operates on reciprocity ("Give to Ask"). To prevent question spam and ensure rich statistical sample sizes, you earn credits by answering questions. Those credits give you the right to post your own questions and boost them across local and global feeds.
+### Phase 1 — The Daily Habit & Consensus Engine *(Completed & Deployed)*
+- Architecture and deployment of the core graph consensus engine using Neo4j and high-concurrency Node.js microservices.
+- Native mobile client development (Kotlin Multiplatform) for Android and iOS.
+- Enforcement of the Commit-to-Unlock game-theoretic protocol to eliminate herd bias.
+- Implementation of the zero-spyware, fully auditable network layer.
 
-### What personal data does Animus collect, and do the apps contain spyware?
-Radical anonymity is our sacred foundation. We do not ask for your real name, email, phone number, address, or contact list. We only collect high-level, aggregate demographic markers (age bracket, gender, general region) so the consensus graph can show how perspectives vary across populations.
+### Phase 2 — The Viral Connection Layer (Animus Resonance) *(Active Deployment)*
+- Launch of the cognitive matching engine measuring vector concordance across ethical and philosophical axes.
+- Implementation of the 4-phase double-blind progressive disclosure protocol.
+- Category-configurable affinity: allowing users to match on 95% ethical alignment while embracing different hobbies to avoid ideological echo chambers.
+- Cross-platform WebGL 3D visualization of neural memory topology and real-time thought traversal.
 
-Our applications contain zero spyware, zero tracking SDKs, and make no network calls that aren't strictly necessary for app functionality—which is easily verifiable by inspecting the application's network traffic with standard packet analysis tools. We never sell or share data, and if you request account deletion, your records are wiped completely and irrevocably following strict authentication protocols, with zero possibility of recovery.
+### Phase 3 — Sovereign Memory & Living Likeness (Animus Remnant) *(In Active Development)*
+- Deep integration of Jarvis desktop automation on Linux and Windows.
+- Episodic knowledge vault in Neo4j with strict sector isolation (`/user`, `/persona`, `/system`).
+- Zero-hallucination deterministic recall combining knowledge graphs with local LLM reasoning.
+- Standalone "Legacy Crystal" encryption protocol for intergenerational, offline family custody.
 
-### Can multiple people ask the same question?
-If your question has already been asked by someone else, Animus intelligently merges identical questions into a single knowledge node. This consolidates data volume and gives you much deeper statistics rather than fragmenting votes.
-
-### Why is Animus different from traditional social media?
-No vanity follower counts, no endless algorithm rabbit holes, no toxic comment warfare. Just concise, thought-provoking questions and real human consensus in a clean, lightweight mobile app.
-
-### Who benefits from this data?
-Humanity. Sociologists, behavioral scientists, educators, and the general public gain access to an authentic mirror of what people actually think and worry about, rather than what ad-driven algorithms amplify.
-
-### Can my Animus answers train my personal Replica?
-Yes, if you choose to connect them. By default, Animus is completely anonymous. If you link your account to **Animus Replica**, the real-world dilemmas you answer on Animus automatically calibrate your digital persona—the mask through which you speak, reason, and face the world.
-
-In classical origins, *persona* literally meant *mask*—the crafted face an actor wore to project their voice to the crowd. Nobody can trap an ungraspable soul in silicon, but you can build an authentic, structured replica of that mask: your voice, your moral boundaries, and how you choose when faced with hard questions. Answering questions on Animus continuously teaches that replica how you think, with zero extra work.
+### Phase 4 — Global Scale & Institutional Collective Intelligence *(Future Horizon)*
+- Sub-120 millisecond automatic semantic question clustering using HNSW vector indexing across multi-lingual inputs.
+- High-throughput WebSocket consensus streaming supporting 50,000+ concurrent live app connections.
+- Ethical, anonymized Academic Research APIs for universities, public health agencies, and sociological institutions to replace biased polling.
+- Global collective intelligence benchmarks reflecting honest public sentiment free from media distortion.
 
 ---
 
-## 7. Voice, Tone & Ad Angles
+## 4. Broader Societal & Scientific Potential
 
-### Brand Voice
-- **Direct & Thought-Provoking**: Avoid corporate jargon. Speak to human curiosity and self-reflection.
-- **Calm & Dignified**: Zero clickbait, zero hysteria. Contrasts sharply with noisy social media.
-- **Truth-Seeking & Objective**: We do not take sides on questions; we build the mirror that reflects honest human consensus.
+1. **A Clean Mirror of Collective Conscience**: By eliminating outrage algorithms and follower counts, Animus allows humanity to observe what it actually believes across cultural, geographical, and generational divides.
+2. **Rebuilding Social Trust & Breaking Silos**: Showing that diverse demographic groups often agree on core ethical principles dismantles artificial polarization created by ad-driven platforms.
+3. **Sovereign Personal AI**: Proving that artificial intelligence can serve the individual as an intimate, auditable companion without harvesting their data for corporate surveillance.
+4. **Resilient Truth Ecosystem**: Providing citizens, educators, and researchers with verifiable, manipulation-resistant public consensus data in an era of deepfakes and automated dis-information.
 
-### Advertising Angles & Hooks
+---
 
-#### Angle A: "Mindless Scrolling vs. Real Reflection"
-> *"Tired of doomscrolling 30-second outrage clips? Start your day with 15 thought-provoking questions. Answer to see where the world actually stands."*
+## 5. Contact & Institutional Partnerships
 
-#### Angle B: "Generational Consensus"
-> *"Do 20-year-olds and 50-year-olds really disagree as much as Twitter claims? See the actual demographic data with Animus."*
-
-#### Angle C: "Zero Bias / Reciprocity"
-> *"You cannot see the results until you commit your answer. No herd bias. Pure truth."*
-
-#### Angle D: "The Anti-Algorithm Network"
-> *"No likes. No followers. No comments section. Just questions, answers, and the real mind of humanity."*
-
-#### Angle E: "Teach Your Replica (The Living Mask)"
-> *"Every persona is a mask you wear for the world. Every question you answer in Animus calibrates that mask in Animus Replica—teaching your digital presence how you speak, reason, and decide with zero extra effort."*
+- **Ecosystem Portal**: [animusproject.org](https://animusproject.org)
+- **Institutional & Grant Inquiries**: [legal@animusproject.org](mailto:legal@animusproject.org)
+- **Security & Privacy Desk**: [privacy@animusproject.org](mailto:privacy@animusproject.org)
+- **Official X (Twitter)**: [@animusproject](https://x.com/animusproject)

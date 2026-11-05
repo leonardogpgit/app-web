@@ -20,8 +20,8 @@ export const navLinks = [
 ] as const;
 
 export const site = {
-	name: "Animus Project",
-	url: "https://app.animusproject.org",
+	name: "Animus",
+	url: "https://animus.animusproject.org",
 	description:
 		"The real-time pulse of human thought. Answer questions to see honest consensus without crowd bias, and discover what people truly think.",
 	logo: "/favicon.svg",
@@ -100,9 +100,9 @@ export const features: Feature[] = [
 		icon: "FiSliders",
 	},
 	{
-		title: "Feed Your Living Replica (Optional)",
+		title: "Feed Your Living Remnant (Optional)",
 		description:
-			"If you use Animus Replica, you can link your account so your answers teach Replica how you think and decide—with zero extra effort.",
+			"If you use Animus Remnant, you can link your account so your answers teach Remnant how you think and decide—with zero extra effort.",
 		icon: "FiCpu",
 	},
 ];
@@ -128,7 +128,7 @@ export const pricingTiers: PricingTier[] = [
 			"Instant demographic results upon answering",
 			"Zero personal tracking or paywalls",
 			"Earn credits with every answer",
-			"Optional link to Animus Replica",
+			"Optional link to Animus Remnant",
 			"Available on Android and iOS",
 		],
 		cta: "Download Free",
@@ -228,9 +228,9 @@ export const faqs: FAQItem[] = [
 			"No follower counts, no algorithmic outrage feeds, and no comment wars. Just clear questions, instant honest results, and demographic patterns.",
 	},
 	{
-		question: "Can my answers help teach my personal Replica?",
+		question: "Can my answers help teach my personal Remnant?",
 		answer:
-			"Yes, if you choose to connect them. By default, Animus is completely anonymous. If you link your account to Animus Replica, the dilemmas you answer automatically calibrate your digital persona—the mask through which you speak and reason—teaching it how you decide with zero extra effort.",
+			"Yes, if you choose to connect them. By default, Animus is completely anonymous. If you link your account to Animus Remnant, the dilemmas you answer automatically calibrate your digital persona—the mask through which you speak and reason—teaching it how you decide with zero extra effort.",
 	},
 	{
 		question: "Who can see and use this data?",

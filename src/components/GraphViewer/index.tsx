@@ -493,14 +493,14 @@ export default function GraphViewer({ userId, userEmail }: GraphViewerProps) {
 							<span translate="no" className="notranslate">Animus</span> Consensus Graph
 						</h3>
 						<p className="text-xs text-black/60 dark:text-white/60 leading-relaxed mb-4">
-							Red de consenso en pausa. La red pública de <span translate="no" className="notranslate">Animus</span> opera de forma independiente al grafo privado de <span translate="no" className="notranslate">Replica</span> y se encuentra temporalmente en espera.
+							Red de consenso en pausa. La red pública de <span translate="no" className="notranslate">Animus</span> opera de forma independiente al grafo privado de <span translate="no" className="notranslate">Remnant</span> y se encuentra temporalmente en espera.
 						</p>
 						<div className="inline-flex items-center gap-2 rounded-lg bg-black/5 dark:bg-white/5 px-3 py-1.5 text-[11px] font-mono text-black/60 dark:text-white/60">
 							<span className="h-1.5 w-1.5 rounded-full bg-amber-500" />
 							<span>Sin conexión activa</span>
 						</div>
 						<div className="mt-4 pt-3 border-t border-slate-300/60 dark:border-white/10 text-[11px] text-black/70 dark:text-white/70 font-tektur text-center leading-relaxed">
-							<span className="font-semibold text-black dark:text-white">Conexión con <span translate="no" className="notranslate">Replica</span>:</span> Si lo decides, tus respuestas en <span translate="no" className="notranslate">Animus</span> calibran la máscara de tu <strong className="font-michroma" translate="no"><span className="notranslate">Replica</span></strong> —enseñándole cómo piensas y decides ante dilemas reales, sin esfuerzo adicional.
+							<span className="font-semibold text-black dark:text-white">Conexión con <span translate="no" className="notranslate">Remnant</span>:</span> Si lo decides, tus respuestas en <span translate="no" className="notranslate">Animus</span> calibran la máscara de tu <strong className="font-michroma" translate="no"><span className="notranslate">Remnant</span></strong> —enseñándole cómo piensas y decides ante dilemas reales, sin esfuerzo adicional.
 						</div>
 					</div>
 				</div>

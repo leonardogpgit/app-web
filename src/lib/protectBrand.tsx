@@ -2,10 +2,13 @@ import React from "react";
 
 // Brand names, technologies, and terms that should never be translated by browser auto-translate
 const BRAND_NAMES = [
+	"Animus Resonance",
 	"Animus Project",
-	"Animus Replica",
+	"Animus Remnant",
+	"Resonantia",
+	"Resonance",
+	"Remnant",
 	"Animus",
-	"Replica",
 	"Jarvis",
 	"Jor-El",
 	"Neo4j",

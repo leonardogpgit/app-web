@@ -32,8 +32,8 @@ export interface GraphDataPayload {
 
 /**
  * Fetches user consensus graph data for Animus.
- * Note: Animus Consensus Graph is completely distinct from Animus Replica's persona/memory graph.
- * Animus operates in standalone standby mode without connecting to the Replica backend.
+ * Note: Animus Consensus Graph is completely distinct from Animus Remnant's persona/memory graph.
+ * Animus operates in standalone standby mode without connecting to the Remnant backend.
  */
 export async function fetchUserGraph(
 	userId: string,
@@ -42,11 +42,12 @@ export async function fetchUserGraph(
 ): Promise<GraphDataPayload> {
 	const backendUrl = process.env.NEXT_PUBLIC_ANIMUS_BACKEND_URL;
 
-	// Only attempt fetch if a dedicated, non-replica Animus backend URL is explicitly configured
+	// Only attempt fetch if a dedicated, non-remnant Animus backend URL is explicitly configured
 	if (
 		backendUrl &&
 		!backendUrl.includes("jarvisback") &&
 		!backendUrl.includes("replica") &&
+		!backendUrl.includes("remnant") &&
 		_token
 	) {
 		try {

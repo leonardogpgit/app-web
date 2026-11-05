@@ -7,7 +7,7 @@ import { parseMarkdown } from "@/components/Markdown/parseMarkdown";
 export const metadata: Metadata = {
 	title: "Terms of Service — Animus Ecosystem",
 	description:
-		"Canonical Terms of Service for the Animus Ecosystem: Animus, Animus App, Animus Replica, and Animus Resonance.",
+		"Canonical Terms of Service for the Animus Ecosystem: Animus Project, Animus, Animus Remnant, and Animus Resonance.",
 };
 
 export default async function TermsPage() {

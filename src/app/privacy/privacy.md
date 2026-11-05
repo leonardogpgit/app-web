@@ -9,9 +9,9 @@
 Privacy, individual sovereignty, and human dignity are the non-negotiable reasons the **Animus Project** and its entire ecosystem exist. In an era dominated by surveillance capitalism, predatory engagement algorithms, non-consensual biometric training, and covert commercial profiling, Animus stands as an uncompromising fortress for personal autonomy.
 
 This Privacy Policy governs all applications, websites, and services across the **Animus Ecosystem**, including:
-- **Animus Project Hub** (`animusproject.org`) — The collective intelligence and consensus graph network.
-- **Animus App** (`app.animusproject.org`) — The daily mobile application for dilemmas and consensus reciprocity.
-- **Animus Replica** (`replica.animusproject.org`) — The personal AI companion, memory vault, and neural voice mask.
+- **Animus Project** (`animusproject.org`) — The collective intelligence and consensus graph network.
+- **Animus** (`animus.animusproject.org`) — The daily application for dilemmas and consensus reciprocity.
+- **Animus Remnant** (`remnant.animusproject.org`) — The personal AI companion, memory vault, and neural voice mask.
 - **Animus Resonance** (`resonance.animusproject.org`) — The ethical, multidimensional human connection network.
 
 **Radical Data Minimization**:
@@ -68,12 +68,12 @@ You hold absolute, permanent sovereignty over your participation and records:
 
 ### 7. Application-Specific Privacy Provisions
 
-#### 7.1. Animus & Animus App (`animusproject.org` / `app.animusproject.org`)
+#### 7.1. Animus (`animusproject.org` / `animus.animusproject.org`)
 - Anonymous participation in daily dilemmas (10–20 dilemmas per day).
 - Reciprocal credit loop (*Give to Ask*) tracks participation balance without tracking personal identity.
 - Demographic consensus data is published strictly in aggregate form.
 
-#### 7.2. Animus Replica (`replica.animusproject.org`)
+#### 7.2. Animus Remnant (`remnant.animusproject.org`)
 - **Architectural Isolation**: Personal memory graphs (`/user`), synthetic persona reasoning networks (`/persona`), and operating system automation tools (`/system/jarvis`) are partitioned into isolated sectors to prevent cross-contamination.
 - **Personal Voice Sovereignty**: Neural voice weights and acoustic markers are cryptographically bound to your private user vault. Accessible exclusively by you or designated beneficiaries explicitly authorized through your private keys.
 - **Desktop Autonomy (Jarvis)**: On desktop operating systems (Linux, Windows), local task automation, terminal executions, and file operations run directly on your hardware and remain strictly confined within your machine.
