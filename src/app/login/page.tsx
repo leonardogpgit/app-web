@@ -104,7 +104,7 @@ export default function LoginPage() {
 						{isSignUp ? "Join Animus Project" : "Access Animus Project"}
 					</h1>
 					<p className="text-xs sm:text-sm text-black/70 dark:text-white/70">
-						Unified authentication across the Animus Project ecosystem.
+						Unified authentication across Animus Project.
 					</p>
 				</div>
 

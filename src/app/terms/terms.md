@@ -1,4 +1,4 @@
-# Terms of Service — Animus Ecosystem
+# Terms of Service — Animus Project
 
 **Last updated: November 2026**
 
@@ -6,7 +6,7 @@
 
 ### Section 1: Object, Acceptance & License of Use
 
-By accessing, downloading, installing, or using any software, platform, application, or service within the **Animus Ecosystem**—including **Animus Project** (`animusproject.org`), **Animus** (`animus.animusproject.org`), **Animus Remnant** (`remnant.animusproject.org`), and **Animus Resonance** (`resonance.animusproject.org`)—you enter into a legally binding agreement to be governed by these Terms of Service.
+By accessing, downloading, installing, or using any software, platform, application, or service provided by **Animus Project LLC**—including **Animus Project** (`animusproject.org`), **Animus** (`animus.animusproject.org`), **Animus Remnant** (`remnant.animusproject.org`), and **Animus Resonance** (`resonance.animusproject.org`)—you enter into a legally binding agreement to be governed by these Terms of Service.
 
 **License Grant**:
 Animus Project LLC grants you a personal, limited, non-exclusive, non-transferable, revocable license to access and use the applications strictly for lawful, personal, and non-commercial purposes in accordance with these Terms.
@@ -20,7 +20,7 @@ To preserve the statistical integrity of human consensus and ensure a secure, un
 1. **Automated Scripts & Bot Manipulation**: Deploying bots, automated scripts, headless browsers, or programmatic macros to submit dilemma responses, manipulate vote distributions, or harvest reciprocity credits is strictly forbidden.
 2. **Sybil & Coordinated Manipulation Attacks**: Creating multiple artificial identities or orchestrating coordinated voting clusters to distort community consensus is grounds for immediate, permanent termination.
 3. **Data Scraping & Extraction**: Crawling, scraping, harvesting, or extracting consensus data, knowledge graphs, or user entries via automated tools without explicit prior written authorization from Animus Project LLC is prohibited.
-4. **Security Compromise & Reverse Engineering**: Probing, scanning, reverse-engineering, decompiling, or attempting to breach the cryptographic protections, API endpoints, or database structures of the ecosystem is strictly illegal.
+4. **Security Compromise & Reverse Engineering**: Probing, scanning, reverse-engineering, decompiling, or attempting to breach the cryptographic protections, API endpoints, or database structures of the platforms is strictly illegal.
 
 ---
 
@@ -35,7 +35,7 @@ To preserve the statistical integrity of human consensus and ensure a secure, un
 - Anonymous, aggregate sociological consensus distributions are shared openly in service of collective human progress and scientific knowledge.
 
 **User Sovereignty & Personal Ownership**:
-- You retain 100% moral, legal, and intellectual ownership over your personal voice recordings, life memories, private journal reflections, and personal persona graphs generated within the ecosystem.
+- You retain 100% moral, legal, and intellectual ownership over your personal voice recordings, life memories, private journal reflections, and personal persona graphs generated within the applications.
 
 ---
 
@@ -60,16 +60,16 @@ To preserve the statistical integrity of human consensus and ensure a secure, un
 
 ### Section 5: "As-Is" Provision, Disclaimer of Warranties & Limitation of Liability
 
-- **"As Is" Provision**: All applications, algorithms, neural models, and graph networks across the ecosystem are provided on an "as is" and "as available" basis without warranties of any kind, whether express or implied.
+- **"As Is" Provision**: All applications, algorithms, neural models, and graph networks across the platforms are provided on an "as is" and "as available" basis without warranties of any kind, whether express or implied.
 - **No Substitute for Professional Judgment**: Animus Remnant personas represent probabilistic reasoning approximations and do not constitute formal legal, financial, psychiatric, or medical advice.
 - **Human Connection Disclaimer**: While Animus Resonance measures mathematical cognitive alignment, human relationships rely on character, emotional maturity, and personal responsibility. Animus Project LLC is not liable for interpersonal interactions, meetings, or outcomes between matched individuals.
-- **Limitation of Liability**: To the maximum extent permitted by applicable law, Animus Project LLC, its founders, and contributors shall not be liable for any indirect, incidental, punitive, or consequential damages resulting from the use or inability to use any part of the ecosystem.
+- **Limitation of Liability**: To the maximum extent permitted by applicable law, Animus Project LLC, its founders, and contributors shall not be liable for any indirect, incidental, punitive, or consequential damages resulting from the use or inability to use any part of the platforms.
 
 ---
 
 ### Section 6: Governing Law & Jurisdiction
 
-These Terms of Service and any disputes arising out of or related to the Animus Ecosystem shall be governed by and construed in accordance with the laws of the **State of Florida, United States of America**, without regard to conflict of law principles. Any legal action or proceeding shall be instituted exclusively in the state or federal courts located in Florida, USA.
+These Terms of Service and any disputes arising out of or related to Animus Project shall be governed by and construed in accordance with the laws of the **State of Florida, United States of America**, without regard to conflict of law principles. Any legal action or proceeding shall be instituted exclusively in the state or federal courts located in Florida, USA.
 
 ---
 

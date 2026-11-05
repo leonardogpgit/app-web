@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FiChevronDown } from "react-icons/fi";
 import type { AppHeroProps } from "@/types";
 import { protectBrand } from "@/lib/protectBrand";
 import AppInfo from "./AppInfo";
@@ -21,7 +20,7 @@ const AppHero = ({
 	minimumOS,
 	releaseDate,
 }: AppHeroProps) => (
-	<section className="relative flex min-h-svh flex-col items-center overflow-hidden px-4 text-center">
+	<section className="relative flex min-h-svh flex-col items-center justify-center overflow-hidden px-4 text-center">
 		<div className="relative z-10 flex w-full max-w-4xl flex-1 flex-col items-center justify-center py-14 sm:py-20">
 			<motion.h1
 				{...up(0.1)}
@@ -51,21 +50,6 @@ const AppHero = ({
 				/>
 			</motion.div>
 		</div>
-
-		<motion.button
-			type="button"
-			aria-label="Scroll down"
-			onClick={() => window.scrollTo({ top: window.innerHeight - 64, behavior: "smooth" })}
-			animate={{ y: [0, 8, 0] }}
-			transition={{
-				repeat: Number.POSITIVE_INFINITY,
-				duration: 2.2,
-				ease: "easeInOut",
-			}}
-			className="relative z-10 mb-8 inline-flex h-10 w-10 items-center justify-center rounded-xl text-black/60 transition-colors hover:text-black dark:text-white/60 dark:hover:text-white"
-		>
-			<FiChevronDown size={22} />
-		</motion.button>
 	</section>
 );
 

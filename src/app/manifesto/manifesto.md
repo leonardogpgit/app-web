@@ -17,9 +17,9 @@ To provide humanity with an unmanipulated mirror of its own conscience—where e
 
 ---
 
-## 2. The Three Pillars of the Ecosystem
+## 2. The Three Sovereign Platforms
 
-Animus is not a single isolated feature; it is an integrated, sovereign digital ecosystem composed of three complementary pillars:
+Animus is not a single isolated feature; it is an integrated suite of three sovereign platforms:
 
 ```
                            ┌───────────────────────────────┐
@@ -56,7 +56,7 @@ Animus is not a single isolated feature; it is an integrated, sovereign digital 
   1. *Jarvis*: Desktop assistant (Linux, Windows) with proactive local automation, active listening, and private episodic memory construction.
   2. *Remnant*: The living voice mask. Speaks with your real cloned voice and reasons through novel scenarios based on your verified convictions.
 * **Sacred Use Cases**: Family legacy and intergenerational guidance (the Jor-El principle), clinical support in palliative care and cognitive health, and 24/7 personal work representation.
-* **Ecosystem Synergy**: Connecting Animus to Remnant is strictly client-controlled and optional. When enabled, your daily dilemma answers in Animus effortlessly calibrate your Remnant mask with zero extra work.
+* **Platform Synergy**: Connecting Animus to Remnant is strictly client-controlled and optional. When enabled, your daily dilemma answers in Animus effortlessly calibrate your Remnant mask with zero extra work.
 
 ### Pillar III — Animus Resonance (Cognitive Resonance & Multidimensional Connection)
 * **The "Anti-Tinder" Philosophy**: Modern connection apps reduce human beings to 2-second photo evaluations and superficial bios. Resonance connects people based strictly on **cognitive and ethical alignment**.
@@ -118,13 +118,13 @@ Animus is not a single isolated feature; it is an integrated, sovereign digital 
 1. **A Clean Mirror of Collective Conscience**: By eliminating outrage algorithms and follower counts, Animus allows humanity to observe what it actually believes across cultural, geographical, and generational divides.
 2. **Rebuilding Social Trust & Breaking Silos**: Showing that diverse demographic groups often agree on core ethical principles dismantles artificial polarization created by ad-driven platforms.
 3. **Sovereign Personal AI**: Proving that artificial intelligence can serve the individual as an intimate, auditable companion without harvesting their data for corporate surveillance.
-4. **Resilient Truth Ecosystem**: Providing citizens, educators, and researchers with verifiable, manipulation-resistant public consensus data in an era of deepfakes and automated dis-information.
+4. **Resilient Public Truth**: Providing citizens, educators, and researchers with verifiable, manipulation-resistant public consensus data in an era of deepfakes and automated dis-information.
 
 ---
 
 ## 5. Contact & Institutional Partnerships
 
-- **Ecosystem Portal**: [animusproject.org](https://animusproject.org)
+- **Project Portal**: [animusproject.org](https://animusproject.org)
 - **Institutional & Grant Inquiries**: [legal@animusproject.org](mailto:legal@animusproject.org)
 - **Security & Privacy Desk**: [privacy@animusproject.org](mailto:privacy@animusproject.org)
 - **Official X (Twitter)**: [@animusproject](https://x.com/animusproject)

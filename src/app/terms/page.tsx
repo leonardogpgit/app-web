@@ -5,9 +5,9 @@ import MarkdownLayout from "@/components/Markdown";
 import { parseMarkdown } from "@/components/Markdown/parseMarkdown";
 
 export const metadata: Metadata = {
-	title: "Terms of Service — Animus Ecosystem",
+	title: "Terms of Service — Animus Project",
 	description:
-		"Canonical Terms of Service for the Animus Ecosystem: Animus Project, Animus, Animus Remnant, and Animus Resonance.",
+		"Canonical Terms of Service for Animus Project: Animus, Remnant, and Resonance.",
 };
 
 export default async function TermsPage() {
@@ -24,7 +24,7 @@ export default async function TermsPage() {
 				<MarkdownLayout
 					htmlContent={html}
 					rawContent={body}
-					title="Terms of Service — Animus Ecosystem"
+					title="Terms of Service — Animus Project"
 					lastUpdated="November 2026"
 				/>
 			</div>

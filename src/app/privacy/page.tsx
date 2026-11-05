@@ -5,9 +5,9 @@ import MarkdownLayout from "@/components/Markdown";
 import { parseMarkdown } from "@/components/Markdown/parseMarkdown";
 
 export const metadata: Metadata = {
-	title: "Privacy Policy — Animus Ecosystem",
+	title: "Privacy Policy — Animus Project",
 	description:
-		"Canonical Privacy Policy for the Animus Ecosystem: Animus Project, Animus, Animus Remnant, and Animus Resonance.",
+		"Canonical Privacy Policy for Animus Project: Animus, Remnant, and Resonance.",
 };
 
 export default async function PrivacyPage() {
@@ -24,7 +24,7 @@ export default async function PrivacyPage() {
 				<MarkdownLayout
 					htmlContent={html}
 					rawContent={body}
-					title="Privacy Policy — Animus Ecosystem"
+					title="Privacy Policy — Animus Project"
 					lastUpdated="November 2026"
 				/>
 			</div>

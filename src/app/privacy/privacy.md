@@ -1,4 +1,4 @@
-# Privacy Policy — Animus Ecosystem
+# Privacy Policy — Animus Project
 
 **Last updated: November 2026**
 
@@ -6,9 +6,9 @@
 
 ### 1. Sacred Foundation: Radical Anonymity & Zero PII
 
-Privacy, individual sovereignty, and human dignity are the non-negotiable reasons the **Animus Project** and its entire ecosystem exist. In an era dominated by surveillance capitalism, predatory engagement algorithms, non-consensual biometric training, and covert commercial profiling, Animus stands as an uncompromising fortress for personal autonomy.
+Privacy, individual sovereignty, and human dignity are the non-negotiable reasons the **Animus Project** and its applications exist. In an era dominated by surveillance capitalism, predatory engagement algorithms, non-consensual biometric training, and covert commercial profiling, Animus stands as an uncompromising fortress for personal autonomy.
 
-This Privacy Policy governs all applications, websites, and services across the **Animus Ecosystem**, including:
+This Privacy Policy governs all applications, websites, and services provided by **Animus Project LLC**, including:
 - **Animus Project** (`animusproject.org`) — The collective intelligence and consensus graph network.
 - **Animus** (`animus.animusproject.org`) — The platform for dilemmas and consensus reciprocity.
 - **Animus Remnant** (`remnant.animusproject.org`) — The personal AI companion, memory vault, and neural voice mask.
@@ -25,7 +25,7 @@ This Privacy Policy governs all applications, websites, and services across the 
 
 We believe genuine privacy must be provable through transparent technical verification, not blind trust in corporate statements.
 
-- **Absolute Zero-Spyware Guarantee**: None of the applications in the Animus ecosystem—across Linux, Windows, Android, iOS, or the web—contain any spyware, adware, commercial tracking SDKs, device fingerprinting libraries, or hidden behavioral telemetry agents.
+- **Absolute Zero-Spyware Guarantee**: None of the applications in the Animus Project suite—across Linux, Windows, Android, iOS, or the web—contain any spyware, adware, commercial tracking SDKs, device fingerprinting libraries, or hidden behavioral telemetry agents.
 - **Strict Network Call Minimization**: Our software **never** initiates network requests or communicates with any server, data broker, or third-party service that is not strictly, indispensably necessary for the direct execution of features explicitly requested by you.
 - **Publicly and Independently Auditable**: We engineered our network communication layer with total transparency. Any user, developer, or independent cybersecurity researcher can easily verify our claims by inspecting the network traffic of any Animus application in real time using standard packet inspection and network monitoring tools (including **Wireshark, Little Snitch, mitmproxy, Charles Proxy**, or native operating system socket inspectors). You will observe zero background pings to advertising brokers, zero covert analytics beacons, and zero unprompted outbound connections.
 
