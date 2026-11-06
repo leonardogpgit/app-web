@@ -46,7 +46,6 @@ export async function fetchUserGraph(
 	if (
 		backendUrl &&
 		!backendUrl.includes("jarvisback") &&
-		!backendUrl.includes("replica") &&
 		!backendUrl.includes("remnant") &&
 		_token
 	) {
