@@ -70,9 +70,6 @@ export default function ProfilePage() {
 								<h2 className="font-michroma text-xl font-bold text-black dark:text-white truncate">
 									{user.displayName || user.email?.split("@")[0] || "User"}
 								</h2>
-								<span className="rounded-md bg-black/5 dark:bg-white/10 px-2 py-0.5 text-[10px] font-mono uppercase text-black/60 dark:text-white/60">
-									{authProvider}
-								</span>
 								<button
 									type="button"
 									onClick={() => logout()}
