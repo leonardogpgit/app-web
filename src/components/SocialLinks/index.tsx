@@ -20,13 +20,11 @@ const SocialLinks = ({ items }: SocialLinksProps) => (
 					href={item.url}
 					target="_blank"
 					rel="noopener noreferrer"
-					className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/20 bg-black/40 text-white shadow-xs transition-colors hover:bg-black/60 dark:border-black/20 dark:bg-white/40 dark:text-black dark:hover:bg-white/60"
+					className="flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-lg border border-white/20 bg-black/40 text-white shadow-xs transition-colors hover:bg-black/60 dark:border-black/20 dark:bg-white/40 dark:text-black dark:hover:bg-white/60"
 					aria-label={item.label}
 					title={item.label}
 				>
-					{Icon && (
-						<Icon className="h-4 w-4" />
-					)}
+					{Icon && <Icon className="h-4 w-4" />}
 				</motion.a>
 			);
 		})}

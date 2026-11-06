@@ -1,6 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
+import SocialLinks from "@/components/SocialLinks";
+import { site } from "@/config";
 
 const fade = (delay = 0) => ({
 	initial: { opacity: 0, y: 10 },
@@ -18,7 +20,7 @@ export const FOOTER_APP_LINKS = [
 export default function Footer(_props?: any) {
 	return (
 		<footer className="metal-slab-bar w-full border-t border-white/10 dark:border-black/10 transition-colors">
-			<div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8 text-center flex flex-col items-center justify-center">
+			<div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8 text-center flex flex-col items-center justify-center font-michroma">
 				{/* Unified centered links row */}
 				<motion.div
 					{...fade(0)}
@@ -32,7 +34,7 @@ export default function Footer(_props?: any) {
 								rel="noopener noreferrer"
 								className="text-white/90 hover:text-white dark:text-black/90 dark:hover:text-black transition-colors"
 							>
-								<span translate="no" className="notranslate font-semibold">
+								<span translate="no" className="notranslate">
 									{label}
 								</span>
 							</a>
@@ -54,13 +56,26 @@ export default function Footer(_props?: any) {
 					</a>
 				</motion.div>
 
+				{/* Centered social links row with Coming Soon */}
+				<motion.div
+					{...fade(0.05)}
+					className="mt-6 flex flex-wrap items-center justify-center gap-3 text-xs font-michroma"
+				>
+					<span className="text-white/60 dark:text-black/60 uppercase tracking-wider text-xs">
+						Coming Soon:
+					</span>
+					<div className="flex flex-wrap items-center justify-center gap-2">
+						<SocialLinks items={site.social} />
+					</div>
+				</motion.div>
+
 				{/* Centered copyright line */}
 				<motion.div
 					{...fade(0.1)}
-					className="mt-4 pt-4 border-t border-white/10 dark:border-black/10 w-full flex items-center justify-center text-xs font-tektur text-white/80 dark:text-black/80"
+					className="mt-6 pt-5 border-t border-white/10 dark:border-black/10 w-full flex items-center justify-center text-xs font-michroma text-white/90 dark:text-black/90"
 				>
 					<p className="text-center">
-						© {new Date().getFullYear()} <span translate="no" className="notranslate font-semibold">Animus Project LLC</span>. All rights reserved.
+						© {new Date().getFullYear()} <span translate="no" className="notranslate">Animus Project LLC</span>. All rights reserved.
 					</p>
 				</motion.div>
 			</div>
