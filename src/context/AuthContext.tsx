@@ -17,6 +17,8 @@ import {
 } from "react";
 import { auth, googleProvider } from "@/lib/firebase";
 import {
+	getSyncedToken,
+	getSyncedUser,
 	isGloballyLoggedOut,
 	notifyGlobalLogin,
 	notifyGlobalLogout,
@@ -59,23 +61,55 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 					setLoading(false);
 					return;
 				}
-				notifyGlobalLogin(currentUser.uid);
+				const token = await currentUser.getIdToken().catch(() => null);
+				notifyGlobalLogin(currentUser, token);
 				setUser(currentUser);
 			} else {
-				setUser(null);
+				// Fallback: check if there is an active synced session on .animusproject.org
+				const synced = getSyncedUser();
+				if (synced && !isGloballyLoggedOut(synced.uid)) {
+					const compatibleUser = {
+						uid: synced.uid,
+						email: synced.email,
+						displayName: synced.displayName,
+						photoURL: synced.photoURL,
+						getIdToken: async () => getSyncedToken(),
+						getIdTokenResult: async () => ({ token: getSyncedToken() || "" }),
+					} as unknown as User;
+					setUser(compatibleUser);
+				} else {
+					setUser(null);
+				}
 			}
 			setLoading(false);
 		});
 
-		// Listen for cross-tab / cross-subdomain logout triggers
+		// Listen for cross-tab / cross-subdomain logout or login triggers
 		const checkSync = async () => {
-			if (auth.currentUser && isGloballyLoggedOut(auth.currentUser.uid)) {
+			if (user && isGloballyLoggedOut(user.uid)) {
 				try {
 					await firebaseSignOut(auth);
 				} catch (e) {
 					console.error("Sign-out error during tab sync:", e);
 				}
 				setUser(null);
+				return;
+			}
+
+			// If local user is null, check if a global session was initiated
+			if (!user) {
+				const synced = getSyncedUser();
+				if (synced && !isGloballyLoggedOut(synced.uid)) {
+					const compatibleUser = {
+						uid: synced.uid,
+						email: synced.email,
+						displayName: synced.displayName,
+						photoURL: synced.photoURL,
+						getIdToken: async () => getSyncedToken(),
+						getIdTokenResult: async () => ({ token: getSyncedToken() || "" }),
+					} as unknown as User;
+					setUser(compatibleUser);
+				}
 			}
 		};
 
@@ -89,13 +123,14 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 			document.removeEventListener("visibilitychange", checkSync);
 			clearInterval(interval);
 		};
-	}, []);
+	}, [user?.uid]);
 
 	const signInWithGoogle = async () => {
 		try {
 			const cred = await signInWithPopup(auth, googleProvider);
 			if (cred?.user) {
-				notifyGlobalLogin(cred.user.uid);
+				const token = await cred.user.getIdToken().catch(() => null);
+				notifyGlobalLogin(cred.user, token);
 				setUser(cred.user);
 			}
 		} catch (error) {
@@ -108,7 +143,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 		try {
 			const cred = await signInWithEmailAndPassword(auth, email, pass);
 			if (cred?.user) {
-				notifyGlobalLogin(cred.user.uid);
+				const token = await cred.user.getIdToken().catch(() => null);
+				notifyGlobalLogin(cred.user, token);
 				setUser(cred.user);
 			}
 		} catch (error) {
@@ -121,7 +157,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 		try {
 			const cred = await createUserWithEmailAndPassword(auth, email, pass);
 			if (cred?.user) {
-				notifyGlobalLogin(cred.user.uid);
+				const token = await cred.user.getIdToken().catch(() => null);
+				notifyGlobalLogin(cred.user, token);
 				setUser(cred.user);
 			}
 		} catch (error) {
@@ -144,8 +181,14 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 	};
 
 	const getIdToken = async () => {
-		if (!auth.currentUser) return null;
-		return await auth.currentUser.getIdToken();
+		if (auth.currentUser) {
+			try {
+				return await auth.currentUser.getIdToken();
+			} catch {
+				// fallback
+			}
+		}
+		return getSyncedToken();
 	};
 
 	return (
