@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
-import { FiCheckCircle, FiLock, FiLogOut } from "react-icons/fi";
+import { FiLogOut } from "react-icons/fi";
 
 export default function LoginPage() {
 	const router = useRouter();
@@ -33,18 +33,7 @@ export default function LoginPage() {
 		return (
 			<section className="py-20 md:py-28 flex items-center justify-center px-4">
 				<div className="card-base w-full max-w-md p-8 text-center space-y-6">
-					<div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-black/5 dark:bg-white/10 text-xl font-bold font-michroma">
-						{user.displayName
-							? user.displayName.charAt(0).toUpperCase()
-							: user.email
-								? user.email.charAt(0).toUpperCase()
-								: "A"}
-					</div>
 					<div>
-						<div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-michroma font-bold uppercase tracking-wider bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 mb-2">
-							<FiCheckCircle className="h-3.5 w-3.5" />
-							<span>Session Active</span>
-						</div>
 						<h1 className="text-2xl font-bold font-michroma text-black dark:text-white">
 							{user.displayName || "Animus Member"}
 						</h1>
@@ -78,9 +67,6 @@ export default function LoginPage() {
 	return (
 		<section className="py-20 md:py-28 flex items-center justify-center px-4">
 			<div className="card-base w-full max-w-md p-8 text-center space-y-4">
-				<div className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-black dark:bg-white text-white dark:text-black">
-					<FiLock className="h-5 w-5" />
-				</div>
 				<h2 className="text-xl font-bold font-michroma text-black dark:text-white">
 					Redirecting to Unified Access...
 				</h2>

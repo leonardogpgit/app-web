@@ -5,12 +5,6 @@ import type { StoreButtonsProps } from "@/types";
 
 const StoreButtons = ({ storeLinks }: StoreButtonsProps) => (
 	<div className="mb-8 flex w-full flex-col items-center sm:mb-12">
-		{/* Coming Soon Pill */}
-		<div className="mb-4 inline-flex items-center gap-2 rounded-full border border-black/10 bg-black/5 px-3.5 py-1 text-xs font-semibold font-michroma uppercase tracking-wider text-black/70 dark:border-white/15 dark:bg-white/10 dark:text-white/70">
-			<span className="h-1.5 w-1.5 rounded-full bg-amber-500 animate-pulse" />
-			<span>Coming Soon</span>
-		</div>
-
 		{/* Disabled Store Buttons */}
 		<div className="flex w-full flex-col items-center justify-center gap-3 xs:w-auto xs:flex-row">
 			<div
