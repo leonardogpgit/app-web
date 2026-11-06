@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import type { AppHeroProps } from "@/types";
 import { protectBrand } from "@/lib/protectBrand";
-import AppInfo from "./AppInfo";
 import StoreButtons from "./StoreButtons";
 
 const up = (delay = 0) => ({
@@ -16,9 +15,6 @@ const AppHero = ({
 	title,
 	description,
 	storeLinks,
-	version,
-	minimumOS,
-	releaseDate,
 }: AppHeroProps) => (
 	<section className="relative flex min-h-svh flex-col items-center justify-center overflow-hidden px-4 text-center">
 		<div className="relative z-10 flex w-full max-w-4xl flex-1 flex-col items-center justify-center py-14 sm:py-20">
@@ -40,14 +36,6 @@ const AppHero = ({
 
 			<motion.div {...up(0.2)} id="download" className="scroll-mt-24">
 				<StoreButtons storeLinks={storeLinks} />
-			</motion.div>
-
-			<motion.div {...up(0.25)}>
-				<AppInfo
-					version={version}
-					minimumOS={minimumOS}
-					releaseDate={releaseDate}
-				/>
 			</motion.div>
 		</div>
 	</section>

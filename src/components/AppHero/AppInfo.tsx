@@ -2,36 +2,8 @@
 
 import type { AppInfoProps } from "@/types";
 
-const AppInfo = ({ version, minimumOS, releaseDate }: AppInfoProps) => {
-	if (!version && !minimumOS && !releaseDate) return null;
-	return (
-		<div className="flex flex-wrap justify-center gap-2">
-			{version && (
-				<span className="info-badge text-xs">
-					<span className="font-medium text-gray-500 dark:text-white/40">
-						Version
-					</span>
-					<span className="font-semibold text-heading">{version}</span>
-				</span>
-			)}
-			{minimumOS && (
-				<span className="info-badge text-xs">
-					<span className="font-medium text-gray-500 dark:text-white/40">
-						Platform
-					</span>
-					<span className="font-semibold text-heading">{minimumOS}</span>
-				</span>
-			)}
-			{releaseDate && (
-				<span className="info-badge text-xs">
-					<span className="font-medium text-gray-500 dark:text-white/40">
-						Updated
-					</span>
-					<span className="font-semibold text-heading">{releaseDate}</span>
-				</span>
-			)}
-		</div>
-	);
+const AppInfo = (_props: AppInfoProps) => {
+	return null;
 };
 
 export default AppInfo;
