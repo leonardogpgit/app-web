@@ -10,17 +10,12 @@ const FAQCard = ({ item, index }: FAQCardProps) => (
 		whileInView={{ opacity: 1, y: 0 }}
 		viewport={{ once: true }}
 		transition={{ duration: 0.4, delay: (index % 3) * 0.08 }}
-		className="card-base flex flex-col gap-3 p-6 font-sans"
+		className="card-base flex flex-col gap-3 p-6"
 	>
-		<div className="flex items-center gap-3">
-			<span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md border border-slate-300 bg-slate-200 text-[11px] font-bold tabular-nums text-black dark:border-white/10 dark:bg-white/10 dark:text-white">
-				{String(index + 1).padStart(2, "0")}
-			</span>
-			<h3 className="text-base sm:text-lg font-bold text-black dark:text-white">
-				{protectBrand(item.question)}
-			</h3>
-		</div>
-		<p className="text-sm sm:text-base leading-relaxed text-black/80 dark:text-white/80">
+		<h3 className="text-base sm:text-lg font-bold text-black dark:text-white text-center font-michroma">
+			{protectBrand(item.question)}
+		</h3>
+		<p className="text-sm sm:text-base leading-relaxed text-black/80 dark:text-white/80 font-sans">
 			{protectBrand(item.answer)}
 		</p>
 	</motion.div>
