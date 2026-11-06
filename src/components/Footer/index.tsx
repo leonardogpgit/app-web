@@ -19,8 +19,8 @@ export const FOOTER_APP_LINKS = [
 
 export default function Footer(_props?: any) {
 	return (
-		<footer className="w-full border-t-2 border-black dark:border-white bg-[#ccd6e0] dark:bg-[#18181b] transition-colors">
-			<div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8 text-center flex flex-col items-center justify-center font-michroma">
+		<footer className="w-full border-t border-black/25 dark:border-white/15 bg-[#ccd6e0] dark:bg-[#18181b] transition-colors">
+			<div className="mx-auto max-w-6xl px-4 pt-8 pb-6 sm:px-6 lg:px-8 text-center flex flex-col items-center justify-center font-michroma">
 				{/* Unified centered links row */}
 				<motion.div
 					{...fade(0)}
@@ -68,11 +68,13 @@ export default function Footer(_props?: any) {
 						<SocialLinks items={site.social} />
 					</div>
 				</motion.div>
+			</div>
 
-				{/* Centered copyright line */}
+			{/* Full-width separator line & All Rights Reserved */}
+			<div className="w-full border-t border-black/25 dark:border-white/15 py-4">
 				<motion.div
 					{...fade(0.1)}
-					className="mt-6 pt-5 border-t border-black/20 dark:border-white/20 w-full flex items-center justify-center text-xs sm:text-sm font-michroma text-black/70 dark:text-white/70"
+					className="mx-auto max-w-6xl px-4 flex items-center justify-center text-xs sm:text-sm font-michroma text-black/70 dark:text-white/70"
 				>
 					<p className="text-center">
 						© {new Date().getFullYear()} <span translate="no" className="notranslate">Animus Project LLC</span>. All rights reserved.
