@@ -1,6 +1,7 @@
 import type {
 	FAQItem,
 	Feature,
+	ModeItem,
 	PricingTier,
 	Review,
 	SocialLink,
@@ -14,10 +15,40 @@ export const storeConfig = {
 } as const;
 
 export const navLinks = [
-	{ href: "/#features", label: "How It Works" },
-	{ href: "/faq", label: "FAQ" },
+	{ href: "/#modes", label: "Pillars" },
+	{ href: "/#features", label: "Features" },
+	{ href: "/#faq", label: "FAQ" },
 	{ href: "https://animusproject.org", label: "The Project" },
 ] as const;
+
+export const modes: ModeItem[] = [
+	{
+		id: "answer-to-unlock",
+		name: "Answer Before You See",
+		tagline: "Honest Human Consensus",
+		badge: "Consensus Engine",
+		description:
+			"To discover how others voted, you must commit your honest answer first. No herd mentality, no bandwagon bias, and no algorithmic outrage.",
+		capabilities: [
+			"Unbiased blind voting on daily human dilemmas",
+			"Instant demographic breakdowns upon answering",
+			"Anonymous by design with zero personal tracking",
+		],
+	},
+	{
+		id: "give-to-ask",
+		name: "Give to Ask",
+		tagline: "Reciprocal Curiosity",
+		badge: "Reciprocity",
+		description:
+			"A fair reciprocity engine. Answer community questions to earn inquiry credits, broadcast your questions, and discover what the world truly thinks.",
+		capabilities: [
+			"Earn inquiry credits with every thoughtful answer",
+			"Broadcast questions to local or worldwide feeds",
+			"Automatic deduplication and merged sample pools",
+		],
+	},
+];
 
 export const site = {
 	name: "Animus",

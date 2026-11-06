@@ -10,7 +10,7 @@ const FAQCard = ({ item, index }: FAQCardProps) => (
 		whileInView={{ opacity: 1, y: 0 }}
 		viewport={{ once: true }}
 		transition={{ duration: 0.4, delay: (index % 3) * 0.08 }}
-		className="card-base flex flex-col gap-3 p-6 font-michroma"
+		className="card-base flex flex-col gap-3 p-6 font-sans"
 	>
 		<div className="flex items-center gap-3">
 			<span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md border border-slate-300 bg-slate-200 text-[11px] font-bold tabular-nums text-black dark:border-white/10 dark:bg-white/10 dark:text-white">

@@ -16,6 +16,15 @@ export interface Feature {
 	icon: string;
 }
 
+export interface ModeItem {
+	id: string;
+	name: string;
+	tagline: string;
+	badge: string;
+	description: string;
+	capabilities: string[];
+}
+
 export interface FAQItem {
 	question: string;
 	answer: string;

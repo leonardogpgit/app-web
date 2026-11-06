@@ -8,9 +8,9 @@
 }
 
 body {
-	font-family: var(--font-tektur), ui-sans-serif, sans-serif;
+	font-family: var(--font-sans), ui-sans-serif, system-ui, -apple-system, sans-serif;
 	font-weight: 400;
-	letter-spacing: 0.05em;
+	letter-spacing: normal;
 	color: #000000;
 }
 html.dark body {
@@ -63,6 +63,11 @@ nav,
 	font-family: var(--font-michroma), ui-sans-serif, sans-serif;
 }
 
+.font-sans {
+	font-family: var(--font-sans), ui-sans-serif, system-ui, -apple-system, sans-serif !important;
+	letter-spacing: normal;
+}
+
 .main-title,
 .font-descscor,
 .font-orbitron,
@@ -77,21 +82,17 @@ nav,
 	letter-spacing: 0.05em;
 }
 
-p, li, a, input, textarea, select, label {
-	letter-spacing: 0.05em;
-}
-
 @layer components {
 	.card-base {
-		@apply rounded-2xl border border-slate-300 dark:border-white/8 bg-[#f4f7fb] dark:bg-white/4 backdrop-blur-sm shadow-md shadow-slate-900/5 dark:shadow-none;
+		@apply rounded-2xl border border-slate-300/80 dark:border-white/10 bg-[#f4f7fb] dark:bg-white/4 shadow-sm dark:shadow-none;
 	}
 
 	.button-base {
-		@apply rounded-xl border border-slate-300 dark:border-white/10 bg-[#f4f7fb] dark:bg-white/5 shadow-sm dark:shadow-none;
+		@apply rounded-xl border border-slate-300 dark:border-white/10 bg-[#f4f7fb] dark:bg-white/5 shadow-xs dark:shadow-none;
 	}
 
 	.store-button {
-		@apply relative overflow-hidden rounded-xl border border-slate-300 dark:border-white/10 bg-[#f4f7fb] dark:bg-white/5 hover:bg-slate-200/70 dark:hover:bg-white/10 shadow-sm dark:shadow-none transition-all duration-200 flex items-center gap-2 md:gap-2.5 px-2.5 md:px-4 py-2 md:py-3 h-10 md:h-12;
+		@apply relative overflow-hidden rounded-xl border border-slate-300 dark:border-white/10 bg-[#f4f7fb] dark:bg-white/5 hover:bg-slate-200/70 dark:hover:bg-white/10 shadow-xs dark:shadow-none transition-all duration-200 flex items-center gap-2 md:gap-2.5 px-2.5 md:px-4 py-2 md:py-3 h-10 md:h-12;
 	}
 
 	.text-heading {
@@ -121,28 +122,6 @@ p, li, a, input, textarea, select, label {
 	.accent {
 		@apply text-black dark:text-white;
 	}
-}
-
-.metal-slab-bar {
-	width: 100%;
-	background-image: url('/textures/etched_dark_slab_3840x240.webp');
-	background-repeat: repeat-x;
-	background-size: auto 100%;
-	background-position: left center;
-	border-top: 1px solid rgba(255, 255, 255, 0.18);
-	border-bottom: 1px solid rgba(0, 0, 0, 0.7);
-	box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
-}
-
-html.dark .metal-slab-bar,
-.dark .metal-slab-bar {
-	background-image: url('/textures/chrome_slab_3840x240.webp');
-	background-repeat: repeat-x;
-	background-size: auto 100%;
-	background-position: left center;
-	border-top: 1px solid rgba(255, 255, 255, 0.8);
-	border-bottom: 1px solid rgba(0, 0, 0, 0.4);
-	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
 }
 
 html.theme-switching *,

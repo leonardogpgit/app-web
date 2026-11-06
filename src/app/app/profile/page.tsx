@@ -26,7 +26,6 @@ export default function ProfilePage() {
 		setTimeout(() => setCopied(false), 2000);
 	};
 
-	const authProvider = user.providerData?.[0]?.providerId || "password";
 	const creationDate = user.metadata?.creationTime
 		? new Date(user.metadata.creationTime).toLocaleDateString(undefined, {
 				year: "numeric",
@@ -74,7 +73,7 @@ export default function ProfilePage() {
 									type="button"
 									onClick={() => logout()}
 									title="Sign out"
-									className="inline-flex items-center gap-1.5 rounded-lg border border-red-300 dark:border-red-900/40 bg-red-500/5 px-2.5 py-1 text-xs font-michroma text-red-700 dark:text-red-400 hover:bg-red-500/10 transition-colors shadow-xs"
+									className="inline-flex items-center gap-1.5 rounded-lg border border-slate-300 dark:border-white/10 bg-[#f4f7fb] dark:bg-white/5 px-2.5 py-1 text-xs font-michroma text-black/80 dark:text-white/80 hover:bg-slate-200/60 dark:hover:bg-white/10 transition-colors shadow-xs"
 								>
 									<FiLogOut className="h-3 w-3" />
 									<span>Sign out</span>
@@ -84,7 +83,7 @@ export default function ProfilePage() {
 								<FiMail className="h-3.5 w-3.5 shrink-0" />
 								<span>{user.email}</span>
 								{user.emailVerified && (
-									<span className="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded">
+									<span className="text-[10px] font-mono text-black/70 dark:text-white/70 bg-black/5 dark:bg-white/10 px-1.5 py-0.5 rounded">
 										Verified
 									</span>
 								)}
@@ -106,8 +105,8 @@ export default function ProfilePage() {
 							>
 								{copied ? (
 									<>
-										<FiCheck className="h-3 w-3 text-emerald-500" />
-										<span className="text-emerald-500">Copied</span>
+										<FiCheck className="h-3 w-3 text-black dark:text-white" />
+										<span className="text-black dark:text-white">Copied</span>
 									</>
 								) : (
 									<>

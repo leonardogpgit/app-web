@@ -29,7 +29,7 @@ const AppHero = ({
 
 			<motion.p
 				{...up(0.15)}
-				className="mx-auto mb-6 max-w-xl text-xs sm:text-sm font-michroma leading-relaxed text-gray-700 sm:mb-8 dark:text-white/70"
+				className="mx-auto mb-6 max-w-xl text-xs sm:text-sm md:text-base font-sans leading-relaxed text-black/80 sm:mb-8 dark:text-white/80"
 			>
 				{protectBrand(description)}
 			</motion.p>

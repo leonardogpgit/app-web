@@ -1,8 +1,12 @@
 import type { Metadata } from "next";
 import AppHero from "@/components/AppHero";
+import Modes from "@/components/Modes";
 import Features from "@/components/Features";
+import FAQ from "@/components/FAQ";
 import {
+	faqs,
 	features,
+	modes,
 	site,
 } from "@/config";
 import { fetchStoreData } from "@/fetchStoreData";
@@ -39,8 +43,20 @@ export default async function HomePage() {
 				minimumOS={app.minimumOS}
 				releaseDate={app.releaseDate}
 			/>
-			<section id="features" className="mb-16 scroll-mt-28 md:scroll-mt-20 md:mb-24 space-y-16 md:space-y-24">
-				<Features items={features} />
+
+			{/* The Two Pillars: Answer to Unlock & Give to Ask */}
+			<section id="modes" className="mb-16 scroll-mt-28 md:scroll-mt-20 md:mb-24">
+				<Modes items={modes} />
+			</section>
+
+			{/* Core Features */}
+			<section id="features" className="mb-16 scroll-mt-28 md:scroll-mt-20 md:mb-24">
+				<Features items={features.slice(0, 3)} />
+			</section>
+
+			{/* Common Questions */}
+			<section id="faq" className="mb-16 scroll-mt-28 md:scroll-mt-20 md:mb-24">
+				<FAQ items={faqs.slice(0, 6)} />
 			</section>
 		</main>
 	);

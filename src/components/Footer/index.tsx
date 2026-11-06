@@ -19,7 +19,7 @@ export const FOOTER_APP_LINKS = [
 
 export default function Footer(_props?: any) {
 	return (
-		<footer className="metal-slab-bar w-full border-t border-white/10 dark:border-black/10 transition-colors">
+		<footer className="w-full border-t border-slate-300/80 bg-[#e6ecf2] dark:border-white/10 dark:bg-[#09090b] transition-colors">
 			<div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8 text-center flex flex-col items-center justify-center font-michroma">
 				{/* Unified centered links row */}
 				<motion.div
@@ -32,25 +32,25 @@ export default function Footer(_props?: any) {
 								href={href}
 								target="_blank"
 								rel="noopener noreferrer"
-								className="text-white/90 hover:text-white dark:text-black/90 dark:hover:text-black transition-colors"
+								className="text-black/75 hover:text-black dark:text-white/75 dark:hover:text-white transition-colors"
 							>
 								<span translate="no" className="notranslate">
 									{label}
 								</span>
 							</a>
-							<span className="text-white/40 dark:text-black/30">·</span>
+							<span className="text-black/30 dark:text-white/30">·</span>
 						</span>
 					))}
 					<a
 						href="/privacy"
-						className="text-white/90 hover:text-white dark:text-black/90 dark:hover:text-black transition-colors"
+						className="text-black/75 hover:text-black dark:text-white/75 dark:hover:text-white transition-colors"
 					>
 						Privacy Policy
 					</a>
-					<span className="text-white/40 dark:text-black/30">·</span>
+					<span className="text-black/30 dark:text-white/30">·</span>
 					<a
 						href="/terms"
-						className="text-white/90 hover:text-white dark:text-black/90 dark:hover:text-black transition-colors"
+						className="text-black/75 hover:text-black dark:text-white/75 dark:hover:text-white transition-colors"
 					>
 						Terms of Service
 					</a>
@@ -61,7 +61,7 @@ export default function Footer(_props?: any) {
 					{...fade(0.05)}
 					className="mt-6 flex flex-wrap items-center justify-center gap-3 text-xs font-michroma"
 				>
-					<span className="text-white/60 dark:text-black/60 uppercase tracking-wider text-xs">
+					<span className="text-black/60 dark:text-white/60 uppercase tracking-wider text-xs">
 						Coming Soon:
 					</span>
 					<div className="flex flex-wrap items-center justify-center gap-2">
@@ -72,7 +72,7 @@ export default function Footer(_props?: any) {
 				{/* Centered copyright line */}
 				<motion.div
 					{...fade(0.1)}
-					className="mt-6 pt-5 border-t border-white/10 dark:border-black/10 w-full flex items-center justify-center text-xs font-michroma text-white/90 dark:text-black/90"
+					className="mt-6 pt-5 border-t border-slate-300/60 dark:border-white/10 w-full flex items-center justify-center text-xs font-michroma text-black/60 dark:text-white/60"
 				>
 					<p className="text-center">
 						© {new Date().getFullYear()} <span translate="no" className="notranslate">Animus Project LLC</span>. All rights reserved.

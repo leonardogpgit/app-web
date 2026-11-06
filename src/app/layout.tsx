@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { Inter } from "next/font/google";
 import localFont from "next/font/local";
 import BackToTop from "@/components/BackToTop";
 import Footer from "@/components/Footer";
@@ -6,6 +7,12 @@ import Header from "@/components/Header";
 import { site } from "@/config";
 import { AuthProvider } from "@/context/AuthContext";
 import "./globals.css";
+
+const inter = Inter({
+	subsets: ["latin"],
+	variable: "--font-sans",
+	display: "swap",
+});
 
 const tektur = localFont({
 	src: "./fonts/Tektur-VariableFont_wdth,wght.ttf",
@@ -67,7 +74,7 @@ export default function RootLayout({
 	return (
 		<html lang="en" suppressHydrationWarning>
 			<body
-				className={`${tektur.variable} ${michroma.variable} flex min-h-screen flex-col bg-[#e6ecf2] text-black transition-colors duration-300 dark:bg-[#09090b] dark:text-white`}
+				className={`${inter.variable} ${tektur.variable} ${michroma.variable} flex min-h-screen flex-col bg-[#e6ecf2] text-black transition-colors duration-300 dark:bg-[#09090b] dark:text-white`}
 			>
 				<AuthProvider>
 					<Header />
