@@ -10,7 +10,7 @@ export default function Header() {
 	const { user } = useAuth();
 
 	return (
-		<header className="sticky top-0 z-50 w-full border-b border-slate-300/80 bg-[#e6ecf2]/90 backdrop-blur-md dark:border-white/10 dark:bg-[#09090b]/90 transition-colors">
+		<header className="sticky top-0 z-50 w-full border-b-2 border-black dark:border-white bg-[#ccd6e0]/95 backdrop-blur-md dark:bg-[#18181b]/95 transition-colors">
 			<div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
 				<div className="flex h-14 items-center justify-between md:h-16">
 					<a href="https://animusproject.org" className="flex items-center gap-3" aria-label="Animus Project">

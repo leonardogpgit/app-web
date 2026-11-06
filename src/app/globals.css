@@ -63,7 +63,8 @@ nav,
 	font-family: var(--font-michroma), ui-sans-serif, sans-serif;
 }
 
-.font-sans {
+.font-sans,
+.font-sans * {
 	font-family: var(--font-sans), ui-sans-serif, system-ui, -apple-system, sans-serif !important;
 	letter-spacing: normal;
 }

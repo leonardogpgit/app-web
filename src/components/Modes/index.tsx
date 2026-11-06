@@ -46,30 +46,12 @@ const Modes = ({ items }: ModesProps) => {
 									: "hover:border-slate-400 dark:hover:border-white/20"
 							}`}
 						>
-							<h3 translate="no" className="text-xl font-bold text-black dark:text-white notranslate">
+							<h3 translate="no" className="text-xl sm:text-2xl font-bold text-black dark:text-white mb-3 notranslate">
 								{item.name}
 							</h3>
-							<p className="mb-4 text-xs font-semibold uppercase tracking-wider text-black/80 dark:text-white/80">
-								{item.tagline}
-							</p>
-							<p className="mb-6 flex-1 text-xs sm:text-sm leading-relaxed text-black/80 dark:text-white/80">
+							<p className="text-sm sm:text-base leading-relaxed text-black/80 dark:text-white/80">
 								{protectBrand(item.description)}
 							</p>
-
-							{/* Capabilities list */}
-							<div className="border-t border-slate-300/80 pt-5 dark:border-white/10">
-								<div className="mb-2 text-xs font-bold uppercase tracking-wider text-black/80 dark:text-white/80">
-									Key Capabilities
-								</div>
-								<ul className="space-y-2 text-xs text-black/80 dark:text-white/80">
-									{item.capabilities.map((cap) => (
-										<li key={cap} className="flex items-center gap-2">
-											<span className="h-1.5 w-1.5 shrink-0 rounded-full bg-black dark:bg-white" />
-											<span>{cap}</span>
-										</li>
-									))}
-								</ul>
-							</div>
 						</motion.div>
 					);
 				})}

@@ -50,7 +50,7 @@ const StoreButtons = ({ storeLinks }: StoreButtonsProps) => (
 		</div>
 
 		{/* Platforms Available */}
-		<p className="mt-5 text-center text-xs font-michroma text-black/60 dark:text-white/60">
+		<p className="mt-5 text-center text-xs sm:text-sm font-michroma text-black/70 dark:text-white/70">
 			Available for <span className="font-semibold text-black dark:text-white">Android · iOS · macOS · Windows · Linux</span>
 		</p>
 	</div>

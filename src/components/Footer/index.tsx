@@ -19,12 +19,12 @@ export const FOOTER_APP_LINKS = [
 
 export default function Footer(_props?: any) {
 	return (
-		<footer className="w-full border-t border-slate-300/80 bg-[#e6ecf2] dark:border-white/10 dark:bg-[#09090b] transition-colors">
+		<footer className="w-full border-t-2 border-black dark:border-white bg-[#ccd6e0] dark:bg-[#18181b] transition-colors">
 			<div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8 text-center flex flex-col items-center justify-center font-michroma">
 				{/* Unified centered links row */}
 				<motion.div
 					{...fade(0)}
-					className="flex flex-wrap items-center justify-center gap-x-3 sm:gap-x-4 gap-y-2 text-xs font-michroma"
+					className="flex flex-wrap items-center justify-center gap-x-3 sm:gap-x-4 gap-y-2 text-xs sm:text-sm font-michroma"
 				>
 					{FOOTER_APP_LINKS.map(({ label, href }) => (
 						<span key={label} className="inline-flex items-center gap-x-3 sm:gap-x-4">
@@ -59,9 +59,9 @@ export default function Footer(_props?: any) {
 				{/* Centered social links row with Coming Soon */}
 				<motion.div
 					{...fade(0.05)}
-					className="mt-6 flex flex-wrap items-center justify-center gap-3 text-xs font-michroma"
+					className="mt-6 flex flex-wrap items-center justify-center gap-3 text-xs sm:text-sm font-michroma"
 				>
-					<span className="text-black/60 dark:text-white/60 uppercase tracking-wider text-xs">
+					<span className="text-black/60 dark:text-white/60 uppercase tracking-wider text-xs sm:text-sm">
 						Coming Soon:
 					</span>
 					<div className="flex flex-wrap items-center justify-center gap-2">
@@ -72,7 +72,7 @@ export default function Footer(_props?: any) {
 				{/* Centered copyright line */}
 				<motion.div
 					{...fade(0.1)}
-					className="mt-6 pt-5 border-t border-slate-300/60 dark:border-white/10 w-full flex items-center justify-center text-xs font-michroma text-black/60 dark:text-white/60"
+					className="mt-6 pt-5 border-t border-black/20 dark:border-white/20 w-full flex items-center justify-center text-xs sm:text-sm font-michroma text-black/70 dark:text-white/70"
 				>
 					<p className="text-center">
 						© {new Date().getFullYear()} <span translate="no" className="notranslate">Animus Project LLC</span>. All rights reserved.

@@ -16,11 +16,11 @@ const FAQCard = ({ item, index }: FAQCardProps) => (
 			<span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md border border-slate-300 bg-slate-200 text-[11px] font-bold tabular-nums text-black dark:border-white/10 dark:bg-white/10 dark:text-white">
 				{String(index + 1).padStart(2, "0")}
 			</span>
-			<h3 className="text-sm font-semibold text-black dark:text-white md:text-base">
+			<h3 className="text-base sm:text-lg font-bold text-black dark:text-white">
 				{protectBrand(item.question)}
 			</h3>
 		</div>
-		<p className="text-black/80 dark:text-white/80 text-xs leading-relaxed md:text-sm">
+		<p className="text-sm sm:text-base leading-relaxed text-black/80 dark:text-white/80">
 			{protectBrand(item.answer)}
 		</p>
 	</motion.div>
