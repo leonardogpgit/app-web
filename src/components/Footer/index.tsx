@@ -43,14 +43,14 @@ export default function Footer(_props?: any) {
 					))}
 					<a
 						href="/privacy"
-						className="text-white/90 hover:text-white dark:text-black/90 dark:hover:text-black underline-offset-4 hover:underline transition-colors"
+						className="text-white/90 hover:text-white dark:text-black/90 dark:hover:text-black transition-colors"
 					>
 						Privacy Policy
 					</a>
 					<span className="text-white/40 dark:text-black/30">·</span>
 					<a
 						href="/terms"
-						className="text-white/90 hover:text-white dark:text-black/90 dark:hover:text-black underline-offset-4 hover:underline transition-colors"
+						className="text-white/90 hover:text-white dark:text-black/90 dark:hover:text-black transition-colors"
 					>
 						Terms of Service
 					</a>
