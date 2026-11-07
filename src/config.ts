@@ -8,63 +8,30 @@ import type {
 } from "@/types";
 
 export const storeConfig = {
-	/** Set to true to pull live metadata from the App Store at build time */
 	fetchRealData: false,
-	/** Numeric App Store app ID (without the "id" prefix) */
 	appStoreAppId: 686449807,
 } as const;
 
 export const navLinks = [
-	{ href: "/#modes", label: "Pillars" },
-	{ href: "/#features", label: "Features" },
-	{ href: "/#faq", label: "FAQ" },
+	{ href: "https://animus.animusproject.org", label: "Animus" },
+	{ href: "https://resonance.animusproject.org", label: "Resonance" },
+	{ href: "https://remnant.animusproject.org", label: "Remnant" },
 	{ href: "https://animusproject.org", label: "The Project" },
 ] as const;
 
-export const modes: ModeItem[] = [
-	{
-		id: "answer-to-unlock",
-		name: "Answer Before You See",
-		tagline: "Honest Human Consensus",
-		badge: "Consensus Engine",
-		description:
-			"To discover how others voted, you must commit your honest answer first. No herd mentality, no bandwagon bias, and no algorithmic outrage.",
-		capabilities: [
-			"Unbiased blind voting on daily human dilemmas",
-			"Instant demographic breakdowns upon answering",
-			"Anonymous by design with zero personal tracking",
-		],
-	},
-	{
-		id: "give-to-ask",
-		name: "Give to Ask",
-		tagline: "Reciprocal Curiosity",
-		badge: "Reciprocity",
-		description:
-			"A fair reciprocity engine. Answer community questions to earn inquiry credits, broadcast your questions, and discover what the world truly thinks.",
-		capabilities: [
-			"Earn inquiry credits with every thoughtful answer",
-			"Broadcast questions to local or worldwide feeds",
-			"Automatic deduplication and merged sample pools",
-		],
-	},
-];
+export const modes: ModeItem[] = [];
 
 export const site = {
 	name: "Animus",
 	url: "https://animus.animusproject.org",
 	description:
-		"The real-time pulse of human thought. Answer questions to see honest consensus without crowd bias, and discover what people truly think.",
+		"A new way to see the world is coming. Discover what humanity truly thinks—without noise, manipulation, or bias. Under wraps until launch.",
 	logo: "/favicon.svg",
 	keywords: [
 		"animus",
-		"human consensus",
-		"collective mind",
-		"opinion",
-		"social thought",
-		"real-time pulse",
-		"anonymous opinion",
-		"demographics",
+		"animus project",
+		"privacy",
+		"sovereign technology",
 	],
 	storeLinks: {
 		apple: "#",
@@ -91,182 +58,45 @@ export const site = {
 
 export const features: Feature[] = [
 	{
-		title: "Answer Before You See",
+		title: "New Perspective",
 		description:
-			"To see how people voted, you must answer first. No herd mentality, no bandwagon effect—just honest, uninfluenced answers.",
+			"A new way to perceive global thought and reality, free from algorithmic distortion.",
 		icon: "FiEye",
 	},
 	{
-		title: "Give to Ask",
+		title: "Pure Signal",
 		description:
-			"A fair reciprocity system. Answer community questions to earn credits, ask your own questions, and reach a wider audience.",
+			"No social media theatrics, no popularity contests, and no toxic noise.",
 		icon: "FiZap",
 	},
 	{
-		title: "Anonymous by Design & Zero Spyware",
+		title: "Radical Privacy",
 		description:
-			"Zero spyware, zero tracking, and zero unnecessary network calls—easily auditable by monitoring network traffic. Anonymous by design with irrevocable deletion on demand.",
+			"Anonymous by design with zero spyware, zero tracking, and auditable network security.",
 		icon: "FiLock",
 	},
-	{
-		title: "Quick and Simple",
-		description:
-			"Multiple choice and rating scales built for speed. Answer dozens of interesting questions in a few minutes every day.",
-		icon: "FiStar",
-	},
-	{
-		title: "Clear Demographic Patterns",
-		description:
-			"See how different generations, regions, and backgrounds answer the same question, with zero noise or toxic comment threads.",
-		icon: "FiBarChart2",
-	},
-	{
-		title: "Fast and Lightweight",
-		description:
-			"Built natively with Kotlin Multiplatform for instant response times, minimal data usage, and long battery life.",
-		icon: "FiSliders",
-	},
-	{
-		title: "Feed Your Living Remnant (Optional)",
-		description:
-			"If you use Animus Remnant, you can link your account so your answers teach Remnant how you think and decide—with zero extra effort.",
-		icon: "FiCpu",
-	},
 ];
 
-export const screenshots: string[] = [
-	"/assets/screenshots/1.png",
-	"/assets/screenshots/1.png",
-	"/assets/screenshots/1.png",
-	"/assets/screenshots/1.png",
-	"/assets/screenshots/1.png",
-	"/assets/screenshots/1.png",
-	"/assets/screenshots/1.png",
-	"/assets/screenshots/1.png",
-];
+export const screenshots: string[] = [];
 
-export const pricingTiers: PricingTier[] = [
-	{
-		name: "Everyday Voice",
-		price: "Free",
-		description: "100% free forever. Share your perspective and see honest human consensus.",
-		features: [
-			"Full access to daily community questions",
-			"Instant demographic results upon answering",
-			"Zero personal tracking or paywalls",
-			"Earn credits with every answer",
-			"Optional link to Animus Remnant",
-			"Available on Android and iOS",
-		],
-		cta: "Download Free",
-		ctaHref: "#download",
-	},
-	{
-		name: "Ask & Boost",
-		price: "Credits",
-		period: "earned by answering",
-		description: "Turn your answers into reach. Ask questions to the community and explore what people think.",
-		features: [
-			"Ask your own targeted questions",
-			"Duplicate questions automatically merged",
-			"Boost questions across local & global feeds",
-			"Climb community reputation boards",
-			"Zero paywalls—earn everything by answering",
-		],
-		cta: "Earn Credits",
-		ctaHref: "#download",
-		highlighted: true,
-		badge: "Core Engine",
-	},
-	{
-		name: "Communities & Teams",
-		price: "Open",
-		period: "for groups",
-		description: "Ask focused questions for your classroom, workplace, community, or audience.",
-		features: [
-			"Direct question links for fast sharing",
-			"Clean aggregated results with zero survey fatigue",
-			"Explore demographic patterns instantly",
-			"Pure signal with no toxic comments",
-			"Open access for all participants",
-		],
-		cta: "Explore the Project",
-		ctaHref: "https://animusproject.org",
-	},
-];
+export const pricingTiers: PricingTier[] = [];
 
-export const reviews: Review[] = [
-	{
-		author: "Carlos M., 44 · Systems Architect",
-		rating: 5,
-		text: "I love the reciprocity rule: you answer before you ask, and you don't see results until you commit your answer. Pure signal, zero noise.",
-	},
-	{
-		author: "Dr. Julian V. · Sociologist & Researcher",
-		rating: 5,
-		text: "Finally, a platform that captures authentic human sentiment without comment wars. The demographic breakdown is uniquely valuable.",
-	},
-	{
-		author: "Patricia L., 39 · Educator",
-		rating: 5,
-		text: "It replaced my mindless scrolling. I answer 15 to 20 questions with my morning coffee. Quick, thought-provoking, and completely private.",
-	},
-	{
-		author: "Elena R. · Community Coordinator",
-		rating: 5,
-		text: "We shared questions with our community. People loved how quick it was without boring forms, and seeing the group breakdown immediately.",
-	},
-];
+export const reviews: Review[] = [];
 
 export const faqs: FAQItem[] = [
 	{
-		question: "What is the Animus Project?",
+		question: "What is Animus?",
 		answer:
-			"Animus is an open platform that captures what people actually think in real time. Instead of social media algorithms designed for outrage and clicks, Animus gathers honest, uninfluenced opinions and organizes them into a clear picture of human thought.",
+			"A new way to see the world and understand what humanity truly thinks—free from social media manipulation and bias.",
 	},
 	{
-		question: "Is Animus free?",
+		question: "How does it work?",
 		answer:
-			"Yes, 100% free. There are no fees or subscriptions. You participate by answering questions and seeing real-time community results.",
+			"Architectural and operational details remain confidential until our official public launch.",
 	},
 	{
-		question: "Why do I have to answer before seeing the results?",
+		question: "How is my privacy protected?",
 		answer:
-			"To prevent herd mentality. When people see what everyone else voted first, their answers change. Committing your answer first keeps results honest and accurate.",
-	},
-	{
-		question: "How does the credit system work?",
-		answer:
-			"Animus uses a simple principle: Give to Ask. You earn credits by answering questions. You then use those credits to post your own questions and boost them to more people.",
-	},
-	{
-		question: "What personal data do you collect?",
-		answer:
-			"None that identifies you. No names, no email address display, no phone contacts, and no ad tracking. We only ask for broad demographic categories (age range, gender, general region) so everyone can see patterns across groups.",
-	},
-	{
-		question: "What happens if someone asks a question that already exists?",
-		answer:
-			"Animus automatically merges identical questions into a single question. This keeps all the answers together and provides much larger, more reliable sample sizes.",
-	},
-	{
-		question: "How is Animus different from social networks?",
-		answer:
-			"No follower counts, no algorithmic outrage feeds, and no comment wars. Just clear questions, instant honest results, and demographic patterns.",
-	},
-	{
-		question: "Can my answers help teach my personal Remnant?",
-		answer:
-			"Yes, if you choose to connect them. By default, Animus is completely anonymous. If you link your account to Animus Remnant, the dilemmas you answer automatically calibrate your digital persona—the mask through which you speak and reason—teaching it how you decide with zero extra effort.",
-	},
-	{
-		question: "Who can see and use this data?",
-		answer:
-			"Everyone. Teachers, researchers, journalists, and everyday people can see genuine public opinion without the distortion of click-driven social media.",
-	},
-	{
-		question: "How strict is Animus about privacy, and do the apps contain spyware?",
-		answer:
-			"Privacy is our sacred foundation. Our apps contain zero spyware, zero tracking SDKs, and make no network calls that aren't strictly necessary to operate—which you can easily verify by auditing app network traffic with tools like Wireshark. Your responses are encrypted, nothing is ever shared or sold, and accounts can be permanently and irrevocably deleted following strict authentication protocols, with zero possibility of recovery.",
+			"Animus is built with radical anonymity, zero spyware, zero tracking SDKs, and permanent cryptographic deletion on demand.",
 	},
 ];
