@@ -76,7 +76,7 @@ export default function RootLayout({
 			<head>
 				<script
 					dangerouslySetInnerHTML={{
-						__html: `(function(){try{var h=window.location.hostname;if(h.endsWith("animusproject.org")||(h.includes(".")&&h!=="localhost"&&h!=="127.0.0.1")){document.cookie="animus_theme=; path=/; max-age=0; expires=Thu, 01 Jan 1970 00:00:00 GMT;";}var m=document.cookie.match(/(?:^|;\\s*)animus_theme=([^;]+)/);var t=m?m[1]:localStorage.getItem('theme');if(t==='dark'){document.documentElement.classList.add('dark');document.documentElement.classList.remove('light');}else if(t==='light'){document.documentElement.classList.remove('dark');document.documentElement.classList.add('light');}if(t==='dark'||t==='light'){try{localStorage.setItem('theme',t);}catch(e){}}}catch(e){}})();`,
+						__html: `(function(){try{var m=document.cookie.match(/(?:^|;\\s*)animus_theme=([^;]+)/);var t=m?m[1]:localStorage.getItem('theme');if(t==='dark'){document.documentElement.classList.add('dark');}else{document.documentElement.classList.remove('dark');}}catch(e){}})();`,
 					}}
 				/>
 			</head>

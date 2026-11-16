@@ -36,16 +36,8 @@ export function getThemeCookieDomain(): string {
 
 export function getThemeFromCookie(): ThemeMode | null {
 	if (typeof document === "undefined") return null;
-	const domain = getThemeCookieDomain();
-	if (domain) {
-		// Expire any stale host-only cookie on this subdomain that shadows the shared domain cookie
-		document.cookie = `${THEME_COOKIE_NAME}=; path=/; max-age=0; expires=Thu, 01 Jan 1970 00:00:00 GMT`;
-	}
 	const match = document.cookie.match(/(?:^|;\s*)animus_theme=([^;]+)/);
-	if (match && isTheme(match[1])) {
-		return match[1];
-	}
-	return null;
+	return match && isTheme(match[1]) ? match[1] : null;
 }
 
 export function getInitialTheme(): ThemeMode {
@@ -71,25 +63,16 @@ export function getInitialTheme(): ThemeMode {
 export function saveTheme(t: ThemeMode): void {
 	if (typeof document === "undefined") return;
 
-	// 1. Save in localStorage
 	try {
 		localStorage.setItem(THEME_STORAGE_KEY, t);
 	} catch {}
 
-	// 2. Save in cross-subdomain cookie
 	const domain = getThemeCookieDomain();
+	const domainAttr = domain ? `; domain=${domain}` : "";
 	const secureAttr = window.location.protocol === "https:" ? "; Secure" : "";
 	const maxAge = 60 * 60 * 24 * 365; // 1 year
 
-	if (domain) {
-		// Expire any host-only cookie on current subdomain so it never shadows the domain cookie
-		document.cookie = `${THEME_COOKIE_NAME}=; path=/; max-age=0; expires=Thu, 01 Jan 1970 00:00:00 GMT; SameSite=Lax${secureAttr}`;
-		// Set shared cookie across all subdomains
-		document.cookie = `${THEME_COOKIE_NAME}=${t}; path=/; domain=${domain}; max-age=${maxAge}; SameSite=Lax${secureAttr}`;
-	} else {
-		// Localhost / dev fallback
-		document.cookie = `${THEME_COOKIE_NAME}=${t}; path=/; max-age=${maxAge}; SameSite=Lax${secureAttr}`;
-	}
+	document.cookie = `${THEME_COOKIE_NAME}=${t}; path=/${domainAttr}; max-age=${maxAge}; SameSite=Lax${secureAttr}`;
 }
 
 export const applyTheme = (t: ThemeMode, withTransition = true) => {
