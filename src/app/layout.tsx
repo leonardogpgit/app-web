@@ -73,6 +73,13 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="en" suppressHydrationWarning>
+			<head>
+				<script
+					dangerouslySetInnerHTML={{
+						__html: `(function(){try{var m=document.cookie.match(/(?:^|;\\s*)animus_theme=([^;]+)/);var t=m?m[1]:localStorage.getItem('theme');if(t==='dark'){document.documentElement.classList.add('dark');document.documentElement.classList.remove('light');}else if(t==='light'){document.documentElement.classList.remove('dark');document.documentElement.classList.add('light');}}catch(e){}})();`,
+					}}
+				/>
+			</head>
 			<body
 				className={`${inter.variable} ${tektur.variable} ${michroma.variable} flex min-h-screen flex-col bg-[#e6ecf2] text-black transition-colors duration-300 dark:bg-[#09090b] dark:text-white`}
 			>

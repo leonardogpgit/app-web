@@ -3,7 +3,7 @@
 import { memo, useCallback, useEffect, useState } from "react";
 import { FiMoon, FiSun } from "react-icons/fi";
 import type { ThemeMode } from "@/types";
-import { applyTheme, isTheme } from "./theme";
+import { applyTheme, getInitialTheme, saveTheme } from "./theme";
 
 const ThemeToggle = () => {
 	const [theme, setTheme] = useState<ThemeMode>("light");
@@ -11,16 +11,34 @@ const ThemeToggle = () => {
 
 	useEffect(() => {
 		setMounted(true);
-		const saved = localStorage.getItem("theme");
-		const initial = isTheme(saved) ? saved : "light";
+		const initial = getInitialTheme();
 		setTheme(initial);
-		applyTheme(initial);
+		applyTheme(initial, false);
+
+		// Synchronize if changed in another tab or subdomain
+		const syncTheme = () => {
+			const current = getInitialTheme();
+			setTheme((prev) => {
+				if (prev !== current) {
+					applyTheme(current, true);
+					return current;
+				}
+				return prev;
+			});
+		};
+
+		window.addEventListener("focus", syncTheme);
+		window.addEventListener("storage", syncTheme);
+		return () => {
+			window.removeEventListener("focus", syncTheme);
+			window.removeEventListener("storage", syncTheme);
+		};
 	}, []);
 
 	const select = useCallback((t: ThemeMode) => {
 		setTheme(t);
-		localStorage.setItem("theme", t);
-		applyTheme(t);
+		saveTheme(t);
+		applyTheme(t, true);
 	}, []);
 
 	const isDark = mounted && theme === "dark";

@@ -32,7 +32,7 @@ We believe genuine privacy must be provable through technical verification, not 
 
 ### 3. Technical Session Cookies & Local Storage
 
-- **Strictly Functional Cookies Only**: We use minimal, strictly functional session tokens solely to maintain your authenticated session across authorized subdomains (`animusproject.org`).
+- **Strictly Functional Cookies Only**: We use minimal, strictly functional session tokens and preference cookies (`animus_theme`) solely to maintain your authenticated session and interface preferences across authorized subdomains (`animusproject.org`).
 - **Zero Third-Party Advertising Cookies**: We never deploy third-party advertising cookies, cross-site trackers, or marketing pixels.
 - **Local Storage**: Preferences such as interface theme (dark/light mode) and local cryptographic keys are retained directly on your device.
 
